@@ -1,23 +1,23 @@
 .sidebar {
-  height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width);
-  background: var(--inverted-bg-color);
-  transition: width 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 20px;
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed);
+    width: var(--sidebar-width-collapsed);
 }
 
 .body {
-  flex: 1;
+    flex: 1;
 }
 
 .switchers {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
