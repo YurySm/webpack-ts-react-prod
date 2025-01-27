@@ -6,6 +6,7 @@ export default {
 	],
 	rules: {
 		'scss/double-slash-comment-whitespace-inside': null,
-		'selector-class-pattern': null
+		'selector-class-pattern': null,
+		'number-max-precision': 10
 	}
 };
