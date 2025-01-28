@@ -83,7 +83,13 @@ export default [
 			'import/extensions': `off`,
 			'import/no-extraneous-dependencies': `off`,
 			'no-underscore-dangle': `off`,
-			'@typescript-eslint/no-unused-vars': `warn`,
+			'@typescript-eslint/no-unused-vars': 'warn'
+		},
+	},
+	{
+		files: ['**/src/**/*.{spec,test}.{ts,tsx}'],
+		rules: {
+			'i18next/no-literal-string': 0,
 		},
 	},
 ];

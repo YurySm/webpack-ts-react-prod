@@ -54,6 +54,18 @@ const config: Config = {
 	// A preset that is used as a base for Jest's configuration
 	preset: 'ts-jest',
 
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+
+	modulePaths: [
+		'<rootDir>src',
+	],
+
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg$': '<rootDir>config/jest/jestEmptyComponent.tsx',
+	},
+
+
 	// transform: {
 	// 	'^.+.tsx?$': ['ts-jest',{}],
 	// },
