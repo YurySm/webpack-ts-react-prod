@@ -7,3 +7,11 @@
     background: none;
     outline: none;
 }
+
+.outline {
+    padding: 5px 20px;
+    border: 1px solid var(--primary-color);
+    background: none;
+    color: var(--primary-color);
+    border-radius: 5px;
+}
