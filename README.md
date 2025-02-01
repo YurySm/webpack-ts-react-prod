@@ -4,52 +4,63 @@
 Это будет большое React приложение построенное на [Webpack](https://webpack.js.org/) с нуля. В нем будет тестирование, Storybook и многое другое
 
 ## Скрипты
-Запуск приложения с дев сервером
+### Запуск приложения с дев сервером
 ```bash
 npm start
 ```
 
-Прод сборка
+### Прод сборка
 ```bash
 npm run build:prod
 ```
 _Для остановки анализатора нажмите <kbd>Ctrl</kbd> + <kbd>C</kbd>_
 
-Дев сборка
+### Дев сборка
 ```bash
 npm run build:dev
 ```
 _Для остановки анализатора нажмите <kbd>Ctrl</kbd> + <kbd>C</kbd>_
 
-Eslint
+### Eslint
 ```bash
 npm run lint:ts
 ```
-Eslint с исправлением
+### Eslint с исправлением
 ```bash
 npm run lint:ts:fix
 ```
 
-Stylelint
+### Stylelint
 ```bash
 npm run lint:scss
 ```
-Stylelint с исправлением
+### Stylelint с исправлением
 ```bash
 npm run lint:scss:fix
 ```
 
-Запуск тестов
+### Запуск unit тестов
 ```bash
-npm run unit
+npm run test:unit
 ```
-Storybook
+
+### Запуск скриншетных тестов
+```bash
+npm run test:ui
+```
+
+### Запуск применения новых скринов для тестов
+```bash
+npm run test:ui:ok
+```
+
+### Storybook
 ```bash
 npm run storybook
 ```
-Storybook сборка
+### Storybook сборка
 ```bash
-npm runbuild-storybook
+npm run storybook:build
 ```
 
 ## Добавлено и реализовано
@@ -83,9 +94,13 @@ suspense
 - Prettier
 
 ## Тесты
- - Jest
- - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 
+ - Jest (unit)
+ - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (компонентное)
+ - Loki (скриншетное)
 
 ## Storybook
 [Storybook](https://storybook.js.org/) для создания библиотеки компонентов и их тестирования
+
+
+
 
