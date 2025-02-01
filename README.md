@@ -75,7 +75,7 @@ npm run storybook:build
  - [ReactRefreshWebpackPlugin](https://github.com/pmmmwh/react-refresh-webpack-plugin) - расширяет Hot Reloading
  - [BundleAnalyzerPlugin](https://github.com/webpack-contrib/webpack-bundle-analyzer) - для анализа бандла
 
-### Лоадерв
+### Лоадеры
 - [ts-loader](https://webpack.js.org/guides/typescript/) - TypeScript
 - [file-loader](https://v4.webpack.js.org/loaders/file-loader/) -  разрешает импорт в файлов в URL
 - [@svgr/webpack](https://react-svgr.com/docs/webpack/) - SVG как React компонент
