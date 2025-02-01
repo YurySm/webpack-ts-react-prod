@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import webpack from 'webpack';
 
 const isDev = true
 
@@ -41,6 +42,22 @@ const config: StorybookConfig = {
 				},
 				'sass-loader',
 			],
+		})
+
+		config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
+			if (/svg/.test(rule.test as string)) {
+				return {
+					...rule,
+					exclude: /\.svg$/i,
+				};
+			}
+
+			return rule;
+		});
+
+		config.module.rules.push({
+			test: /\.svg$/i,
+			use: ['@svgr/webpack'],
 		})
 
 		return config;
