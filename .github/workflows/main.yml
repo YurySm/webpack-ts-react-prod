@@ -1,5 +1,5 @@
 name: CI Pipeline Linting, Testing, Building
-run-name: ${{ github.actor }} is testing GitHub Actions 🚀
+run-name: Testing GitHub Actions 🚀
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20.x ]
+        node-version: [ 22.x ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
