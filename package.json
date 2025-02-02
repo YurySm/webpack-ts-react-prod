@@ -95,6 +95,13 @@
     ]
   },
   "loki": {
+    "chromeSelector": "#root > *",
+    "threshold": 0.01,
+    "diffOptions": {
+      "includeAA": false,
+      "alpha": false
+    },
+    "antialiasingTolerance": 0,
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
@@ -108,7 +115,6 @@
         "preset": "iPhone 7"
       }
     },
-    "chromeConcurrency": 1,
-    "looks-same": "pixelmatch"
+    "chromeConcurrency": 1
   }
 }
