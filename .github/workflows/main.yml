@@ -1,10 +1,55 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: CI Pipeline Linting, Testing, Building
+run-name: ${{ github.actor }} is testing GitHub Actions 🚀
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build production project
+        run: npm run build:prod
+
+      - name: Run linting TypeScript
+        run: npm run lint:ts
+
+      - name: Run linting CSS
+        run: npm run lint:scss
+
+      - name: Run unit testing
+        run: npm run test:unit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
