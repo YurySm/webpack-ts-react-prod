@@ -12,7 +12,7 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --disable-gpu --hide-scrollbars --no-sandbox\"",
+    "test:ui:ci": "npx loki --reactUri file:./storybook-static",
     "test:ui:ok": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
@@ -96,7 +96,6 @@
   },
   "loki": {
     "chromeSelector": ".wrapper > *, #root > *, .story-decorator > *",
-    "diffingEngine": "pixelmatch",
     "chromeConcurrency": 1,
     "configurations": {
       "chrome.laptop": {
