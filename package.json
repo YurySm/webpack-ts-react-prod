@@ -95,7 +95,7 @@
     ]
   },
   "loki": {
-    "chromeSelector": ".wrapper > *, #root > *, .story-decorator > *",
+    "chromeSelector": "#root > *",
     "chromeConcurrency": 1,
     "configurations": {
       "chrome.laptop": {
