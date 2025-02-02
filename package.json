@@ -108,6 +108,11 @@
         "preset": "iPhone 7"
       }
     },
-    "chromeConcurrency": 1
+    "chromeConcurrency": 1,
+    "overrides": {
+      "loki": {
+        "@storybook/react": "$@storybook/react"
+      }
+    }
   }
 }
