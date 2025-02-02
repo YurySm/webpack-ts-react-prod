@@ -25,20 +25,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-#      - name: Build production project
-#        run: npm run build:prod
-#
-#      - name: Run linting TypeScript
-#        run: npm run lint:ts
-#
-#      - name: Run linting CSS
-#        run: npm run lint:scss
-#
-#      - name: Run unit testing
-#        run: npm run test:unit
+      - name: Build production project
+        run: npm run build:prod
 
-      - name: Run build storybook
-        run: npm run storybook:build
+      - name: Run linting TypeScript
+        run: npm run lint:ts
 
-      - name: Run UI testing
-        run: npm run test:ui:ci
+      - name: Run linting CSS
+        run: npm run lint:scss
+
+      - name: Run unit testing
+        run: npm run test:unit
+
+#      - name: Run build storybook
+#        run: npm run storybook:build
+#
+#      - name: Run UI testing
+#        run: npm run test:ui:ci
