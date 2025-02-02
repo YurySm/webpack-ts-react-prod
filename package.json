@@ -95,6 +95,7 @@
     ]
   },
   "loki": {
+    "chromeSelector": "#root > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
