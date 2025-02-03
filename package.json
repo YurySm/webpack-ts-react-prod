@@ -95,7 +95,6 @@
     ]
   },
   "loki": {
-    "chromeSelector": "#root > *",
     "chromeConcurrency": 1,
     "configurations": {
       "chrome.laptop": {
