@@ -3,3 +3,6 @@
 .idea
 *storybook.log
 /storybook-static
+
+report.html
+report.json
