@@ -3,10 +3,9 @@
  * https://jestjs.io/docs/configuration
  */
 
-import { TextEncoder, TextDecoder } from 'util';
-
-global.TextEncoder = TextEncoder;
-global.TextDecoder = TextDecoder;
+import { TextEncoder, TextDecoder } from 'util'
+global.TextEncoder = TextEncoder
+global.TextDecoder = TextDecoder
 
 
 import type { Config } from 'jest'; 
@@ -24,8 +23,8 @@ const config: Config = {
 
 
 	// The test environment that will be used for testing
-	testEnvironment: 'jsdom',
-	// testEnvironment: 'jest-environment-jsdom',
+	// testEnvironment: 'jsdom',
+	testEnvironment: 'jest-fixed-jsdom',
 
 	// Automatically clear mock calls, instances, contexts and results before every test
 	clearMocks: true,
