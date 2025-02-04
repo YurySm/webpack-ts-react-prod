@@ -3,11 +3,18 @@
  * https://jestjs.io/docs/configuration
  */
 
+import { TextEncoder, TextDecoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+
+
 import type { Config } from 'jest'; 
 
 const config: Config = {
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
+	globals: { TextEncoder: TextEncoder, TextDecoder: TextDecoder },
 
 	// Stop running tests after `n` failures
 	// bail: 0,
@@ -15,8 +22,10 @@ const config: Config = {
 	// The directory where Jest should store its cached dependency information
 	// cacheDirectory: "/tmp/jest_rs",
 
+
 	// The test environment that will be used for testing
 	testEnvironment: 'jsdom',
+	// testEnvironment: 'jest-environment-jsdom',
 
 	// Automatically clear mock calls, instances, contexts and results before every test
 	clearMocks: true,
@@ -68,6 +77,10 @@ const config: Config = {
 
 	// transform: {
 	// 	'^.+.tsx?$': ['ts-jest',{}],
+	// },
+
+	// 'transform': {
+	// 	'\\.tsx$': '<rootDir>/node_modules/ts-node/transform',
 	// },
 
 	// Indicates whether the coverage information should be collected while executing the test
