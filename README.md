@@ -1,11 +1,10 @@
 # Webpack TS React App
 
 ## О приложении 
-Это будет большое React приложение построенное на [Webpack](https://webpack.js.org/) с нуля. 
-В нем будет тестирование, Storybook и многое другое
+Это будет большое [React](https://react.dev/) приложение построенное на [Webpack](https://webpack.js.org/) с нуля. 
+В нем будет тестирование, [Storybook](https://storybook.js.org/) и многое другое
 
 ## Добавлено и реализовано
-
 ## Webpack
 Конфигурация webpack настроена с нуля.
 ### Плагины
@@ -23,21 +22,22 @@
 - [MiniCssExtractPlugin.loader](https://webpack.js.org/plugins/mini-css-extract-plugin/) - извлекает CSS в отдельные файлы Sourcemaps
 - [sass-loader, style-loader, css-loader ](https://webpack.js.org/loaders/sass-loader/) - работа со стилями, SCSS, СSS modules
 
-## i18next
-i18next
+## Интернационализация
+[i18next](https://www.i18next.com/)
 
-## react
-suspense
+## React 
+[React](https://react.dev/)
 
+[//]: # (suspense)
 ## Кодстайл
-- Eslint
-- Stylelint
-- Prettier
+- [Eslint](https://eslint.org/)
+- [Stylelint](https://stylelint.io/)
+- [Prettier](https://prettier.io/)
 
-## Тесты
-- Jest (unit)
+## Тесты 
+- [Jest](https://jestjs.io/ru/) (unit)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (компонентное)
-- Loki (скриншетное)
+- [Loki](https://loki.js.org/) (скриншетное)
 
 ## Storybook
 [Storybook](https://storybook.js.org/) для создания библиотеки компонентов и их тестирования
@@ -94,6 +94,21 @@ npm run test:ui
 ### Запуск применения новых скринов для тестов
 ```bash
 npm run test:ui:ok
+```
+
+### Получение отчетов скриншетных тестов в виде JSON
+```bash
+npm run test:ui:json
+```
+
+### Получение отчетов скриншетных тестов в виде HTML
+```bash
+npm run test:ui:html
+```
+
+### Получение отчетов скриншетных тестов в виде HTML и JSON
+```bash
+npm run test:ui:report
 ```
 
 ### Storybook
