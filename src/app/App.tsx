@@ -17,15 +17,12 @@ export const App = () => {
 			<div className={ 'content-page' }>
 				<Sidebar/>
 				<AppRouter/>
-				<button type={ 'button' } onClick={ () => setIsOpen(true) }>!!!!!!!!!!!!</button>
-				{/* eslint-disable-next-line i18next/no-literal-string */}
+				<button type="button" onClick={ () => setIsOpen(true) }>!!!!!!!!!!!!!</button>
 				<Modal isOpen={ isOpen } onClose={ () => setIsOpen(false) }>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					Accusamus eligendi
-					eos fuga maxime mollitia nihil odit optio sapiente tenetur
-					voluptatem! Amet,
-					deserunt dolore. At aut explicabo incidunt natus,
-					qui voluptatum?
+					Lorem ipsum dolor sit amet, consectetur
+					elit. Culpa est modi porro? Accusantium ad aspernatur culpa
+					ea eveniet facere fuga laboriosam minus quam, qui reprehenderit,
+					repudiandae soluta suscipit tempora voluptatum.
 				</Modal>
 			</div>
 		</div>
