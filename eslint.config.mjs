@@ -3,6 +3,8 @@ import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 import i18next from 'eslint-plugin-i18next';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import { fixupPluginRules } from '@eslint/compat';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -20,6 +22,7 @@ export default [
 		},
 		plugins: {
 			react: pluginReact,
+			'react-hooks': fixupPluginRules(reactHooksPlugin),
 		},
 		settings: {
 			react: {
@@ -83,7 +86,9 @@ export default [
 			'import/extensions': `off`,
 			'import/no-extraneous-dependencies': `off`,
 			'no-underscore-dangle': `off`,
-			'@typescript-eslint/no-unused-vars': 'warn'
+			'@typescript-eslint/no-unused-vars': 'warn',
+			'react-hooks/rules-of-hooks': 'error',
+			'react-hooks/exhaustive-deps': 'warn'
 		},
 	},
 	{
