@@ -9,7 +9,6 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
-import { Modal } from 'shared/ui/Modal';
 
 interface SidebarProps {
     className?: string;

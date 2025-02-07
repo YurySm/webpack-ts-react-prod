@@ -2,7 +2,7 @@ import {
 	Component, ErrorInfo, ReactNode, Suspense,
 } from 'react';
 import { PageError } from 'widgets/PageError';
-import { Loader } from 'shared/ui/Loader';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 interface ErrorBoundaryState {
     hasError: boolean;
