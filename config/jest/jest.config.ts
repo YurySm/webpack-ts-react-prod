@@ -11,9 +11,48 @@ global.TextDecoder = TextDecoder
 import type { Config } from 'jest'; 
 
 const config: Config = {
+	globals: {
+		TextEncoder: TextEncoder,
+		TextDecoder: TextDecoder,
+		__IS_DEV__: true,
+	},
+	rootDir: '../../',
+	clearMocks: true,
+	testEnvironment: 'jest-fixed-jsdom',
+	coveragePathIgnorePatterns: [
+		'/node_modules/'
+	],
+	moduleDirectories: [
+		'node_modules'
+	],
+	moduleFileExtensions: [
+		'js',
+		'mjs',
+		'cjs',
+		'jsx',
+		'ts',
+		'tsx',
+		'json',
+		'node'
+	],
+	testMatch: [
+		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+	],
+	modulePaths: [
+		'<rootDir>src',
+	],
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg$': '<rootDir>config/jest/jestEmptyComponent.tsx',
+		'^entities/(.*)$': '<rootDir>/src/entities/$1',
+	},
+	preset: 'ts-jest',
+
+
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
-	globals: { TextEncoder: TextEncoder, TextDecoder: TextDecoder },
+
 
 	// Stop running tests after `n` failures
 	// bail: 0,
@@ -24,55 +63,27 @@ const config: Config = {
 
 	// The test environment that will be used for testing
 	// testEnvironment: 'jsdom',
-	testEnvironment: 'jest-fixed-jsdom',
+
 
 	// Automatically clear mock calls, instances, contexts and results before every test
-	clearMocks: true,
+
 
 	// The root directory that Jest should scan for tests and modules within
-	rootDir: '../../',
+
 
 	// An array of regexp pattern strings used to skip coverage collection
-	coveragePathIgnorePatterns: [
-	  '/node_modules/'
-	],
+
 
 	// An array of directory names to be searched recursively up from the requiring module's location
-	moduleDirectories: [
-	  'node_modules'
-	],
+
 
 	// The glob patterns Jest uses to detect test files
-	testMatch: [
-		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-	],
+
 
 	// An array of file extensions your modules use
-	moduleFileExtensions: [
-	  'js',
-	  'mjs',
-	  'cjs',
-	  'jsx',
-	  'ts',
-	  'tsx',
-	  'json',
-	  'node'
-	],
+
 
 	// A preset that is used as a base for Jest's configuration
-	preset: 'ts-jest',
-
-	setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
-
-	modulePaths: [
-		'<rootDir>src',
-	],
-
-	moduleNameMapper: {
-		'\\.s?css$': 'identity-obj-proxy',
-		'\\.svg$': '<rootDir>config/jest/jestEmptyComponent.tsx',
-	},
-
 
 	// transform: {
 	// 	'^.+.tsx?$': ['ts-jest',{}],

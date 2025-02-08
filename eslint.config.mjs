@@ -92,7 +92,7 @@ export default [
 		},
 	},
 	{
-		files: ['**/src/**/*.{spec,test}.{ts,tsx}'],
+		files: ['**/src/**/*.{spec,test,story}.{ts,tsx}'],
 		rules: {
 			'i18next/no-literal-string': 0,
 		},
