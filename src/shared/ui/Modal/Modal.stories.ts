@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Modal } from './Modal';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 const meta: Meta<typeof Modal> = {
 	title: 'shared/Modal',
@@ -25,4 +27,15 @@ export const Primary: Story = {
             + 'ea eveniet facere fuga laboriosam minus quam, qui reprehenderit,\n'
             + 'repudiandae soluta suscipit tempora voluptatum.',
 	},
+};
+
+export const Dark: Story = {
+	args: {
+		isOpen: true,
+		children: 'Lorem ipsum dolor sit amet, consectetur adipisicing\n'
+			+ 'elit. Culpa est modi porro? Accusantium ad aspernatur culpa\n'
+			+ 'ea eveniet facere fuga laboriosam minus quam, qui reprehenderit,\n'
+			+ 'repudiandae soluta suscipit tempora voluptatum.',
+	},
+	decorators: [ ThemeDecorator(Theme.DARK) ],
 };
