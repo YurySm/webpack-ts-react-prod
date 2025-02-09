@@ -97,4 +97,11 @@ export default [
 			'i18next/no-literal-string': 0,
 		},
 	},
+	{
+		files: ['**/json-server/**/*.js'],
+		rules: {
+			'@typescript-eslint/no-require-imports': 0,
+			'no-undef': 0
+		},
+	}
 ];
