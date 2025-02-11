@@ -4,5 +4,7 @@
   "Переключить": "Toggle",
   "Войти": "Sing in",
   "Главная": "Main",
-  "О нас": "About us"
+  "О нас": "About us",
+  "Логин": "Login",
+  "Пароль": "Password"
 }

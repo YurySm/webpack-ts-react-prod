@@ -11,6 +11,7 @@ interface ModalProps {
 	children?: ReactNode;
 	isOpen?: boolean;
 	onClose?: () => void;
+	lazy?: boolean;
 }
 
 const ANIMATION_DALEY = 300;
@@ -20,8 +21,10 @@ export const Modal = ({
 	children,
 	isOpen,
 	onClose,
+	lazy,
 }: ModalProps) => {
 	const [isClosing, setIsClosing] = useState<boolean>(false);
+	const [isMounted, setIsMounted] = useState<boolean>(false);
 	const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 	const { theme } = useTheme();
 
@@ -56,6 +59,16 @@ export const Modal = ({
 			window.removeEventListener('keydown', keydownClose);
 		};
 	}, [isOpen, keydownClose]);
+
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(true);
+		}
+	}, [isOpen]);
+
+	if (lazy && !isMounted) {
+		return null;
+	}
 
 	return (
 		<Portal>
