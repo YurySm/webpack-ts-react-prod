@@ -34,6 +34,14 @@ export const Clear: Story = {
 	},
 };
 
+export const Disabled: Story = {
+	args: {
+		children: 'Button',
+		theme: ButtonTheme.CLEAR,
+		disabled: true,
+	},
+};
+
 export const ClearInverted: Story = {
 	args: {
 		children: 'Button',

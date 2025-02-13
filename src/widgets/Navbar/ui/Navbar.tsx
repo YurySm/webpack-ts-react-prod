@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
+import { Counter } from 'entities/Counter';
 
 interface NavbarProps {
     className?: string;
