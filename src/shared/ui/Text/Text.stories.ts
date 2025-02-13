@@ -4,66 +4,66 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Text, TextTheme } from './Text';
 
 const meta: Meta<typeof Text> = {
-    title: 'shared/Text',
-    component: Text,
-    // parameters: {
-    //     layout: 'centered',
-    // },
-    tags: ['autodocs'],
-    // // argTypes: {
-    // //     backgroundColor: { control: 'color' },
-    // // },
-    // args: { onClick: fn() },
+	title: 'shared/Text',
+	component: Text,
+	// parameters: {
+	//     layout: 'centered',
+	// },
+	tags: ['autodocs'],
+	// // argTypes: {
+	// //     backgroundColor: { control: 'color' },
+	// // },
+	// args: { onClick: fn() },
 };
 
 export default meta;
 type Story = StoryObj<typeof Text>;
 
 export const Primary: Story = {
-    args: {
-        title: 'Title',
-        text: 'text',
-    },
+	args: {
+		title: 'Title',
+		text: 'text',
+	},
 };
 
 export const Error: Story = {
-    args: {
-        title: 'Title',
-        text: 'text',
-        theme: TextTheme.ERROR,
-    },
+	args: {
+		title: 'Title',
+		text: 'text',
+		theme: TextTheme.ERROR,
+	},
 };
 
 export const PrimaryDark: Story = {
-    args: {
-        title: 'Title',
-        text: 'text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
+	args: {
+		title: 'Title',
+		text: 'text',
+	},
+	decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyTitle: Story = {
-    args: {
-        title: 'Title',
-    },
+	args: {
+		title: 'Title',
+	},
 };
 
 export const OnlyTitleDark: Story = {
-    args: {
-        title: 'Title',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
+	args: {
+		title: 'Title',
+	},
+	decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const OnlyText: Story = {
-    args: {
-        text: 'text',
-    },
+	args: {
+		text: 'text',
+	},
 };
 
 export const OnlyTextDark: Story = {
-    args: {
-        text: 'text',
-    },
-    decorators: [ThemeDecorator(Theme.DARK)],
+	args: {
+		text: 'text',
+	},
+	decorators: [ThemeDecorator(Theme.DARK)],
 };
