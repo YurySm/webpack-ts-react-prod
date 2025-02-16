@@ -40,7 +40,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 		<div className={ classNames(cls.loginForm, {}, [className]) }>
 			<Text title={ t('Авторизация') } />
 
-			{error && <Text text={ error } theme={ TextTheme.ERROR } />}
+			{error && <Text text={ t('Вы ввели неверный логин или пароль') } theme={ TextTheme.ERROR } />}
 			<Input
 				onChange={ changeUsername }
 				autofocus

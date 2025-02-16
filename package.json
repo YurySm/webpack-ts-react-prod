@@ -122,5 +122,10 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "overrides": {
+    "ink": {
+      "react": "^17.0.2"
+    }
   }
 }
