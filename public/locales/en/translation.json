@@ -2,9 +2,12 @@
   "Тест": "Test",
   "Перевод": "Translate",
   "Переключить": "Toggle",
-  "Войти": "Sing in",
   "Главная": "Main",
   "О нас": "About us",
   "Логин": "Login",
-  "Пароль": "Password"
+  "Пароль": "Password",
+  "Войти": "Sing in",
+  "Выйти": "Log out",
+  "Авторизация": "Login",
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password"
 }

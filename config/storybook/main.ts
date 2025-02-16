@@ -24,6 +24,11 @@ const config: StorybookConfig = {
 			path.resolve(__dirname, '../../src'),
 		];
 
+		config.resolve.alias = {
+			...config.resolve.alias,
+			entities: path.resolve(__dirname, '../../src/entities'),
+		};
+
 		config.module.rules.push({
 			test: /\.s[ac]ss$/i,
 			use: [
@@ -59,6 +64,10 @@ const config: StorybookConfig = {
 			test: /\.svg$/i,
 			use: ['@svgr/webpack'],
 		})
+
+		config.plugins.push(new webpack.DefinePlugin({
+			__IS_DEV__: true,
+		}));
 
 		return config;
 	},

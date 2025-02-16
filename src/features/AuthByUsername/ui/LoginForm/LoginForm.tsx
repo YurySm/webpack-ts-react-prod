@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
 import { Button } from 'shared/ui/Button/Button';
-// import { useSelector } from 'react-redux';
 import { getLoginState } from '../../model/selectors/getLoginState';
 import { useCallback } from 'react';
 import { loginActions } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 interface LoginFormProps {
     className?: string;
@@ -38,8 +38,9 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 
 	return (
 		<div className={ classNames(cls.loginForm, {}, [className]) }>
-			{error && <div>{error}</div>}
+			<Text title={ t('Авторизация') } />
 
+			{error && <Text text={ error } theme={ TextTheme.ERROR } />}
 			<Input
 				onChange={ changeUsername }
 				autofocus

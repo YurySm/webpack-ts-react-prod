@@ -1,9 +1,9 @@
 import { Action, configureStore, ReducersMapObject, ThunkAction } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
 import { StateSchema } from './StateSchema';
 import { userReducer } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { counterReducer } from 'entities/Counter';
 
 export function createReduxStore(initialState: StateSchema) {
 	const rootReducer: ReducersMapObject<StateSchema> = {
