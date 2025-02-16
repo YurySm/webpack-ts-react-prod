@@ -15,19 +15,16 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
 	const { t } = useTranslation()
-
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-
+	const [isAuthModal, setIsAuthModal] = useState(false);
+	const authData = useSelector(getUserAuthData);
 	const dispatch = useAppDispatch();
 
-	const authData = useAppSelector(getUserAuthData);
-
-	const onClose = useCallback(() => {
-		setIsOpen(false);
+	const onCloseModal = useCallback(() => {
+		setIsAuthModal(false);
 	}, []);
 
-	const onOpen = useCallback(() => {
-		setIsOpen(true);
+	const onShowModal = useCallback(() => {
+		setIsAuthModal(true);
 	}, []);
 
 	const onLogout = useCallback(() => {
@@ -48,23 +45,26 @@ export const Navbar = ({ className }: NavbarProps) => {
 				</div>
 			</div>
 		);
-	} else {
-		return (
-			<div className={ classNames(cls.navbar, {}, [className]) }>
-				<div className={ cls.links }>
-					<Button
-						theme={ ButtonTheme.CLEAR_INVERTED }
-						type="button"
-						onClick={ onOpen }
-					>
-						{t('Войти')}
-					</Button>
-					<LoginModal
-						isOpen={ isOpen }
-						onClose={ onClose }
-					/>
-				</div>
-			</div>
-		);
 	}
+
+	return (
+		<div className={ classNames(cls.navbar, {}, [className]) }>
+			<div className={ cls.links }>
+				<Button
+					theme={ ButtonTheme.CLEAR_INVERTED }
+					type="button"
+					onClick={ onShowModal }
+				>
+					{t('Войти')}
+				</Button>
+
+				{isAuthModal && (
+					<LoginModal
+						isOpen={ isAuthModal }
+						onClose={ onCloseModal }
+					/>
+				)}
+			</div>
+		</div>
+	);
 };

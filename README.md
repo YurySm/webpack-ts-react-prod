@@ -5,6 +5,7 @@
 В нем будет тестирование, [Storybook](https://storybook.js.org/) и многое другое
 
 ## Добавлено и реализовано
+
 ## Webpack
 Конфигурация webpack настроена с нуля.
 ### Плагины
@@ -29,6 +30,11 @@
 [React](https://react.dev/)
 
 [//]: # (suspense)
+[//]: # (lazy components)
+
+## Стейт
+useContext для тем
+redux/toolkit 
 ## Кодстайл
 - [Eslint](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)
