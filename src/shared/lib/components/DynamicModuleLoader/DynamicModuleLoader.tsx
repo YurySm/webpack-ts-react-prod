@@ -31,7 +31,7 @@ export const DynamicModuleLoader = ({ children, reducers, removeAfterUnmount = t
 		return () => {
 			if(removeAfterUnmount) {
 				Object.entries(reducers)
-					.forEach(([name, reducer]: ReduceListEntryItem) => {
+					.forEach(([name]: ReduceListEntryItem) => {
 						store.reducerManager.remove(name);
 						dispatch({ type: `@DESTROY ${name} reducer` })
 					})

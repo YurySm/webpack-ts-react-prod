@@ -6,8 +6,6 @@ import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/tool
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
-
-    // async reducers
     loginForm?: LoginSchema
 }
 
