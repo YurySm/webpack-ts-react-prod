@@ -3,12 +3,14 @@
  * https://jestjs.io/docs/configuration
  */
 
+
+
 import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
 
-import type { Config } from 'jest'; 
+import type { Config } from 'jest';
 
 const config: Config = {
 	globals: {
@@ -36,24 +38,29 @@ const config: Config = {
 		'node'
 	],
 	testMatch: [
-		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+		'<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
 	],
 	modulePaths: [
-		'<rootDir>src',
+		'<rootDir>/src',
 	],
-	setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
+	setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts'],
 
 	moduleNameMapper: {
 		'\\.s?css$': 'identity-obj-proxy',
-		'\\.svg$': '<rootDir>config/jest/jestEmptyComponent.tsx',
+		'\\.svg$': '<rootDir>/config/jest/jestEmptyComponent.tsx',
 		'^entities/(.*)$': '<rootDir>/src/entities/$1',
 		'^features/(.*)$': '<rootDir>/src/features/$1',
 		'^widgets/(.*)$': '<rootDir>/src/widgets/$1',
 		'^shared/(.*)$': '<rootDir>/src/shared/$1',
-		'^app/(.*)$': '<rootDir>/src/app/$1',
 	},
 
 	preset: 'ts-jest',
+
+	transform: {
+		'^.+\\.tsx?$': ['ts-jest', {
+			tsconfig: 'tsconfig.json',
+		}],
+	},
 
 	// transform: {
 	// 	'^.+.tsx?$': ['ts-jest',{}],
