@@ -3,16 +3,14 @@
  * https://jestjs.io/docs/configuration
  */
 
-
-
 import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder
 global.TextDecoder = TextDecoder
 
-
 import type { Config } from 'jest';
 
 const config: Config = {
+	verbose: true,
 	globals: {
 		TextEncoder: TextEncoder,
 		TextDecoder: TextDecoder,
@@ -57,13 +55,11 @@ const config: Config = {
 	preset: 'ts-jest',
 
 	transform: {
-		'^.+\\.tsx?$': ['ts-jest', {
-			tsconfig: 'tsconfig.json',
-		}],
+		'^.+\\.tsx?$': ['ts-jest', {}],
 	},
 
 	// transform: {
-	// 	'^.+.tsx?$': ['ts-jest',{}],
+	// 	'\\.tsx$': '<rootDir>/node_modules/ts-node/transform',
 	// },
 
 	// All imported modules in your tests should be mocked automatically

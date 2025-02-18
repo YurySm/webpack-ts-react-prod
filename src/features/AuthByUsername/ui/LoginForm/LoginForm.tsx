@@ -8,10 +8,10 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { getLoginUsername } from '../../model/selectors/getLoginUsername';
-import { getLoginPassword } from '../..//model/selectors/getLoginPassword';
-import { getLoginError } from '../../model/selectors/getLoginError';
-import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 interface LoginFormProps {
