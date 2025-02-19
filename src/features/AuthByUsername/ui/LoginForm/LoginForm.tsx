@@ -16,13 +16,14 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 
 interface LoginFormProps {
     className?: string;
+	onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
 	loginForm: loginReducer
 }
 
-const LoginForm = ({ className }: LoginFormProps) => {
+const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
 	const { t } = useTranslation();
 
 	const dispatch = useAppDispatch();
@@ -40,9 +41,12 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		dispatch(loginActions.setPassword(value));
 	}, [dispatch]);
 
-	const onLoginClick =  useCallback(() => {
-		dispatch(loginByUsername({ username, password }));
-	}, [dispatch, password, username]);
+	const onLoginClick =  useCallback(async () => {
+		const res = await dispatch(loginByUsername({ username, password }));
+		if(res.meta.requestStatus === 'fulfilled') {
+			onSuccess()
+		}
+	}, [dispatch, password, username, onSuccess]);
 
 	return (
 		<DynamicModuleLoader reducers={ initialReducers }>

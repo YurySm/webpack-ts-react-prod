@@ -28,10 +28,15 @@ export function createReduxStore(initialState: StateSchema, asyncReducers?: Redu
 	return store
 }
 
-const storeForTypes = createReduxStore({} as StateSchema);
+// const storeForTypes = createReduxStore({} as StateSchema);
 
-export type RootState = ReturnType<typeof storeForTypes.getState>;
-export type AppDispatch = typeof storeForTypes.dispatch;
+// type StoreType = ReturnType<ReturnType<typeof createReduxStore>['getState']>
+
+// export type RootStates = ReturnType<typeof storeForTypes.getState>;
+export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>
+// export type AppDispatch = typeof storeForTypes.dispatch;
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+
 export type AppThunk<ReturnType = void> = ThunkAction<
 	ReturnType,
 	RootState,
@@ -41,3 +46,5 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 
 export const useAppSelector = useSelector.withTypes<RootState>()
 export const useAppDispatch = () => useDispatch<AppDispatch>();
+
+
