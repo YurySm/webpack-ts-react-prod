@@ -1,24 +1,24 @@
 .link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .icon {
-  fill: var(--inverted-secondary-color);
+    fill: var(--inverted-secondary-color);
 }
 
 .linkText {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  flex: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    flex: 1;
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed);
+    width: var(--sidebar-width-collapsed);
 
-  .linkText {
-    opacity: 0;
-    width: 0;
-  }
+    .linkText {
+        opacity: 0;
+        width: 0;
+    }
 }
