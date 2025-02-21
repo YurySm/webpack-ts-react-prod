@@ -4,6 +4,7 @@ import { userReducer } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterReducer } from 'entities/Counter';
 import { createReducerManager } from './reducerManager';
+import { $api } from 'shared/api/api';
 
 export function createReduxStore(initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
 	const rootReducer: ReducersMapObject<StateSchema> = {
@@ -18,7 +19,13 @@ export function createReduxStore(initialState: StateSchema, asyncReducers?: Redu
 		reducer: reducerManager.reduce,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
-		middleware: getDefaultMiddleware => getDefaultMiddleware()
+		middleware: getDefaultMiddleware => getDefaultMiddleware({
+			thunk: {
+				extraArgument: {
+					api: $api
+				}
+			}
+		})
 	})
 
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
