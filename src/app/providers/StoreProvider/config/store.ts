@@ -1,4 +1,9 @@
-import { Action, configureStore, ReducersMapObject, ThunkAction } from '@reduxjs/toolkit';
+import {
+    Action,
+    configureStore,
+    ReducersMapObject,
+    ThunkAction,
+} from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { userReducer } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,37 +13,38 @@ import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
 
 export function createReduxStore(
-	initialState: StateSchema,
-	asyncReducers?: ReducersMapObject<StateSchema>,
-	navigate?:  NavigateFunction
+    initialState: StateSchema,
+    asyncReducers?: ReducersMapObject<StateSchema>,
+    navigate?: NavigateFunction,
 ) {
-	const rootReducer: ReducersMapObject<StateSchema> = {
-		...asyncReducers,
-		counter: counterReducer,
-		user: userReducer,
-	};
+    const rootReducer: ReducersMapObject<StateSchema> = {
+        ...asyncReducers,
+        counter: counterReducer,
+        user: userReducer,
+    };
 
-	const reducerManager = createReducerManager(rootReducer)
+    const reducerManager = createReducerManager(rootReducer);
 
-	const store = configureStore({
-		reducer: reducerManager.reduce,
-		devTools: __IS_DEV__,
-		preloadedState: initialState,
-		middleware: getDefaultMiddleware => getDefaultMiddleware({
-			thunk: {
-				extraArgument: {
-					api: $api,
-					navigate
-				}
-			}
-		})
-	})
+    const store = configureStore({
+        reducer: reducerManager.reduce,
+        devTools: __IS_DEV__,
+        preloadedState: initialState,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                        navigate,
+                    },
+                },
+            }),
+    });
 
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-	store.reducerManager = reducerManager
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    store.reducerManager = reducerManager;
 
-	return store
+    return store;
 }
 
 // const storeForTypes = createReduxStore({} as StateSchema);
@@ -46,18 +52,18 @@ export function createReduxStore(
 // type StoreType = ReturnType<ReturnType<typeof createReduxStore>['getState']>
 
 // export type RootStates = ReturnType<typeof storeForTypes.getState>;
-export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>
+export type RootState = ReturnType<
+    ReturnType<typeof createReduxStore>['getState']
+>;
 // export type AppDispatch = typeof storeForTypes.dispatch;
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
 
 export type AppThunk<ReturnType = void> = ThunkAction<
-	ReturnType,
-	RootState,
-	unknown,
-	Action<string>
+    ReturnType,
+    RootState,
+    unknown,
+    Action<string>
 >;
 
-export const useAppSelector = useSelector.withTypes<RootState>()
+export const useAppSelector = useSelector.withTypes<RootState>();
 export const useAppDispatch = () => useDispatch<AppDispatch>();
-
-

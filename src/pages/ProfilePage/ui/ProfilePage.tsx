@@ -1,6 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { profileReducer } from 'entities/Profile';
 
 interface ProfilePageProps {
@@ -8,19 +11,19 @@ interface ProfilePageProps {
 }
 
 const reducers: ReducersList = {
-	profile: profileReducer,
-}
+    profile: profileReducer,
+};
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-	const { t } = useTranslation('profile');
+    const { t } = useTranslation('profile');
 
-	return (
-		<DynamicModuleLoader reducers={ reducers }>
-			<div className={ classNames('', {}, [className]) }>
-				{t('profile page')}
-			</div>
-		</DynamicModuleLoader>
-	);
+    return (
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={classNames('', {}, [className])}>
+                {t('profile page')}
+            </div>
+        </DynamicModuleLoader>
+    );
 };
 
 export default ProfilePage;

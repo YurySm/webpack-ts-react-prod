@@ -4,17 +4,17 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Loader } from './Loader';
 
 const meta: Meta<typeof Loader> = {
-	title: 'shared/Loader',
-	component: Loader,
-	// parameters: {
-	//     layout: 'centered',
-	// },
-	// tags: ['autodocs'],
-	argTypes: {
-		// backgroundColor: { control: 'color' },
-	},
-	// args: { onClick: fn() },
-}; 
+    title: 'shared/Loader',
+    component: Loader,
+    // parameters: {
+    //     layout: 'centered',
+    // },
+    // tags: ['autodocs'],
+    argTypes: {
+        // backgroundColor: { control: 'color' },
+    },
+    // args: { onClick: fn() },
+};
 
 export default meta;
 type Story = StoryObj<typeof Loader>;
@@ -22,7 +22,5 @@ type Story = StoryObj<typeof Loader>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-	decorators: [
-		ThemeDecorator(Theme.DARK),
-	],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

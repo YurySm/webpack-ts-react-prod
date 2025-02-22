@@ -4,16 +4,16 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 
 const meta: Meta<typeof LangSwitcher> = {
-	title: 'widgets/LangSwitcher',
-	component: LangSwitcher,
-	// parameters: {
-	//     layout: 'centered',
-	// },
-	// tags: ['autodocs'],
-	argTypes: {
-		// backgroundColor: { control: 'color' },
-	},
-	// args: { onClick: fn() },
+    title: 'widgets/LangSwitcher',
+    component: LangSwitcher,
+    // parameters: {
+    //     layout: 'centered',
+    // },
+    // tags: ['autodocs'],
+    argTypes: {
+        // backgroundColor: { control: 'color' },
+    },
+    // args: { onClick: fn() },
 };
 
 export default meta;
@@ -22,7 +22,5 @@ type Story = StoryObj<typeof LangSwitcher>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-	decorators: [
-		ThemeDecorator(Theme.DARK),
-	], 
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

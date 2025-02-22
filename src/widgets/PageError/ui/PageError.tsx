@@ -8,21 +8,23 @@ interface PageErrorProps {
 }
 
 export const PageError = ({ className }: PageErrorProps) => {
-	const { t } = useTranslation();
+    const { t } = useTranslation();
 
-	const reload = () => {
-		location.reload();
-	};
-	return (
-		<div className={ classNames(cls.pageError, {}, [className]) }>
-			<p className={ classNames(cls.title) }>{t('Произошла непредвиденная ошибка')}</p>
-			<Button
-				onClick={ reload }
-				type="button"
-				className={ classNames(cls.btn) }
-			>
-				{t('Обновить страницу')}
-			</Button>
-		</div>
-	);
+    const reload = () => {
+        location.reload();
+    };
+    return (
+        <div className={classNames(cls.pageError, {}, [className])}>
+            <p className={classNames(cls.title)}>
+                {t('Произошла непредвиденная ошибка')}
+            </p>
+            <Button
+                onClick={reload}
+                type="button"
+                className={classNames(cls.btn)}
+            >
+                {t('Обновить страницу')}
+            </Button>
+        </div>
+    );
 };

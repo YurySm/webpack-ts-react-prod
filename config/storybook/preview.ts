@@ -6,19 +6,19 @@ import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecora
 // import { TranslationDecorator } from 'shared/config/storybook/decorators/TranslationDecorator';
 
 const preview: Preview = { 
-	parameters: {
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i,
-			},
-		},
-	},
-	decorators: [
-		ThemeDecorator(Theme.LIGHT),
-		RouterDecorator(),
-		// TranslationDecorator()
-	],
+    parameters: {
+        controls: {
+            matchers: {
+                color: /(background|color)$/i,
+                date: /Date$/i,
+            },
+        },
+    },
+    decorators: [
+        ThemeDecorator(Theme.LIGHT),
+        RouterDecorator(),
+        // TranslationDecorator()
+    ],
 };
 
 export default preview;

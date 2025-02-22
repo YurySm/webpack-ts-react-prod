@@ -6,25 +6,22 @@ import { MemoryRouter } from 'react-router-dom';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 
 export interface ComponentRenderOptions {
-    route?: string
-	initialState?: Partial<StateSchema>
+    route?: string;
+    initialState?: Partial<StateSchema>;
 }
 
-export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
-
-	const {
-		route = '/',
-		initialState,
-	} = options;
-	return render(
-		<MemoryRouter initialEntries={ [route] }>
-			<StoreProvider initialState={ initialState }>
-				<I18nextProvider i18n={ i18n }>
-					<Suspense fallback={ <div></div> }>
-						{component}
-					</Suspense>
-				</I18nextProvider>
-			</StoreProvider>
-		</MemoryRouter>
-	);
+export function componentRender(
+    component: ReactNode,
+    options: ComponentRenderOptions = {},
+) {
+    const { route = '/', initialState } = options;
+    return render(
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider initialState={initialState}>
+                <I18nextProvider i18n={i18n}>
+                    <Suspense fallback={<div></div>}>{component}</Suspense>
+                </I18nextProvider>
+            </StoreProvider>
+        </MemoryRouter>,
+    );
 }

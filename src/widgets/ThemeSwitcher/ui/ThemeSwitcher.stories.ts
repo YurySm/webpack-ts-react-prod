@@ -4,16 +4,16 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
 const meta: Meta<typeof ThemeSwitcher> = {
-	title: 'widgets/ThemeSwitcher',
-	component: ThemeSwitcher,
-	// parameters: {
-	//     layout: 'centered',
-	// },
-	// tags: ['autodocs'],
-	argTypes: {
-		// backgroundColor: { control: 'color' },
-	},
-	// args: { onClick: fn() },
+    title: 'widgets/ThemeSwitcher',
+    component: ThemeSwitcher,
+    // parameters: {
+    //     layout: 'centered',
+    // },
+    // tags: ['autodocs'],
+    argTypes: {
+        // backgroundColor: { control: 'color' },
+    },
+    // args: { onClick: fn() },
 };
 
 export default meta;
@@ -22,8 +22,5 @@ type Story = StoryObj<typeof ThemeSwitcher>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-	decorators: [
-		ThemeDecorator(Theme.DARK),
-	],
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
- 

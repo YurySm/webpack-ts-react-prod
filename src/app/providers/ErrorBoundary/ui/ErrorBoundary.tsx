@@ -1,6 +1,4 @@
-import {
-	Component, ErrorInfo, ReactNode, Suspense,
-} from 'react';
+import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from 'widgets/PageError';
 import { Loader } from 'shared/ui/Loader/Loader';
 
@@ -9,38 +7,37 @@ interface ErrorBoundaryState {
 }
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-	constructor(props: ErrorBoundaryProps) {
-		super(props);
-		this.state = { hasError: false };
-	}
+    constructor(props: ErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false };
+    }
 
-	static getDerivedStateFromError() {
-		return { hasError: true };
-	}
+    static getDerivedStateFromError() {
+        return { hasError: true };
+    }
 
-	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-		 
-		console.log(error, errorInfo);
-	}
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        console.log(error, errorInfo);
+    }
 
-	render() {
-		const { children } = this.props;
-		const { hasError } = this.state;
+    render() {
+        const { children } = this.props;
+        const { hasError } = this.state;
 
-		if (hasError) {
-			return (
-				<Suspense fallback={ <Loader /> }>
-					<PageError />
-				</Suspense>
-			);
-		}
+        if (hasError) {
+            return (
+                <Suspense fallback={<Loader />}>
+                    <PageError />
+                </Suspense>
+            );
+        }
 
-		return children;
-	} 
+        return children;
+    }
 }
 
 export default ErrorBoundary;
