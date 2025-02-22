@@ -20,15 +20,15 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rej
 			// @ts-expect-error
 			const response = await extra.api.post<User>('/login', data);
 
-			// for example
-
 			if (!response.data) {
 				throw new Error();
 			}
 
 			localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+			console.log(response.data);
 			dispatch(userActions.setAuthData(response.data));
 
+			// for example
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-expect-error
 			extra.navigate('/profile');
