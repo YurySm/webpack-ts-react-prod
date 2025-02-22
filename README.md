@@ -2,7 +2,8 @@
 
 ## О приложении 
 Это будет большое [React](https://react.dev/) приложение построенное на [Webpack](https://webpack.js.org/) с нуля. 
-В нем будет тестирование, [Storybook](https://storybook.js.org/) и многое другое
+В нем будет тестирование, [Storybook](https://storybook.js.org/) и многое другое.
+Приложение строится на архитектуре [FSD](https://feature-sliced.design/ru/)
 
 ## Добавлено и реализовано
 
