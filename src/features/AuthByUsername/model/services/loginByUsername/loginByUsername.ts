@@ -32,7 +32,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rej
 
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-expect-error
-			extra.navigate(RoutesPaths[AppRoutes.PROFILE]);
+			extra.navigate('/profile');
 
 			return response.data;
 		} catch {
