@@ -2,12 +2,6 @@ import { fireEvent, screen } from '@testing-library/react';
 import { Sidebar } from './Sidebar';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 
-const mockUsedNavigate = jest.fn();
-jest.mock('react-router-dom', () => ({
-	...jest.requireActual('react-router-dom'),
-	useNavigate: () => mockUsedNavigate,
-}));
-
 describe('Sidebar', () => {
 	test('only render', async () => {
 		componentRender(<Sidebar />);

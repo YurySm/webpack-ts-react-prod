@@ -12,7 +12,12 @@ export default [
 	{
 		languageOptions: {
 			...pluginReact.configs.flat.recommended.languageOptions,
-			globals: { ...globals.serviceworker, ...globals.browser, __IS_DEV__: true },
+			globals: {
+				...globals.serviceworker,
+				...globals.browser,
+				__IS_DEV__: true,
+				__API__: true,
+			},
 			parser: tseslint.parser,
 			parserOptions: {
 				ecmaFeatures: { jsx: true },
