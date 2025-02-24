@@ -7,8 +7,8 @@ export function TranslationDecorator() {
     return (
         // eslint-disable-next-line react/display-name
         (Story: StoryFn) => (
-            <I18nextProvider i18n={i18n}>
-                <Suspense fallback={<div></div>}>
+            <I18nextProvider i18n={ i18n }>
+                <Suspense fallback={ <div></div> }>
                     {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
                     {/* @ts-expect-error*/}
                     <Story />

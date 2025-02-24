@@ -6,5 +6,5 @@ interface ProfileProps {
 }
 
 export const Profile = ({ className }: ProfileProps) => {
-    return <div className={classNames(cls.Profile, {}, [className])}></div>;
+    return <div className={ classNames(cls.Profile, {}, [className]) }></div>;
 };

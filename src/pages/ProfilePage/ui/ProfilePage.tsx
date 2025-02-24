@@ -18,11 +18,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+        <DynamicModuleLoader reducers={ reducers }>
+            <div className={ classNames('', {}, [className]) }>
                 {t('profile page')}
             </div>
-        </DynamicModuleLoader>
+        </DynamicModuleLoader> 
     );
 };
 

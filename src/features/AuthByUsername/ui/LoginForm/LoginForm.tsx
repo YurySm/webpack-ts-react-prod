@@ -61,28 +61,28 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
     }, [dispatch, password, username, onSuccess]);
 
     return (
-        <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.loginForm, {}, [className])}>
-                <Text title={t('Авторизация')} />
+        <DynamicModuleLoader reducers={ initialReducers }>
+            <div className={ classNames(cls.loginForm, {}, [className]) }>
+                <Text title={ t('Авторизация') } />
 
                 {error && (
                     <Text
-                        text={t('Вы ввели неверный логин или пароль')}
-                        theme={TextTheme.ERROR}
+                        text={ t('Вы ввели неверный логин или пароль') }
+                        theme={ TextTheme.ERROR }
                     />
                 )}
                 <Input
-                    onChange={changeUsername}
+                    onChange={ changeUsername }
                     autofocus
-                    placeholder={t('Логин')}
-                    value={username}
+                    placeholder={ t('Логин') }
+                    value={ username }
                 />
                 <Input
-                    onChange={changePassword}
-                    placeholder={t('Пароль')}
-                    value={password}
+                    onChange={ changePassword }
+                    placeholder={ t('Пароль') }
+                    value={ password }
                 />
-                <Button disabled={isLoading} onClick={onLoginClick}>
+                <Button disabled={ isLoading } onClick={ onLoginClick }>
                     {t('Войти')}
                 </Button>
             </div>

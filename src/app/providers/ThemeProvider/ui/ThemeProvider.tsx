@@ -28,7 +28,7 @@ const ThemeProvider = ({
     );
 
     return (
-        <ThemeContext.Provider value={defaultProps}>
+        <ThemeContext.Provider value={ defaultProps }>
             {children}
         </ThemeContext.Provider>
     );

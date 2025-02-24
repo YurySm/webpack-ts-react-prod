@@ -46,14 +46,14 @@ export const Input = memo(
         }, [autofocus]);
 
         return (
-            <div className={classNames(cls.inputWrapp, {}, [className])}>
+            <div className={ classNames(cls.inputWrapp, {}, [className]) }>
                 <input
-                    ref={ref}
-                    className={cls.input}
-                    type={type}
-                    value={value}
-                    onChange={handleChange}
-                    {...otherProps}
+                    ref={ ref }
+                    className={ cls.input }
+                    type={ type }
+                    value={ value }
+                    onChange={ handleChange }
+                    { ...otherProps }
                 />
             </div>
         );

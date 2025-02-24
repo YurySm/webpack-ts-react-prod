@@ -12,13 +12,13 @@ interface LoginModalProps {
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (
     <Modal
-        className={classNames('', {}, [className])}
-        isOpen={isOpen}
-        onClose={onClose}
+        className={ classNames('', {}, [className]) }
+        isOpen={ isOpen }
+        onClose={ onClose }
         lazy
     >
-        <Suspense fallback={<Loader />}>
-            <LoginForm onSuccess={onClose} />
+        <Suspense fallback={ <Loader /> }>
+            <LoginForm onSuccess={ onClose } />
         </Suspense>
     </Modal>
 );

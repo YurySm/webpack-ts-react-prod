@@ -73,11 +73,11 @@ export const Modal = ({
 
     return (
         <Portal>
-            <div className={classNames(cls.modal, mods, [className, theme])}>
-                <div className={cls.overlay} onClick={handleClose}>
+            <div className={ classNames(cls.modal, mods, [className, theme]) }>
+                <div className={ cls.overlay } onClick={ handleClose }>
                     <div
-                        className={cls.content}
-                        onClick={(e) => e.stopPropagation()}
+                        className={ cls.content }
+                        onClick={ (e) => e.stopPropagation() }
                     >
                         {children}
                     </div>

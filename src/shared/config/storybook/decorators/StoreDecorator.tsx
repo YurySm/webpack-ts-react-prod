@@ -17,7 +17,7 @@ export function StoreDecorator(
         // eslint-disable-next-line react/display-name
         (Story: StoryFn) => (
             <StoreProvider
-                initialState={state}
+                initialState={ state }
                 asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
             >
                 {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}

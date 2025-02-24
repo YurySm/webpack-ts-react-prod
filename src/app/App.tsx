@@ -16,9 +16,9 @@ export const App = () => {
     }, [dispatch]);
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={ classNames('app', {}, [theme]) }>
             <Navbar />
-            <div className={'content-page'}>
+            <div className={ 'content-page' }>
                 <Sidebar />
                 <AppRouter />
             </div>

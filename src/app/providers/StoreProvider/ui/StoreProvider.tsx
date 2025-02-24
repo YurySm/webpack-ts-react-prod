@@ -24,5 +24,5 @@ export const StoreProvider = ({
         navigate,
     );
 
-    return <Provider store={store}>{children}</Provider>;
+    return <Provider store={ store }>{children}</Provider>;
 };

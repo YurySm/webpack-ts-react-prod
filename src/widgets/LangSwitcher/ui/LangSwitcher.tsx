@@ -17,9 +17,9 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
 
     return (
         <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={toggle}
-            className={classNames(cls.langSwitcher, {}, [className])}
+            theme={ ButtonTheme.CLEAR }
+            onClick={ toggle }
+            className={ classNames(cls.langSwitcher, {}, [className]) }
         >
             {i18n.language === 'ru' ? 'ru' : 'en'}
         </Button>

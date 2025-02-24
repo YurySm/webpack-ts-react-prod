@@ -30,7 +30,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
         if (hasError) {
             return (
-                <Suspense fallback={<Loader />}>
+                <Suspense fallback={ <Loader /> }>
                     <PageError />
                 </Suspense>
             );

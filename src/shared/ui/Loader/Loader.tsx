@@ -6,7 +6,7 @@ interface PageLoaderProps {
 }
 
 export const Loader = ({ className }: PageLoaderProps) => (
-    <div className={classNames('lds-roller', {}, [className])}>
+    <div className={ classNames('lds-roller', {}, [className]) }>
         <div />
         <div />
         <div />
