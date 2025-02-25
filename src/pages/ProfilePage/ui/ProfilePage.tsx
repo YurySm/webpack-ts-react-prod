@@ -5,8 +5,8 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { fetchProfileData, profileReducer } from 'entities/Profile';
-import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/store';
 
 interface ProfilePageProps {
     className?: string;
@@ -18,11 +18,9 @@ const reducers: ReducersList = {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
         dispatch(fetchProfileData())
     }, [dispatch]);
 
@@ -31,7 +29,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             <div className={ classNames('', {}, [className]) }>
                 {t('profile page')}
             </div>
-        </DynamicModuleLoader> 
+        </DynamicModuleLoader>
     );
 };
 
