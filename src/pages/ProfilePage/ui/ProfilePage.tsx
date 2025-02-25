@@ -4,7 +4,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, profileReducer } from 'entities/Profile';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { useEffect } from 'react';
 import { useAppDispatch } from 'app/providers/StoreProvider/config/store';
 
@@ -27,7 +27,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames('', {}, [className]) }>
-                {t('profile page')}
+                <ProfileCard/>
             </div>
         </DynamicModuleLoader>
     );
