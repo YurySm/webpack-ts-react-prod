@@ -3,7 +3,7 @@ import { getLoginPassword } from './getLoginPassword';
 
 describe('getLoginPassword', () => {
     test('should return the correct value', () => {
-        const state: Partial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             loginForm: {
                 username: 'test',
                 password: 'test',
@@ -15,7 +15,7 @@ describe('getLoginPassword', () => {
     });
 
     test('should work with empty value', () => {
-        const state: Partial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getLoginPassword(state as StateSchema)).toEqual('');
     });
 });

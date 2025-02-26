@@ -3,7 +3,7 @@ import { getLoginError } from './getLoginError';
 
 describe('getLoginError', () => {
     test('should return the correct value', () => {
-        const state: Partial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             loginForm: {
                 username: 'test',
                 password: 'test',
@@ -15,7 +15,7 @@ describe('getLoginError', () => {
     });
 
     test('should work with empty value', () => {
-        const state: Partial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {};
         expect(getLoginError(state as StateSchema)).toEqual(undefined);
     });
 });

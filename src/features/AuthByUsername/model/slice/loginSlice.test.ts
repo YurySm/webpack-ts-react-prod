@@ -3,7 +3,7 @@ import { LoginSchema } from '../types/loginSchema';
 
 describe('loginSlice', () => {
     test('setUsername', () => {
-        const state: Partial<LoginSchema> = {
+        const state: DeepPartial<LoginSchema> = {
             username: '',
         };
 
@@ -16,7 +16,7 @@ describe('loginSlice', () => {
     });
 
     test('setPassword', () => {
-        const state: Partial<LoginSchema> = {
+        const state: DeepPartial<LoginSchema> = {
             password: '',
         };
 
