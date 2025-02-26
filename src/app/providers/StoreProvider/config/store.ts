@@ -1,10 +1,10 @@
 import {
     Action,
-    configureStore,
+    configureStore, Reducer,
     ReducersMapObject,
     ThunkAction,
 } from '@reduxjs/toolkit';
-import { StateSchema } from './StateSchema';
+import { StateSchema, ThunkExtraArgs } from './StateSchema';
 import { userReducer } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { counterReducer } from 'entities/Counter';
@@ -25,6 +25,11 @@ export function createReduxStore(
 
     const reducerManager = createReducerManager(rootReducer);
 
+    const extraArgs: ThunkExtraArgs = {
+        api: $api,
+        navigate,
+    }
+
     const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
@@ -32,10 +37,7 @@ export function createReduxStore(
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({
                 thunk: {
-                    extraArgument: {
-                        api: $api,
-                        navigate,
-                    },
+                    extraArgument: extraArgs,
                 },
             }),
     });
