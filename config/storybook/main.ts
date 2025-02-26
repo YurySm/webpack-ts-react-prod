@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import { Config } from 'jest';
 
 const isDev = true
 
@@ -19,56 +20,66 @@ const config: StorybookConfig = {
         options: {},
     },
     webpackFinal: async (config) => {
-        config.resolve.modules = [
-            ...(config.resolve.modules || []),
-            path.resolve(__dirname, '../../src'),
-        ];
+        if(config.resolve) {
+            config.resolve.modules = [
+                ...(config.resolve.modules || []),
+                path.resolve(__dirname, '../../src'),
+            ];
 
-        config.resolve.alias = {
-            ...config.resolve.alias,
-            entities: path.resolve(__dirname, '../../src/entities'),
-        };
+            config.resolve.alias = {
+                ...config.resolve.alias,
+                entities: path.resolve(__dirname, '../../src/entities'),
+            };
+        }
 
-        config.module.rules.push({
-            test: /\.s[ac]ss$/i,
-            use: [
-                isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: {
-                            namedExport: false,
-                            auto: ((resourcePath: string) => resourcePath.includes('.module')),
-                            localIdentName: isDev ?
-                                '[path][name]__[local]--[hash:base64:5]'
-                                : '[hash:base64:8]'
+        if(config.module && config.module.rules) {
+            config.module.rules.push({
+                test: /\.s[ac]ss$/i,
+                use: [
+                    isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                namedExport: false,
+                                auto: ((resourcePath: string) => resourcePath.includes('.module')),
+                                localIdentName: isDev ?
+                                    '[path][name]__[local]--[hash:base64:5]'
+                                    : '[hash:base64:8]'
+                            },
                         },
                     },
-                },
-                'sass-loader',
-            ],
-        })
+                    'sass-loader',
+                ],
+            })
 
-        config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) {
-                return {
-                    ...rule,
-                    exclude: /\.svg$/i,
-                };
-            }
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
+                if(rule) {
+                    if (/svg/.test(rule.test as string)) {
+                        return {
+                            ...rule,
+                            exclude: /\.svg$/i,
+                        };
+                    }
 
-            return rule;
-        });
+                    return rule;
+                }
+            });
 
-        config.module.rules.push({
-            test: /\.svg$/i,
-            use: ['@svgr/webpack'],
-        })
+            config.module.rules.push({
+                test: /\.svg$/i,
+                use: ['@svgr/webpack'],
+            })
+        }
 
-        config.plugins.push(new webpack.DefinePlugin({
-            __IS_DEV__: true,
-            __API__: JSON.stringify('')
-        }));
+        if(config.plugins) {
+            config.plugins.push(new webpack.DefinePlugin({
+                __IS_DEV__: true,
+                __API__: JSON.stringify('')
+            }));
+        }
 
         return config;
     },
