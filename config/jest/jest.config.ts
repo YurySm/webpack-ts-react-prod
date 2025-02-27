@@ -5,7 +5,7 @@
 
 import { TextEncoder, TextDecoder } from 'util'
 global.TextEncoder = TextEncoder
-global.TextDecoder = TextDecoder
+global.TextDecoder = TextDecoder as never;
 
 import type { Config } from 'jest';
 

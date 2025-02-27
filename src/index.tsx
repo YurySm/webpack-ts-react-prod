@@ -7,15 +7,21 @@ import { App } from 'app/App';
 import 'app/styles/index.scss';
 import './shared/config/i18n/i18n';
 
-const root = createRoot(document.getElementById('root'));
-root.render(
-    <BrowserRouter>
-        <StoreProvider>
-            <ErrorBoundary>
-                <ThemeProvider>
-                    <App />
-                </ThemeProvider>
-            </ErrorBoundary>
-        </StoreProvider>
-    </BrowserRouter>,
-);
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+    const root = createRoot(rootElement);
+    root.render(
+        <BrowserRouter>
+            <StoreProvider>
+                <ErrorBoundary>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </ErrorBoundary>
+            </StoreProvider>
+        </BrowserRouter>,
+    );
+} else {
+    console.error('Root element not found');
+}
