@@ -1,18 +1,17 @@
 .profileCard {
+    margin-top: 20px;
     padding: 20px;
     border: 1px solid var(--inverted-bg-color);
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.data {
-    margin-top: 30px;
-}
-
 .input {
     margin-top: 10px;
+}
+
+.error,
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22vh;
 }

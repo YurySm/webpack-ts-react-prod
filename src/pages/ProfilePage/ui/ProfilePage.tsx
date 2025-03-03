@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './ProfilePage.module.scss'
 import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
@@ -14,6 +15,7 @@ import {
 } from 'entities/Profile';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
     className?: string;
@@ -37,7 +39,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames('', {}, [className]) }>
+            <div className={ classNames(cls.profilePage, {}, [className]) }>
+                <ProfilePageHeader/>
                 <ProfileCard
                     data={ data }
                     isLoading={ isLoading }
