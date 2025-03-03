@@ -19,6 +19,7 @@ interface InputProps extends HTMLInputProps {
     value?: string;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    readOnly?: boolean;
 }
 
 export const Input = memo(
@@ -28,6 +29,7 @@ export const Input = memo(
         type = 'text',
         onChange,
         autofocus,
+        readOnly = false,
         ...otherProps
     }: InputProps) => {
         const ref = useRef<HTMLInputElement>(null);
@@ -46,13 +48,14 @@ export const Input = memo(
         }, [autofocus]);
 
         return (
-            <div className={ classNames(cls.inputWrapp, {}, [className]) }>
+            <div className={ classNames(cls.inputWrapp, { [cls.readOnly]: readOnly }, [className]) }>
                 <input
                     ref={ ref }
                     className={ cls.input }
                     type={ type }
                     value={ value }
                     onChange={ handleChange }
+                    readOnly={ readOnly }
                     { ...otherProps }
                 />
             </div>
