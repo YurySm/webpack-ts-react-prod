@@ -4,6 +4,7 @@ import { fetchProfileData } from '../services/fetchProfileDate/fetchProfileDate'
 
 const initialState: ProfileSchema = {
     data: undefined,
+    form: undefined,
     isLoading: false,
     error: undefined,
     readonly: true,
@@ -16,9 +17,13 @@ export const profileSlice = createSlice({
         setReadonly: (state, action: PayloadAction<boolean>) => {
             state.readonly = action.payload;
         },
+        cancelEdit: (state) => {
+            state.readonly = true
+            state.form = state.data
+        },
         updateProfile: (state, action: PayloadAction<Profile>) => {
-            state.data = {
-                ...state.data,
+            state.form = {
+                ...state.form,
                 ...action.payload
             }
         }
@@ -32,6 +37,7 @@ export const profileSlice = createSlice({
         builder.addCase(fetchProfileData.fulfilled, (state, action) => {
             state.isLoading = false;
             state.data = action.payload
+            state.form = action.payload
         });
         builder.addCase(fetchProfileData.rejected, (state, action) => {
             state.isLoading = false;

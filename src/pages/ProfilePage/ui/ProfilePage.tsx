@@ -1,22 +1,21 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ProfilePage.module.scss'
-import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileData,
-    getProfileError,
+    getProfileError, getProfileForm,
     getProfileLoading,
-    getProfileReadonly, profileActions,
+    getProfileReadonly,
+    profileActions,
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import cls from './ProfilePage.module.scss'
 
 interface ProfilePageProps {
     className?: string;
@@ -27,9 +26,7 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-    const { t } = useTranslation('profile');
-
-    const data = useAppSelector(getProfileData)
+    const formData = useAppSelector(getProfileForm)
     const isLoading = useAppSelector(getProfileLoading)
     const error = useAppSelector(getProfileError)
     const readonly = useAppSelector(getProfileReadonly)
@@ -52,7 +49,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
             <div className={ classNames(cls.profilePage, {}, [className]) }>
                 <ProfilePageHeader/>
                 <ProfileCard
-                    data={ data }
+                    data={ formData }
                     isLoading={ isLoading }
                     error={ error }
                     readonly={ readonly }
