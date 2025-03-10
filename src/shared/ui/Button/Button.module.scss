@@ -20,11 +20,20 @@
     color: var(--inverted-primary-color);
 }
 
+.outlineRed,
+.outline {
+    background: none;
+    border-radius: 5px;
+}
+
+.outlineRed {
+    border: 1px solid var(--red-light);
+    color: var(--red-light);
+}
+
 .outline {
     border: 1px solid var(--primary-color);
-    background: none;
     color: var(--primary-color);
-    border-radius: 5px;
 }
 
 .background {

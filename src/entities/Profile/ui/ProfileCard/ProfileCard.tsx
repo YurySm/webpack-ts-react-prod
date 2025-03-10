@@ -12,8 +12,12 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string
     readonly?: boolean
-    onChangeFirstname: (value: string) => void
-    onChangeLastname: (value: string) => void
+    onChangeFirstname?: (value: string) => void
+    onChangeLastname?: (value: string) => void
+    onChangeCity?: (value: string) => void
+    onChangeAge?: (value: string) => void
+    onChangeAvatar?: (value: string) => void
+    onChangeUsername?: (value: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -24,7 +28,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
         error,
         readonly,
         onChangeFirstname,
-        onChangeLastname
+        onChangeLastname,
+        onChangeCity,
+        onChangeAge,
+        onChangeAvatar,
+        onChangeUsername,
     } = props
 
     const { t } = useTranslation('profile');
@@ -53,6 +61,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={ classNames(cls.profileCard, {}, [className]) }>
             <div className={ cls.data }>
+                {data?.avatar && <img src={ data?.avatar } alt={ data?.username } />}
                 <Input
                     readOnly={ readonly }
                     value={ data?.firstName }
@@ -66,6 +75,34 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={ t('Ваша фамилия') }
                     className={ cls.input }
                     onChange={ onChangeLastname }
+                />
+                <Input
+                    readOnly={ readonly }
+                    value={ data?.age }
+                    placeholder={ t('Ваш возраст') }
+                    className={ cls.input }
+                    onChange={ onChangeAge }
+                />
+                <Input
+                    readOnly={ readonly }
+                    value={ data?.city }
+                    placeholder={ t('Город') }
+                    className={ cls.input }
+                    onChange={ onChangeCity }
+                />
+                <Input
+                    readOnly={ readonly }
+                    value={ data?.username }
+                    placeholder={ t('Введите имя пользователя') }
+                    className={ cls.input }
+                    onChange={ onChangeUsername }
+                />
+                <Input
+                    readOnly={ readonly }
+                    value={ data?.avatar }
+                    placeholder={ t('Введите ссылку на аватар') }
+                    className={ cls.input }
+                    onChange={ onChangeAvatar }
                 />
             </div>
         </div>

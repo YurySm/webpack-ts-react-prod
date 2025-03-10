@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "firstName": "Ivan",
+    "firstName": "Max",
     "lastName": "Ivanov",
-    "age": 33,
+    "age": 23,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",
-    "avatar": ""
+    "avatar": "https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
   }
 }
