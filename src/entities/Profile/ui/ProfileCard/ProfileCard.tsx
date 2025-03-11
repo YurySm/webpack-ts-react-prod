@@ -5,6 +5,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Profile } from 'entities/Profile';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface ProfileCardProps {
     className?: string;
@@ -61,7 +62,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={ classNames(cls.profileCard, {}, [className]) }>
             <div className={ cls.data }>
-                {data?.avatar && <img src={ data?.avatar } alt={ data?.username } />}
+                {
+                    data?.avatar &&
+                    <div className={ cls.avatarWrapp }>
+                        <Avatar
+                            src={ data?.avatar }
+                            alt={ data?.username }/>
+                    </div>
+                }
                 <Input
                     readOnly={ readonly }
                     value={ data?.firstName }
