@@ -6,6 +6,8 @@ import { Input } from 'shared/ui/Input/Input';
 import { Profile } from 'entities/Profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Select } from 'shared/ui/Select/Select';
+import { Currency } from 'shared/constants/common';
 
 interface ProfileCardProps {
     className?: string;
@@ -115,6 +117,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={ t('Введите ссылку на аватар') }
                     className={ cls.input }
                     onChange={ onChangeAvatar }
+                />
+
+                <Select
+                    label={ t('Укажите валюту') }
+                    readOnly={ readonly }
+                    options={ [
+                        { value: Currency.EUR, label: Currency.EUR },
+                        { value: Currency.USD, label: Currency.USD },
+                        { value: Currency.RUB, label: Currency.RUB },
+                    ] }
                 />
             </div>
         </div>
