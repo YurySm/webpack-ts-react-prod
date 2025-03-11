@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
@@ -38,6 +38,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const { t } = useTranslation('profile');
 
+    const mods: Mods = {
+        [cls.editing]: !readonly
+    }
+
     if(isLoading){
         return (
             <div className={ classNames(cls.profileCard, {}, [cls.loading, className]) }>
@@ -60,7 +64,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <div className={ classNames(cls.profileCard, {}, [className]) }>
+        <div className={ classNames(cls.profileCard, mods, [className]) }>
             <div className={ cls.data }>
                 {
                     data?.avatar &&
