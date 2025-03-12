@@ -2,7 +2,6 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import { Config } from 'jest';
 
 const isDev = true
 
