@@ -7,7 +7,8 @@ import { Profile } from 'entities/Profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country } from 'shared/constants/common';
+
+import { Country, CountrySelect } from 'entities/Country';
 
 interface ProfileCardProps {
     className?: string;
@@ -127,6 +128,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     value={ data?.currency }
                     onChange={ onChangeCurrency }
                     readonly={ readonly }
+                    className={ cls.input }
+                />
+
+                <CountrySelect
+                    value={ data?.country }
+                    onChange={ onChangeCountry }
+                    readonly={ readonly }
+                    className={ cls.input }
                 />
             </div>
         </div>

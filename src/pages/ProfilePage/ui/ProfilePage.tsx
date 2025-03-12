@@ -16,6 +16,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss'
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 interface ProfilePageProps {
     className?: string;
@@ -60,6 +62,14 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         dispatch(profileActions.updateProfile({ username: value || '' }))
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((currency: Currency)  => {
+        dispatch(profileActions.updateProfile({ currency }))
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country: Country)  => {
+        dispatch(profileActions.updateProfile({ country }))
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames(cls.profilePage, {}, [className]) }>
@@ -75,6 +85,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeCity={ onChangeCity }
                     onChangeAvatar={ onChangeAvatar }
                     onChangeUsername={ onChangeUsername }
+                    onChangeCurrency={ onChangeCurrency }
+                    onChangeCountry={ onChangeCountry }
                 />
             </div>
         </DynamicModuleLoader>
