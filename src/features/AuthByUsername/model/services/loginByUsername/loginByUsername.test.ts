@@ -70,7 +70,7 @@ describe('loginByUsername with TestAsyncThunk', () => {
             userActions.setAuthData(userValue),
         );
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(userValue);
     });
@@ -83,7 +83,7 @@ describe('loginByUsername with TestAsyncThunk', () => {
             username: '123',
         });
 
-        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(thunk.api.post).toHaveBeenCalled();
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toBe('error');
