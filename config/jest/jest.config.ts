@@ -15,7 +15,8 @@ const config: Config = {
         TextEncoder: TextEncoder,
         TextDecoder: TextDecoder,
         __IS_DEV__: true,
-        __API__: JSON.stringify('')
+        __API__: '',
+        __PROJECT__: 'jest'
     },
     rootDir: '../../',
     clearMocks: true,
