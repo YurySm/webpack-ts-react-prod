@@ -2,8 +2,9 @@ import { profileActions, profileReducer } from './profileSlice';
 import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { updateProfileData } from '../services/updateProfileData/updateProfileData'
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { Action } from '@reduxjs/toolkit';
+import { fetchProfileData } from 'entities/Profile';
 
 const data = {
     firstName: 'Max',
@@ -71,6 +72,63 @@ describe('profileSlice', () => {
         });
     });
 
+    test('fetchProfileData.pending', () => {
+        const state: DeepPartial<ProfileSchema> = {
+            isLoading: false,
+            error: 'error'
+        };
+
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                fetchProfileData.pending as unknown as Action,
+            ),
+        ).toEqual({
+            isLoading: true,
+            error: undefined
+        });
+    });
+
+    test('fetchProfileData.fulfilled', () => {
+        const state: DeepPartial<ProfileSchema> = {
+            isLoading: true,
+            data:undefined,
+            form:undefined,
+        };
+
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                fetchProfileData.fulfilled(data, '') as unknown as Action,
+            ),
+        ).toEqual({
+            isLoading: false,
+            form:data,
+            data,
+        });
+    });
+
+    test('fetchProfileData.rejected', () => {
+        const state: DeepPartial<ProfileSchema> = {
+            isLoading: true,
+            data:undefined,
+            form:undefined,
+            error: undefined
+        };
+
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                fetchProfileData.rejected(new Error(), '', undefined, 'error') as unknown as Action,
+            ),
+        ).toEqual({
+            isLoading: false,
+            data:undefined,
+            form:undefined,
+            error: 'error'
+        });
+    });
+
     test('updateProfileData.pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
@@ -104,6 +162,27 @@ describe('profileSlice', () => {
             validateErrors: undefined,
             form:data,
             data,
+        });
+    });
+
+    test('updateProfileData.rejected', () => {
+        const state: DeepPartial<ProfileSchema> = {
+            isLoading: true,
+            data:undefined,
+            form:undefined,
+            validateErrors: undefined
+        };
+
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.rejected(new Error(), '', undefined, [ValidateProfileError.SERVER_ERROR]) as unknown as Action,
+            ),
+        ).toEqual({
+            isLoading: false,
+            data:undefined,
+            form:undefined,
+            validateErrors: [ValidateProfileError.SERVER_ERROR]
         });
     });
 });
