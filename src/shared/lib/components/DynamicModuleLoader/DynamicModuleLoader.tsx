@@ -30,7 +30,7 @@ export const DynamicModuleLoader = ({
                 dispatch({ type: `@INIT ${name} reducer` });
             },
         );
-        console.log(reducers);
+
         return () => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(
