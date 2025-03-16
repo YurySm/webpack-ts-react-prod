@@ -59,6 +59,16 @@ redux/toolkit
 npm start
 ```
 
+### Запуск фейковый бэкекенд и приложение с дев сервером
+```bash
+npm start start:dev
+```
+
+### Запуск фейковый бэкекенд
+```bash
+npm start start:dev:server
+```
+
 ### Прод сборка
 ```bash
 npm run build:prod
