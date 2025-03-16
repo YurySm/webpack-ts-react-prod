@@ -48,7 +48,7 @@ export const profileSlice = createSlice({
         });
         builder.addCase(updateProfileData.pending, (state) => {
             state.isLoading = true;
-            state.error = undefined;
+            state.validateErrors = undefined;
         });
         builder.addCase(updateProfileData.fulfilled, (state, action) => {
             state.isLoading = false;
