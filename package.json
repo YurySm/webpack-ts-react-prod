@@ -14,7 +14,8 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:ui:ci": "npx loki --reactUri file:./storybook-static",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:concurrently": "concurrently --kill-others --raw --success first \"npm run storybook\" \"sleep 5 && npm run test:ui\"",
     "test:ui:ok": "npx loki approve",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
@@ -126,11 +127,6 @@
         "target": "chrome.app",
         "preset": "iPhone 7"
       }
-    }
-  },
-  "overrides": {
-    "ink": {
-      "react": "^17.0.2"
     }
   }
 }
