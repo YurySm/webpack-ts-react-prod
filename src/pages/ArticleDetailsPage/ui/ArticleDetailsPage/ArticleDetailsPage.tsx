@@ -19,14 +19,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if(!id) {
         return (
-            <div className={ classNames(cls.ArticleDetailsPage, {}, [className]) }>
+            <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
                 {t('Статья не найдена')}
             </div>
         );
     }
 
     return (
-        <div className={ classNames(cls.ArticleDetailsPage, {}, [className]) }>
+        <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
             <ArticleDetails id={ id } />
         </div>
     );

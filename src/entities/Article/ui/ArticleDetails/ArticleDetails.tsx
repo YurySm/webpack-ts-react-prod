@@ -8,9 +8,11 @@ import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArt
 import {
     getArticleDetailsData,
     getArticleDetailsIsLoading,
-    getArticlesDetailsError
+    getArticlesDetailsError,
 } from '../../model/selectors/articlesDetails';
 import { useTranslation } from 'react-i18next';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -31,7 +33,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const dispatch = useAppDispatch();
 
-    const isLoading = useAppSelector(getArticleDetailsIsLoading)
+    // const isLoading = useAppSelector(getArticleDetailsIsLoading)
+    const isLoading = true
     const error = useAppSelector(getArticlesDetailsError)
     const article = useAppSelector(getArticleDetailsData)
 
@@ -44,13 +47,33 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if(isLoading) {
         content = (
             <div className={ classNames(cls.articleDetails, {}, [className]) }>
-                {t('Loading')}
+                <Skeleton
+                    width={ 200 }
+                    height={ 200 }
+                    borderRadius={ '50%' }
+                />
+                <Skeleton
+                    width={ 400 }
+                    height={ 40 }
+                />
+                <Skeleton
+                    width={ 70 }
+                    height={ 40 }
+                />
+                <Skeleton
+                    width={ '100%' }
+                    height={ 250 }
+                />
             </div>
         )
     } else if(error) {
         content = (
             <div className={ classNames(cls.articleDetails, {}, [className]) }>
-                {t('error')}
+                <Text
+                    align={ TextAlign.CENTER }
+                    title={ t('Произошла ошибка при загрузке страницы') }
+                    theme={ TextTheme.ERROR }
+                />
             </div>
         )
     } else  {
