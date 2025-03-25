@@ -48,19 +48,33 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <div className={ classNames(cls.articleDetails, {}, [className]) }>
                 <Skeleton
+                    className={ cls.avatar }
                     width={ 200 }
                     height={ 200 }
                     borderRadius={ '50%' }
                 />
                 <Skeleton
+                    className={ cls.title }
                     width={ 400 }
-                    height={ 40 }
+                    height={ 35 }
                 />
                 <Skeleton
+                    className={ cls.skeleton }
                     width={ 70 }
-                    height={ 40 }
+                    height={ 35 }
                 />
                 <Skeleton
+                    className={ cls.skeleton }
+                    width={ '100%' }
+                    height={ 250 }
+                />
+                <Skeleton
+                    className={ cls.skeleton }
+                    width={ '100%' }
+                    height={ 250 }
+                />
+                <Skeleton
+                    className={ cls.skeleton }
                     width={ '100%' }
                     height={ 250 }
                 />

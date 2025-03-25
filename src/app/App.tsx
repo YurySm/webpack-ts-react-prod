@@ -21,7 +21,9 @@ export const App = () => {
             <Navbar />
             <div className={ 'content-page' }>
                 <Sidebar />
-                {inited && <AppRouter />}
+                <div className={ 'page-wrapper' }>
+                    {inited && <AppRouter />}
+                </div>
             </div>
         </div>
     );
