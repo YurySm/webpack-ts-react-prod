@@ -7,9 +7,18 @@
 }
 
 .title {
-    margin-top: 20px;
+    margin-top: 44px;
 }
 
 .skeleton {
-    margin-top: 15px;
+    margin-top: 10px;
+}
+
+.articleInfo {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+    &:first-child {
+        margin-top: 10px;
+    }
 }

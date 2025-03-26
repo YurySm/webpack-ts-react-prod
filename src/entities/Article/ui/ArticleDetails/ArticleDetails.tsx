@@ -11,8 +11,11 @@ import {
     getArticlesDetailsError,
 } from '../../model/selectors/articlesDetails';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import EaeIcon from 'shared/assets/icons/eye-20-20.svg';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -33,8 +36,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const dispatch = useAppDispatch();
 
-    // const isLoading = useAppSelector(getArticleDetailsIsLoading)
-    const isLoading = true
+    const isLoading = useAppSelector(getArticleDetailsIsLoading)
     const error = useAppSelector(getArticlesDetailsError)
     const article = useAppSelector(getArticleDetailsData)
 
@@ -46,7 +48,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if(isLoading) {
         content = (
-            <div className={ classNames(cls.articleDetails, {}, [className]) }>
+            <>
                 <Skeleton
                     className={ cls.avatar }
                     width={ 200 }
@@ -78,29 +80,59 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     width={ '100%' }
                     height={ 250 }
                 />
-            </div>
+            </>
         )
     } else if(error) {
         content = (
-            <div className={ classNames(cls.articleDetails, {}, [className]) }>
+            <>
                 <Text
                     align={ TextAlign.CENTER }
                     title={ t('Произошла ошибка при загрузке страницы') }
                     theme={ TextTheme.ERROR }
                 />
-            </div>
+            </>
         )
     } else  {
         content = (
-            <div className={ classNames(cls.articleDetails, {}, [className]) }>
-                {article?.type}
-            </div>
+            <>
+                <Avatar
+                    src={ article?.img }
+                    size={ 200 }
+                    className={ cls.avatar }
+                />
+
+                <Text
+                    className={ cls.title }
+                    title={ article?.title }
+                    text={ article?.subtitle }
+                    size={ TextSize.L }
+                />
+
+                <div className={ cls.articleInfo }>
+                    <EaeIcon />
+
+                    <Text
+                        text={ article?.views.toString() }
+                    />
+                </div>
+
+                <div className={ cls.articleInfo }>
+                    <CalendarIcon />
+
+                    <Text
+                        text={ article?.createdAt }
+                    />
+                </div>
+
+            </>
         )
     }
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            {content}
+            <div className={ classNames(cls.articleDetails, {}, [className]) }>
+                {content}
+            </div>
         </DynamicModuleLoader>
     );
 })
