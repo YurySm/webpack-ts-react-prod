@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailSlice';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
@@ -16,6 +16,11 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import EaeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -43,6 +48,19 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     useEffect(() => {
         dispatch(fetchArticleById(id))
     }, [dispatch, id]);
+
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return <ArticleCodeBlockComponent key={ block.id } block={ block }/>
+        case ArticleBlockType.IMAGE:
+            return <ArticleImageBlockComponent key={ block.id }/>
+        case ArticleBlockType.TEXT:
+            return <ArticleTextBlockComponent key={ block.id } block={ block }/>
+        default:
+            return null;
+        }
+    }, [])
 
     let content
 
@@ -109,7 +127,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 />
 
                 <div className={ cls.articleInfo }>
-                    <EaeIcon />
+                    <Icon Svg={ EaeIcon }/>
 
                     <Text
                         text={ article?.views.toString() }
@@ -117,13 +135,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 </div>
 
                 <div className={ cls.articleInfo }>
-                    <CalendarIcon />
+                    <Icon Svg={ CalendarIcon }/>
 
                     <Text
                         text={ article?.createdAt }
                     />
                 </div>
-
+                {article?.blocks.map(renderBlock)}
             </>
         )
     }

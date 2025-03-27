@@ -12,11 +12,11 @@ export interface ArticleBlockBase {
 export interface ArticleCodeBlock extends ArticleBlockBase{
     type: ArticleBlockType.CODE
     code: string
-    title?: string
-    paragraphs: string[]
 }
 export interface ArticleTextBlock extends ArticleBlockBase{
     type: ArticleBlockType.TEXT
+    title?: string
+    paragraphs: string[]
 }
 export interface ArticleImageBlock extends ArticleBlockBase{
     type: ArticleBlockType.IMAGE
