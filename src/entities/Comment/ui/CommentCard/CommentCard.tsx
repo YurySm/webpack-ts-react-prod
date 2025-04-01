@@ -16,7 +16,7 @@ export const CommentCard = (props: CommentCardProps) => {
     } = props;
     return (
         <div className={ classNames(cls.commentCard, {}, [className]) }>
-            
+
         </div>
     );
 };
