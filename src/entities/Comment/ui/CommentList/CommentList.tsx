@@ -4,6 +4,7 @@ import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
+import { memo } from 'react';
 
 interface CommentListProps {
     className?: string;
@@ -11,19 +12,22 @@ interface CommentListProps {
     isLoading?: boolean;
 }
 
-export const CommentList = (props: CommentListProps) => {
+export const CommentList = memo((props: CommentListProps) => {
     const {
         className,
         comments,
         isLoading
     } = props;
+
     const { t } = useTranslation();
+
     return (
         <div className={ classNames(cls.commentlist, {}, [className]) }>
             {
                 comments && comments.length > 0 ?
                     comments.map(comment => (
                         <CommentCard
+                            isLoading={ isLoading }
                             key={ comment.id }
                             comment={ comment } />
                     )) :
@@ -31,4 +35,6 @@ export const CommentList = (props: CommentListProps) => {
             }
         </div>
     );
-};
+})
+
+CommentList.displayName = 'CommentList';
