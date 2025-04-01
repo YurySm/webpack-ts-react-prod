@@ -10,5 +10,6 @@
   "Войти": "Sing in",
   "Выйти": "Log out",
   "Авторизация": "Login",
-  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password"
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
+  "Комментарии отсутствуют": "Comments not found"
 }
