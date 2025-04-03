@@ -10,13 +10,14 @@ interface CommentCardProps {
     className?: string;
     comment: Comment
     isLoading?: boolean;
+    key?: string
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
     const {
         className,
         comment,
-        isLoading
+        isLoading,
     } = props;
 
     if (isLoading) {
@@ -49,16 +50,16 @@ export const CommentCard = memo((props: CommentCardProps) => {
                     comment.user?.avatar &&
                     <Avatar
                         size={ 30 }
-                        src={ comment.user.avatar }
-                        alt={ comment.user.username }
+                        src={ comment.user?.avatar }
+                        alt={ comment.user?.username }
                     />
                 }
 
-                <Text title={ comment.user.username } />
+                <Text title={ comment.user?.username } />
             </div>
             <Text
                 className={ cls.text }
-                text={ comment.text }/>
+                text={ comment?.text }/>
         </div>
     );
 })
