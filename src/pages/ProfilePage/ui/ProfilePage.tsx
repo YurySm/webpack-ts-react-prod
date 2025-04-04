@@ -20,6 +20,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router';
 
 interface ProfilePageProps {
     className?: string;
@@ -37,6 +39,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const readonly = useAppSelector(getProfileReadonly)
     const validateErrors = useAppSelector(getProfileValidateErrors)
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     const validateErrorsTranslation = {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Не корректные данные пользователя'),
@@ -45,11 +48,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.SERVER_ERROR]:  t('Ошибка при сохранении данных'),
     }
 
-    useEffect(() => {
-        if(__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData())
+    useInitialEffect(() => {
+        if(id) {
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch]);
+    })
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstName: value || '' }))

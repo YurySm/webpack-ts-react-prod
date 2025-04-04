@@ -99,7 +99,7 @@ describe('profileSlice', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                fetchProfileData.fulfilled(data, '') as unknown as Action,
+                fetchProfileData.fulfilled(data, '', '1') as unknown as Action,
             ),
         ).toEqual({
             isLoading: false,
@@ -119,7 +119,7 @@ describe('profileSlice', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                fetchProfileData.rejected(new Error(), '', undefined, 'error') as unknown as Action,
+                fetchProfileData.rejected(new Error(), '', '1', 'error') as unknown as Action,
             ),
         ).toEqual({
             isLoading: false,
