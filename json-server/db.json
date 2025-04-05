@@ -19,7 +19,9 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
       "views": 123,
       "createdAt": "15.03.2025",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdfsdfasdf",
+      "id": "UC9jxzc"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "john_smith john_smith",
+      "id": "0bjCJ8U"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdfasdfad",
+      "id": "90Yao9m"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "234344",
+      "id": "kX285N7"
     }
   ],
   "users": [

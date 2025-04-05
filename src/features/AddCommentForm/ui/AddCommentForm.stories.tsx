@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AddCommentForm } from './AddCommentForm';
+import AddCommentForm from './AddCommentForm';
 
 const meta: Meta<typeof AddCommentForm> = {
     title: '_/AddCommentForm',
