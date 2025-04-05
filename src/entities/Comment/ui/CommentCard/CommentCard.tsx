@@ -10,7 +10,7 @@ import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
     className?: string;
-    comment: Comment
+    comment?: Comment
     isLoading?: boolean;
     key?: string
 }
@@ -24,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={ classNames(cls.commentCard, {}, [className]) }>
+            <div className={ classNames(cls.commentCard, {}, [className, cls.loading]) }>
                 <div className={ cls.header }>
                     <Skeleton
                         width={ 30 }
@@ -44,6 +44,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
             </div>
         )
     }
+
+    if(!comment) return null
 
     return (
         <div className={ classNames(cls.commentCard, {}, [className]) }>

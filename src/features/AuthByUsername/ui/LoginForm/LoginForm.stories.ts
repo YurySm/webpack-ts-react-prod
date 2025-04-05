@@ -20,7 +20,7 @@ const tmpState: StateSchema = {
 };
 
 const meta: Meta<typeof LoginForm> = {
-    title: 'feature/LoginForm',
+    title: 'features/LoginForm',
     component: LoginForm,
     // parameters: {
     //     layout: 'centered',
