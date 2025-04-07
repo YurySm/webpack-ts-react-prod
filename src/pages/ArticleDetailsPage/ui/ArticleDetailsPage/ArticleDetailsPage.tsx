@@ -36,7 +36,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     } = props;
     const { t } = useTranslation('articles');
 
-    const { id } = useParams<{id: string}>();
+    let { id } = useParams<{id: string}>();
+
+    if(__PROJECT__  === 'storybook') {
+        id = '1'
+    }
 
     const comments = useAppSelector(getArticleComments.selectAll)
     const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
