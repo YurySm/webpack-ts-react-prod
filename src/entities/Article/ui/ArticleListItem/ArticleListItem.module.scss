@@ -1,0 +1,100 @@
+.articleListItem {
+    display: block;
+}
+
+//card
+//imgWrapp
+//img
+//date
+//infoWrapp
+//types
+//views
+//title
+
+//.big {
+//    .card {
+//    }
+
+//    .imgWrapp {
+//    }
+
+//    .img {
+//    }
+
+//    .date {
+//    }
+
+//    .infoWrapp {
+//    }
+
+//    .types {
+//    }
+
+//    .views {
+//    }
+
+//    .title {
+//    }
+//}
+
+.small {
+    width: 230px;
+    opacity: 0.9;
+    transform: scale(1);
+    transition: 0.2s ease-in-out;
+    transition-property: transform, opacity;
+    cursor: pointer;
+
+    .imgWrapp {
+        position: relative;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .date {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.01);
+
+        .date {
+            opacity: 1;
+        }
+    }
+
+    .infoWrapp {
+        display: flex;
+        margin-top: 4px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+    }
+
+    .types p {
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .title {
+        margin-top: 8px;
+
+        p {
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
