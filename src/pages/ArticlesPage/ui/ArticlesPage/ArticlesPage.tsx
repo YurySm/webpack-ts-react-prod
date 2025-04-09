@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Article, ArticleList } from 'entities/Article';
+import { Article, ArticleList, ArticleView } from 'entities/Article';
 
 interface ArticlesPageProps {
     className?: string;
@@ -15,6 +15,11 @@ const article = {
     'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png',
     'views': 123,
     'createdAt': '15.03.2025',
+    'user': {
+        'id': '1',
+        'username': 'max_admin',
+        'avatar': 'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'
+    },
     'type': [
         'IT',
         'SCIENCE',
@@ -91,14 +96,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <div className={ classNames(cls.ArticlesPage, {}, [className]) }>
-            <ArticleList articles={
-                new Array(16)
-                    .fill(0)
-                    .map((_, index) => ({
-                        ...article,
-                        id: index.toString(),
-                    }))
-            }/>
+            <ArticleList
+                view={ ArticleView.BIG }
+                articles={
+                    new Array(16)
+                        .fill(0)
+                        .map((_, index) => ({
+                            ...article,
+                            id: index.toString(),
+                        }))
+                }/>
         </div>
     );
 };

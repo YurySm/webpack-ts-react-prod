@@ -17,6 +17,11 @@ const meta: Meta<typeof ArticleDetails> = {
                     'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png',
                     'views': 123,
                     'createdAt': '15.03.2025',
+                    'user': {
+                        'id': '1',
+                        'username': 'max_admin',
+                        'avatar': 'https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png'
+                    },
                     'type': [ArticleType.IT],
                     'blocks': [
                         {
