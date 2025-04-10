@@ -2,42 +2,44 @@
     display: block;
 }
 
-//card
-//imgWrapp
-//img
-//date
-//infoWrapp
-//types
-//views
-//title
-
 .big {
     .header {
         display: flex;
         align-items: center;
         gap: 1rem;
     }
+
     .data {
         margin-left: auto;
     }
+
     .title {
         margin-top: 1.5rem;
     }
+
     .types {
         margin-top: 0.5rem;
     }
+
     .img {
         margin-top: 1rem;
         width: 100%;
         height: 20vh;
         object-fit: cover;
     }
+
+    .textBlock {
+        max-height: 200px;
+        overflow: hidden;
+    }
+
     .footer {
         margin-top: 1rem;
         display: flex;
         align-items: center;
         gap: 1rem;
     }
+
     .views {
         margin-left: auto;
     }

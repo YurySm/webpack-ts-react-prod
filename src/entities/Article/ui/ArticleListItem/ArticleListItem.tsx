@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleView } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
@@ -9,6 +9,10 @@ import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 
 interface ArticleListItemProps {
     className?: string;
@@ -24,8 +28,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     } = props;
 
     const { t } = useTranslation('articles');
+    const navigate = useNavigate()
 
-    const [isHover, bindHover] = useHover()
+    const onOpenArticle = useCallback(() => {
+        navigate(RoutesPaths.article_details + article.id)
+    }, [article.id, navigate]);
+
 
     const types = <Text text={ article.type.join(', ') } className={ cls.types } />
     const views = (
@@ -38,8 +46,9 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
 
     if (view === ArticleView.BIG) {
+        const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT)
         return (
-            <div { ...bindHover } className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
+            <div className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
                 <Card>
                     <div className={ cls.header }>
                         <Avatar size={ 30 } src={ article.user.avatar } alt={ article.user.username } />
@@ -47,19 +56,22 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <Text text={ article.createdAt } className={ cls.data } />
                     </div>
                     <Text title={ article.title } className={ cls.title } />
-                    {types}
 
+                    {types}
                     {img}
+                    {
+                        textBlock &&
+                        <ArticleTextBlockComponent block={ textBlock } className={ cls.textBlock }/>
+                    }
                     <div className={ cls.footer }>
                         <Button
                             theme={ ButtonTheme.OUTLINE }
+                            onClick={ onOpenArticle }
                         >
                             {t('Читать далее...')}
                         </Button>
 
-                        {/*<div className={ cls.views }>*/}
                         {views}
-                        {/*</div>*/}
                     </div>
                 </Card>
             </div>
@@ -67,8 +79,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     }
 
     return (
-        <div { ...bindHover } className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
-            <Card>
+        <div className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
+            <Card
+                onClick={ onOpenArticle }
+            >
                 <div className={ cls.imgWrapp }>
                     {img}
                     <Text text={ article.createdAt } className={ cls.date } />

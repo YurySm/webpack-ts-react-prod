@@ -3,12 +3,25 @@ import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { useCallback } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView
+}
+
+const getSceletons = (view: ArticleView) => {
+    return (
+        new Array(view === ArticleView.BIG ? 3 : 9)
+            .fill(0)
+            .map((_, index) => (
+                <ArticleListItemSkeleton
+                    view={ view }
+                    key={ index } />
+            ))
+    )
 }
 
 export const ArticleList = (props: ArticleListProps) => {
@@ -28,6 +41,14 @@ export const ArticleList = (props: ArticleListProps) => {
             />
         )
     }, [view])
+
+    if(isLoading) {
+        return (
+            <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
+                { getSceletons(view) }
+            </div>
+        )
+    }
 
     return (
         <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>

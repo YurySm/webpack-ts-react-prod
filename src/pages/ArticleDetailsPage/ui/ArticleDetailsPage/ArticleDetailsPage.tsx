@@ -9,18 +9,16 @@ import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
-import {
-    getArticleCommentsError,
-    getArticleCommentsIsLoading,
-} from '../../model/selectors/comments';
+import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
-    fetchCommentsByArticleId
+    fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
-import {
-    addCommentForArticle
-} from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer
@@ -37,6 +35,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('articles');
 
     let { id } = useParams<{id: string}>();
+    const navigate = useNavigate();
 
     if(__PROJECT__  === 'storybook') {
         id = '1'
@@ -51,6 +50,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text))
     }, [dispatch])
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutesPaths.articles)
+    }, [navigate])
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
@@ -75,6 +78,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
+                <Button
+                    theme={ ButtonTheme.OUTLINE }
+                    onClick={ onBackToList }
+                >
+                    {t('Вернуться к списку')}</Button>
                 <ArticleDetails id={ id } />
 
                 <Text
