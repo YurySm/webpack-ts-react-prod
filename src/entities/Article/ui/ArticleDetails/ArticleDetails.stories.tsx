@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '../../model/types/article';
 
 const meta: Meta<typeof ArticleDetails> = {
-    title: 'entities/ArticlesDetails',
+    title: 'entities/Article/ArticlesDetails',
     component: ArticleDetails,
     argTypes: {},
     decorators: [
@@ -96,7 +96,7 @@ export const Primary: Story = {
     args: {},
 };
 
-export const IsLoading: Story = {
+export const Loading: Story = {
     args: {},
     decorators: [StoreDecorator({
         articleDetails: {

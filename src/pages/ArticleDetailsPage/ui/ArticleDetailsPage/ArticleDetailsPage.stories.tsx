@@ -30,7 +30,7 @@ export const Primary: Story = {
     ]
 };
 
-export const IsLoading: Story = {
+export const Loading: Story = {
     decorators: [
         StoreDecorator({
             articleDetailsComments: {

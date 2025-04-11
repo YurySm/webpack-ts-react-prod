@@ -33,7 +33,7 @@ export const EmptyList: Story = {
     },
 };
 
-export const IsLoading: Story = {
+export const Loading: Story = {
     args: {
         isLoading: true
     },

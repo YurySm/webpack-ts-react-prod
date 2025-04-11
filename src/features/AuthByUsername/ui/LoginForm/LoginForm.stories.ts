@@ -49,7 +49,7 @@ export const WithError: Story = {
     ],
 };
 
-export const IsLoading: Story = {
+export const Loading: Story = {
     decorators: [
         StoreDecorator({
             ...tmpState,

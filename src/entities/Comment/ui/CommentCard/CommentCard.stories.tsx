@@ -22,7 +22,7 @@ export const Primary: Story = {
     },
 };
 
-export const IsLoading: Story = {
+export const Loading: Story = {
     args: {
         isLoading: true
     },
@@ -41,7 +41,7 @@ export const Dark: Story = {
     ]
 };
 
-export const IsLoadingDark: Story = {
+export const LoadingDark: Story = {
     args: {
         isLoading: true
     },
