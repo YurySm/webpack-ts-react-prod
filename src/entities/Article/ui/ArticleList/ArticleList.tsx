@@ -12,7 +12,7 @@ interface ArticleListProps {
     view?: ArticleView
 }
 
-const getSceletons = (view: ArticleView) => {
+const getSkeletons = (view: ArticleView) => {
     return (
         new Array(view === ArticleView.BIG ? 3 : 9)
             .fill(0)
@@ -45,7 +45,7 @@ export const ArticleList = (props: ArticleListProps) => {
     if(isLoading) {
         return (
             <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
-                { getSceletons(view) }
+                { getSkeletons(view) }
             </div>
         )
     }

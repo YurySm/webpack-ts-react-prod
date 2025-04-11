@@ -19,27 +19,19 @@ export const ArticleListItemSkeleton = (props: ArticleListItemSkeletonProps) => 
         return (
             <div className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
                 <Card>
-                    {/*<div className={ cls.header }>*/}
-                    {/*    <Avatar size={ 30 } src={ article.user.avatar } alt={ article.user.username } />*/}
-                    {/*    <Text text={ article.user.username } className={ cls.username } />*/}
-                    {/*    <Text text={ article.createdAt } className={ cls.data } />*/}
-                    {/*</div>*/}
-                    {/*<Text title={ article.title } className={ cls.title } />*/}
+                    <div className={ cls.header }>
+                        <Skeleton width={ 30 } height={ 30 } borderRadius={ '50%' } className={ cls.avatar }/>
+                        <Skeleton width={ 150 } height={ 16 }  className={ cls.username }/>
+                        <Skeleton width={ 130 } height={ 16 }  className={ cls.data }/>
+                    </div>
 
-                    {/*{types}*/}
-                    {/*{img}*/}
-                    {/*{*/}
-                    {/*    textBlock &&*/}
-                    {/*    <ArticleTextBlockComponent block={ textBlock } className={ cls.textBlock }/>*/}
-                    {/*}*/}
-                    {/*<div className={ cls.footer }>*/}
-                    {/*    <Button*/}
-                    {/*        theme={ ButtonTheme.OUTLINE }*/}
-                    {/*        onClick={ onOpenArticle }*/}
-                    {/*    >*/}
-                    {/*    </Button>*/}
+                    <Skeleton width={ 250 } height={ 24 }  className={ cls.title }/>
+                    <Skeleton width={ 130 } height={ 16 } className={ cls.types }/>
+                    <Skeleton height={ 250 } className={ cls.img }/>
 
-                    {/*</div>*/}
+                    <div className={ cls.footer }>
+                        <Skeleton width={ 200 } height={ 40 }/>
+                    </div>
                 </Card>
             </div>
         );
