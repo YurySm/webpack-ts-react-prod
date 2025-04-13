@@ -12,7 +12,7 @@ import {
     profileReducer,
     ValidateProfileError,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
@@ -22,6 +22,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
     className?: string;
@@ -88,7 +89,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.profilePage, {}, [className]) }>
+            <Page className={ classNames(cls.profilePage, {}, [className]) }>
                 <ProfilePageHeader/>
 
                 {validateErrors && validateErrors?.length > 0 &&
@@ -114,7 +115,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     onChangeCurrency={ onChangeCurrency }
                     onChangeCountry={ onChangeCountry }
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

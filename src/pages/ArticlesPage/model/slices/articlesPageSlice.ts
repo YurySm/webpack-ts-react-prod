@@ -20,16 +20,29 @@ export const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL
+        view: ArticleView.SMALL,
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
+        initState: (state) => {
+            const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView
+            state.view = view
+            state.limit = view === ArticleView.BIG ? 4 : 9
+        },
         setView: (state, { payload }: {payload: ArticleView} ) => {
             state.view = payload;
             localStorage.setItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY, payload)
         },
-        initState: (state) => {
-            state.view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView
-        }
+        setPage: (state, { payload }: {payload: number} ) => {
+            state.page = payload
+        },
+        // setLimit: (state, { payload }: {payload: number} ) => {
+        //     state.limit = payload
+        // },
+        // setHasMore: (state, { payload }: {payload: number} ) => {
+        //     state.page = payload
+        // }
     },
     extraReducers: builder => {
         builder.addCase(fetchArticlesList.pending, (state) => {

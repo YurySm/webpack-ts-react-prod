@@ -19,6 +19,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer
@@ -61,23 +62,23 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if(!id) {
         return (
-            <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
+            <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         );
     }
 
     if(commentsError) {
         return (
-            <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
+            <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
                 {t('Ошибка загрузки')}
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.articleDetailsPage, {}, [className]) }>
+            <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
                 <Button
                     theme={ ButtonTheme.OUTLINE }
                     onClick={ onBackToList }
@@ -97,7 +98,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     isLoading={ commentsIsLoading }
                     comments={ comments }
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
