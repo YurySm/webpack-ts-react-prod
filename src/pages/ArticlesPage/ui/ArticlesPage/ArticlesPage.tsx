@@ -9,11 +9,13 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import {
-    getArticlesPageError, getArticlesPageHasMore,
-    getArticlesPageIsLoading, getArticlesPageNumPage,
+    getArticlesPageError,
+    getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
 import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 interface ArticlesPageProps {
     className?: string;
@@ -33,23 +35,16 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     const articles = useAppSelector(getArticles.selectAll)
     const isLoading = useAppSelector(getArticlesPageIsLoading)
-    const error = useAppSelector(getArticlesPageError)
     const view = useAppSelector(getArticlesPageView)
-    const page = useAppSelector(getArticlesPageNumPage)
-    const hasMore = useAppSelector(getArticlesPageHasMore)
+    const error = useAppSelector(getArticlesPageError)
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view))
     }, [dispatch])
 
     const onLoadNextPart = useCallback(() => {
-        if(hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1))
-            dispatch(fetchArticlesList({
-                page: page + 1,
-            }));
-        }
-    }, [dispatch, page, hasMore, isLoading])
+        dispatch(fetchNextArticlesPage())
+    }, [dispatch])
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState())
@@ -57,6 +52,13 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             page: 1,
         }));
     })
+
+    if(error ) {
+        return <Text
+            text={ 'Что-то пошло не так!' }
+            align={ TextAlign.CENTER }
+            theme={ TextTheme.ERROR }  />
+    }
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
