@@ -28,7 +28,6 @@ describe('loginByUsername', () => {
         const action = loginByUsername({ password: '123', username: '123' });
         const result = await action(dispatch, getState, {
             api,
-            navigate
         });
 
         expect(dispatch).toHaveBeenCalledWith(
@@ -45,7 +44,6 @@ describe('loginByUsername', () => {
         const action = loginByUsername({ password: '123', username: '123' });
         const result = await action(dispatch, getState, {
             api,
-            navigate
         });
 
         expect(mockedAxios.post).toHaveBeenCalled();
