@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { counterReducer } from 'entities/Counter';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
+import { scrollSaveReducer } from 'widgets/ScrollSave';
 
 export function createReduxStore(
     initialState: StateSchema,
@@ -19,6 +20,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);

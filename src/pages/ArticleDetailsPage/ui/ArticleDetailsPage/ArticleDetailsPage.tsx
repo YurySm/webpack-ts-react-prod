@@ -19,7 +19,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer

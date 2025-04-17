@@ -17,6 +17,9 @@ const tmpState: StateSchema = {
     counter: {
         value: 0,
     },
+    scrollSave: {
+        scroll: {}
+    }
 };
 
 const meta: Meta<typeof LoginForm> = {
