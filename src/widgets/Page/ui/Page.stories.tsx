@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Page } from './Page';
 
 const meta: Meta<typeof Page> = {
-    title: '_/Page',
+    title: 'widgets/Page',
     component: Page,
     argTypes: {},
 };

@@ -42,14 +42,21 @@ export const ArticleList = (props: ArticleListProps) => {
         )
     }, [view])
 
+    if(isLoading) {
+        return (
+            <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
+                {
+                    isLoading && getSkeletons(view)
+                }
+            </div>
+        );
+    }
+
     return (
         <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
             {
                 articles.length > 0 ?
                     articles.map(renderArticle) : null
-            }
-            {
-                isLoading && getSkeletons(view)
             }
         </div>
     );

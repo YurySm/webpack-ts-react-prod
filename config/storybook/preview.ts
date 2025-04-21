@@ -3,6 +3,7 @@ import '../../src/app/styles/index.scss'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 // import { TranslationDecorator } from 'shared/config/storybook/decorators/TranslationDecorator';
 
 const preview: Preview = { 
@@ -17,6 +18,7 @@ const preview: Preview = {
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         RouterDecorator(),
+        StoreDecorator({})
         // TranslationDecorator()
     ],
 };
