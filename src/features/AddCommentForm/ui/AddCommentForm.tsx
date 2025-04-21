@@ -8,7 +8,7 @@ import { addCommentFormActions, addCommentFormReducer } from '../model/slices/ad
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { memo, useCallback } from 'react';
 import {
-    getAddCommentFormError,
+    // getAddCommentFormError,
     getAddCommentFormText,
 } from '../model/selectors/addCommentFormSelectors';
 
@@ -31,7 +31,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     const dispatch = useAppDispatch();
 
     const text = useAppSelector(getAddCommentFormText)
-    const error = useAppSelector(getAddCommentFormError)
+    // const error = useAppSelector(getAddCommentFormError)
 
     const onCommentTextChange = useCallback((value: string) => {
         dispatch(addCommentFormActions.setText(value));

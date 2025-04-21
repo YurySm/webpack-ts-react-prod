@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 import { Currency } from 'entities/Currency';

@@ -1,6 +1,6 @@
 import {
     Action,
-    configureStore, Reducer,
+    configureStore,
     ReducersMapObject,
     ThunkAction,
 } from '@reduxjs/toolkit';

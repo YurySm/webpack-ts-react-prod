@@ -7,6 +7,7 @@ import { getScrollSaveByPath, scrollSaveActions } from 'widgets/ScrollSave';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 
 interface PageProps {
     className?: string;
@@ -29,12 +30,12 @@ export const Page = (props: PageProps) => {
     const triggerRef = useRef(null) as unknown as RefObject<HTMLDivElement>;
     const wrapperRef = useRef(null) as unknown  as RefObject<HTMLDivElement>;
 
-    const onHandleScroll = (e: UIEvent<HTMLDivElement>) => {
+    const onHandleScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
             position: e.currentTarget.scrollTop
         }))
-    }
+    }, 500)
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition

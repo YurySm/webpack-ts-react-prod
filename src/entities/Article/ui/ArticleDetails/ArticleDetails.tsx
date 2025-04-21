@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailSlice';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
