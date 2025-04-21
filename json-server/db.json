@@ -49,11 +49,11 @@
     },
     {
       "id": "2",
-      "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "title": "TS news",
+      "subtitle": "Что нового в TS в 2023?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 13,
+      "createdAt": "15.03.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -84,11 +84,11 @@
     },
     {
       "id": "3",
-      "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "title": "C# news",
+      "subtitle": "Что нового в C# в 2024?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 5644,
+      "createdAt": "15.03.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -120,10 +120,10 @@
     {
       "id": "4",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2024?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 2345,
+      "createdAt": "15.04.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -155,10 +155,10 @@
     {
       "id": "5",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2022?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 979,
+      "createdAt": "11.03.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -192,8 +192,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 358,
+      "createdAt": "1.03.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -225,10 +225,10 @@
     {
       "id": "7",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2023?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 8356,
+      "createdAt": "14.04.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -262,8 +262,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 345,
+      "createdAt": "10.01.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -297,8 +297,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 4567,
+      "createdAt": "02.02.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -332,8 +332,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 738,
+      "createdAt": "12.04.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -365,10 +365,10 @@
     {
       "id": "11",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2024?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 226,
+      "createdAt": "01.12.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -400,10 +400,10 @@
     {
       "id": "12",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2022?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 7883,
+      "createdAt": "12.12.2022",
       "userId": "1",
       "type": [
         "IT"
@@ -435,10 +435,10 @@
     {
       "id": "13",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2021?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 3458,
+      "createdAt": "11.11.2021",
       "userId": "1",
       "type": [
         "IT"
@@ -470,10 +470,10 @@
     {
       "id": "14",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2023?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 6778,
+      "createdAt": "13.08.2023",
       "userId": "1",
       "type": [
         "IT"
@@ -505,10 +505,10 @@
     {
       "id": "15",
       "title": "Javascript news",
-      "subtitle": "Что нового в JS в 2025?",
+      "subtitle": "Что нового в JS в 2024?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 8342,
+      "createdAt": "01.09.2024",
       "userId": "1",
       "type": [
         "IT"
@@ -542,7 +542,7 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
+      "views": 2748,
       "createdAt": "15.03.2025",
       "userId": "1",
       "type": [
@@ -577,8 +577,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS в 2025?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
-      "views": 123,
-      "createdAt": "15.03.2025",
+      "views": 973,
+      "createdAt": "09.01.2022",
       "userId": "1",
       "type": [
         "IT"
