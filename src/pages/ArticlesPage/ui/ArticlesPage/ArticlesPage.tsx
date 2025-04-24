@@ -16,6 +16,7 @@ import { Page } from 'widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlecPageFileters/ArticlesPageFilters';
 
 interface ArticlesPageProps {
     className?: string;
@@ -38,9 +39,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const view = useAppSelector(getArticlesPageView)
     const error = useAppSelector(getArticlesPageError)
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view))
-    }, [dispatch])
 
     const onLoadNextPart = useCallback(() => {
         if(__PROJECT__ !== 'storybook') {
@@ -67,15 +65,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 onScrollEnd={ onLoadNextPart }
                 className={ classNames(cls.ArticlesPage, {}, [className]) }
             >
-                <ArticleViewSelector
-                    view={ view }
-                    onViewClick={ onChangeView }
-                />
+
+                <ArticlesPageFilters />
 
                 <ArticleList
                     isLoading={ isLoading }
                     view={ view }
-                    articles={ articles } />
+                    articles={ articles }
+                    className={ cls.list }
+                />
             </Page>
         </DynamicModuleLoader>
     );

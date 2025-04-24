@@ -10,7 +10,7 @@ export interface SelectOption {
 interface SelectProps {
     className?: string;
     label?: string;
-    options: SelectOption[];
+    options?: SelectOption[];
     value?: string;
     onChange?: (value: string) => void;
     readOnly?: boolean;
@@ -20,7 +20,7 @@ export const Select = memo((props: SelectProps) => {
     const {
         className,
         label,
-        options,
+        options = [],
         value,
         onChange,
         readOnly = false
