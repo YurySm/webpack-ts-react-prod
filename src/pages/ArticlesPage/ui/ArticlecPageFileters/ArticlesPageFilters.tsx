@@ -6,9 +6,9 @@ import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPag
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { getArticlesPageView } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
+import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 
 interface ArticlesPageFiltersProps {
     className?: string;
@@ -32,9 +32,8 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     return (
         <div className={ classNames(cls.articlespagefilters, {}, [className]) }>
             <div className={ cls.sortWrapper }>
-                <Select
-                    label={ t('Сортировать по') }
-                />
+                {/*<ArticleSortSelector/>*/}
+
                 <ArticleViewSelector
                     view={ view }
                     onViewClick={ onChangeView }
