@@ -1,4 +1,4 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleSortField, ArticleView } from 'entities/Article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
@@ -55,14 +55,24 @@ export const articlesPageSlice = createSlice({
         }
     },
     extraReducers: builder => {
-        builder.addCase(fetchArticlesList.pending, (state) => {
+        builder.addCase(fetchArticlesList.pending, (state, action) => {
             state.isLoading = true;
             state.error = undefined;
+            if(action.meta.arg.replace) {
+                articlesAdapter.removeAll(state)
+            }
         });
-        builder.addCase(fetchArticlesList.fulfilled, (state, { payload }: {payload: Article[]} ) => {
+        builder.addCase(fetchArticlesList.fulfilled, (state, action ) => {
             state.isLoading = false;
-            articlesAdapter.addMany(state, payload)
-            state.hasMore = payload.length > 0
+            state.hasMore = action.payload.length > 0
+
+            if(action.meta.arg.replace) {
+                articlesAdapter.setMany(state, action.payload)
+            } else {
+                articlesAdapter.addMany(state, action.payload)
+            }
+
+
         });
         builder.addCase(fetchArticlesList.rejected, (state, action) => {
             state.isLoading = false;
