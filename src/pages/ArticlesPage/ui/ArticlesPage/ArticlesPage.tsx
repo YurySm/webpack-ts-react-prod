@@ -17,6 +17,7 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlecPageFileters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string;
@@ -30,6 +31,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const {
         className,
     } = props;
+
+    const [searchParams] = useSearchParams()
 
     // const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
@@ -48,7 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     useInitialEffect(() => {
         if(__PROJECT__ !== 'storybook') {
-            dispatch(initArticlesPage());
+            dispatch(initArticlesPage(searchParams));
         }
     })
 
