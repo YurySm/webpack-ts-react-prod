@@ -3,7 +3,7 @@ import cls from './Tabs.module.scss';
 import { ReactNode, useCallback } from 'react';
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 
-interface TabItem {
+export interface TabItem {
     value: string;
     content: ReactNode;
 }

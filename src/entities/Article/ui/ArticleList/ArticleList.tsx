@@ -4,6 +4,8 @@ import { Article, ArticleView } from '../../model/types/article';
 import { useCallback } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleListProps {
     className?: string;
@@ -32,6 +34,8 @@ export const ArticleList = (props: ArticleListProps) => {
         view = ArticleView.SMALL
     } = props;
 
+    const { t } = useTranslation('articles');
+
     const renderArticle = useCallback((article: Article) => {
         return (
             <ArticleListItem
@@ -48,6 +52,14 @@ export const ArticleList = (props: ArticleListProps) => {
                 {
                     isLoading && getSkeletons(view)
                 }
+            </div>
+        );
+    }
+
+    if(!isLoading && !articles.length) {
+        return (
+            <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
+                <Text title={ t('Статьи не найдены') }/>
             </div>
         );
     }
