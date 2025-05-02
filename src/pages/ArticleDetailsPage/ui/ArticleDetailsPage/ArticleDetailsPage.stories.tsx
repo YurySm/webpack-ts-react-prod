@@ -94,15 +94,17 @@ type Story = StoryObj<typeof ArticleDetailsPage>;
 export const Primary: Story = {
     decorators: [
         StoreDecorator({
-            articleDetailsComments: {
-                isLoading: false,
-                error: undefined,
-                ids: ['1'],
-                entities: {
-                    '1': {
-                        id: '1',
-                        text: 'comment user 1',
-                        user: { id: '1', username: 'user 1' },
+            articleDetailsPage: {
+                comments: {
+                    isLoading: false,
+                    error: undefined,
+                    ids: ['1'],
+                    entities: {
+                        '1': {
+                            id: '1',
+                            text: 'comment user 1',
+                            user: { id: '1', username: 'user 1' },
+                        }
                     }
                 }
             },
@@ -116,12 +118,14 @@ export const Primary: Story = {
 export const Loading: Story = {
     decorators: [
         StoreDecorator({
-            articleDetailsComments: {
-                isLoading: true,
-                error: undefined,
-                ids: [],
-                entities: { }
-            }
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true,
+                    error: undefined,
+                    ids: [],
+                    entities: { }
+                }
+            },
         })
     ]
 };

@@ -5,7 +5,7 @@ import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/tool
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'widgets/ScrollSave';
@@ -18,9 +18,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentFrom?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema;

@@ -14,3 +14,23 @@
 .content-page {
     display: flex;
 }
+
+//* {
+//    scrollbar-width: thin;
+//    scrollbar-color: var(--inverted-primary-color) var(--card-bg);
+//}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color);
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+}

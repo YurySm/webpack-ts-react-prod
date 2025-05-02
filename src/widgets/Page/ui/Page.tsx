@@ -30,15 +30,24 @@ export const Page = (props: PageProps) => {
     const triggerRef = useRef(null) as unknown as RefObject<HTMLDivElement>;
     const wrapperRef = useRef(null) as unknown  as RefObject<HTMLDivElement>;
 
-    const onHandleScroll = useDebounce((e: UIEvent<HTMLDivElement>) => {
+    const onHandleScroll = (e: UIEvent<HTMLDivElement>) => {
+        const scrollTop = e.currentTarget?.scrollTop;
+        if (scrollTop === undefined) return;
+
+        debouncedScrollHandler(scrollTop);
+    };
+
+    const debouncedScrollHandler = useDebounce((scrollTop: number) => {
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
-            position: e.currentTarget.scrollTop
-        }))
-    }, 500)
+            position: scrollTop,
+        }));
+    }, 500);
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition
+        if (wrapperRef.current) {
+            wrapperRef.current.scrollTop = scrollPosition;
+        }
     })
 
     useInfinityScroll({
