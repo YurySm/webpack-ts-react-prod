@@ -15,6 +15,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:update":  "concurrently --kill-others --raw --success first \"npm run storybook\" \"sleep 20 && npx loki update\"",
     "test:ui:ci:concurrently": "concurrently --kill-others --raw --success first \"npm run storybook\" \"sleep 20 && npm run test:ui\"",
     "test:ui:ok": "npx loki approve",
     "test:ui:json": "node scripts/generate-visual-json-report.js",

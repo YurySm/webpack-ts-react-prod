@@ -42,7 +42,7 @@ jobs:
 #        if: always()
 
       - name: Run UI testing
-        run: npx loki update
+        run: npm run test:ui:ci:update
         if: always()
 
 #      - name: Run UI testing
