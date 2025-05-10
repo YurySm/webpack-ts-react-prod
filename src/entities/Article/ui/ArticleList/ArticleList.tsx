@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
-import { useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -31,7 +32,8 @@ export const ArticleList = (props: ArticleListProps) => {
         className,
         articles,
         isLoading,
-        view = ArticleView.SMALL
+        view = ArticleView.SMALL,
+        target,
     } = props;
 
     const { t } = useTranslation('articles');
@@ -39,6 +41,7 @@ export const ArticleList = (props: ArticleListProps) => {
     const renderArticle = useCallback((article: Article) => {
         return (
             <ArticleListItem
+                target={ target }
                 key={ article.id }
                 article={ article }
                 view={ view }

@@ -99,6 +99,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     title={ t('Рекомендуем') } />
 
                 <ArticleList
+                    target={ '_blank' }
                     articles={ recommendations }
                     isLoading={ recommendationsIsLoading }
                     className={ cls.recommendations }
