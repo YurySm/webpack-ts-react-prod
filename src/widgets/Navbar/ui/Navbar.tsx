@@ -4,13 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { Counter } from 'entities/Counter';
-import {
-    useAppDispatch,
-    useAppSelector,
-} from 'app/providers/StoreProvider/config/store';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/store';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
     className?: string;
@@ -36,8 +35,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={ classNames(cls.navbar, {}, [className]) }>
+            <header className={ classNames(cls.navbar, {}, [className]) }>
+                <Text
+                    theme={ TextTheme.INVERTED }
+                    title={ t('Articles App') }/>
+
                 <div className={ cls.links }>
+                    <AppLink
+                        theme={ AppLinkTheme.SECONDARY }
+                        to={ RoutesPaths.article_create }>
+                        {t('Создать статью')}
+                    </AppLink>
                     <Button
                         theme={ ButtonTheme.CLEAR_INVERTED }
                         type="button"
@@ -46,7 +54,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         {t('Выйти')}
                     </Button>
                 </div>
-            </div>
+            </header>
         );
     }
 

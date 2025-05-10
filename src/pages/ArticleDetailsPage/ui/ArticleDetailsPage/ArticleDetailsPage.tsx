@@ -14,9 +14,6 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router-dom';
-import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
 import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice';
 import { getArticleDetailsRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
@@ -24,6 +21,9 @@ import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecomendations';
 import { articleDetailsPageReducer } from '../../model/slices';
+import {
+    ArticleDetailsPageHeader,
+} from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -40,7 +40,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('articles');
 
     let { id } = useParams<{id: string}>();
-    const navigate = useNavigate();
 
     if(__PROJECT__  === 'storybook') {
         id = '1'
@@ -58,10 +57,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text))
     }, [dispatch])
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutesPaths.articles)
-    }, [navigate])
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
@@ -87,11 +82,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
-                <Button
-                    theme={ ButtonTheme.OUTLINE }
-                    onClick={ onBackToList }
-                >
-                    {t('Вернуться к списку')}</Button>
+                <ArticleDetailsPageHeader/>
+
                 <ArticleDetails id={ id } />
 
                 <Text
