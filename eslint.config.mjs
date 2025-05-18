@@ -5,6 +5,7 @@ import pluginReact from 'eslint-plugin-react';
 import i18next from 'eslint-plugin-i18next';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import { fixupPluginRules } from '@eslint/compat';
+import fsdPlugin from '@yury_sm/eslint-plugin-fsd-path-checker';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -28,6 +29,7 @@ export default [
         },
         plugins: {
             react: pluginReact,
+            'fsd-path-checker': fsdPlugin,
             'react-hooks': fixupPluginRules(reactHooksPlugin),
         },
         settings: {
@@ -105,7 +107,8 @@ export default [
             '@typescript-eslint/no-unused-vars': 'warn',
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
-            '@typescript-eslint/no-explicit-any': 'warn'
+            '@typescript-eslint/no-explicit-any': 'warn',
+            'fsd-path-checker/path-checker': 'warn',
         },
     },
     {
