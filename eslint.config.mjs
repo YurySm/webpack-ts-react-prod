@@ -109,6 +109,12 @@ export default [
             'react-hooks/exhaustive-deps': 'warn',
             '@typescript-eslint/no-explicit-any': 'warn',
             'fsd-path-checker/path-checker': 'error',
+            'i18next/no-literal-string': [
+                'error',
+                {
+                    ignoreAttribute: ['data-testid', 'className']
+                }
+            ]
         },
     },
     {
