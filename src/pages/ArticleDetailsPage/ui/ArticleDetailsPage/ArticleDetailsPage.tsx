@@ -16,7 +16,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { Page } from 'widgets/Page/ui/Page';
 import { getArticleRecommendations } from '../../model/slices/articleDetailsPageRecommendationsSlice';
-import { getArticleDetailsRecommendationsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
+import { getArticleDetailsRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import {
     fetchArticleRecommendations,
 } from '../../model/services/fetchArticleRecommendations/fetchArticleRecomendations';

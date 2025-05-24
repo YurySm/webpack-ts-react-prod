@@ -4,7 +4,7 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { Action } from '@reduxjs/toolkit';
-import { fetchProfileData } from 'entities/Profile';
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 
 const data = {
     firstName: 'Max',

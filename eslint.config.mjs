@@ -108,13 +108,13 @@ export default [
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
             '@typescript-eslint/no-explicit-any': 'warn',
-            'fsd-path-checker/path-checker': 'warn',
+            'fsd-path-checker/path-checker': 'error',
         },
     },
     {
         files: ['**/src/**/*.{spec,test,story}.{ts,tsx}'],
         rules: {
-            'i18next/no-literal-string': 0,
+            'i18next/no-literal-string': 'off',
         },
     },
     {
@@ -122,6 +122,12 @@ export default [
         rules: {
             '@typescript-eslint/no-require-imports': 0,
             'no-undef': 0,
+        },
+    },
+    {
+        files: ['**/src/shared/**/*'],
+        rules: {
+            'fsd-path-checker/path-checker': 'off',
         },
     },
 ];

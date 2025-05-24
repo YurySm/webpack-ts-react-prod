@@ -6,8 +6,8 @@ import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'app/providers/StoreProvider/config/store';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
-import { getArticleDetailsData, getArticlesDetailsError } from 'entities/Article';
+import { getCanEditArticle } from '../../model/selectors/article';
+import { getArticleDetailsData } from 'entities/Article';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
