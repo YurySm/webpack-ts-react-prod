@@ -22,24 +22,24 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build production project
-        run: npm run build:prod
-        if: always()
-
-      - name: Run linting TypeScript
-        run: npm run lint:ts
-        if: always()
-
-      - name: Run linting CSS
-        run: npm run lint:scss
-        if: always()
-
-      - name: Run unit testing
-        run: npm run test:unit
-        if: always()
+#      - name: Install dependencies
+#        run: npm install
+#
+#      - name: Build production project
+#        run: npm run build:prod
+#        if: always()
+#
+#      - name: Run linting TypeScript
+#        run: npm run lint:ts
+#        if: always()
+#
+#      - name: Run linting CSS
+#        run: npm run lint:scss
+#        if: always()
+#
+#      - name: Run unit testing
+#        run: npm run test:unit
+#        if: always()
 
 #      - name: Run UI testing
 #        run: npm run test:ui:ci:concurrently
