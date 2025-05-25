@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 import { ReactNode } from 'react';
 
@@ -39,6 +39,7 @@ export interface FlexProps {
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: FlexGap;
+    max?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -48,7 +49,8 @@ export const Flex = (props: FlexProps) => {
         justify = 'start',
         align = 'center',
         direction = 'row',
-        gap
+        gap,
+        max = true
     } = props;
 
     const classes = [
@@ -59,9 +61,13 @@ export const Flex = (props: FlexProps) => {
         className
     ]
 
+    const mods: Mods = {
+        [cls.max]: max
+    }
+
     return (
         <div
-            className={ classNames(cls.flex, {}, classes) }>
+            className={ classNames(cls.flex, mods, classes) }>
             {children}
         </div>
     );

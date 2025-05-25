@@ -84,3 +84,39 @@ export const SizeLDark: Story = {
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
+
+
+export const SizeM: Story = {
+    args: {
+        title: 'Title',
+        text: 'text',
+        size: TextSize.M
+    },
+};
+
+export const SizeMDark: Story = {
+    args: {
+        title: 'Title',
+        text: 'text',
+        size: TextSize.M
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const SizeS: Story = {
+    args: {
+        title: 'Title',
+        text: 'text',
+        size: TextSize.S
+    },
+};
+
+export const SizeSDark: Story = {
+    args: {
+        title: 'Title',
+        text: 'text',
+        size: TextSize.S
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
