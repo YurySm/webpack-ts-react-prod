@@ -1,0 +1,24 @@
+.options {
+    width: var(--button-width);
+    background: var(--inverted-secondary-color);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px var(--inverted-primary-color);
+}
+
+.option {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.selected {
+    background: var(--primary-color);
+}
+
+.active {
+    background: var(--primary-color);
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
