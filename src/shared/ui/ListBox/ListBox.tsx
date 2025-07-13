@@ -4,19 +4,12 @@ import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
-// const people = [
-//     { id: 1, name: 'Durward Reynolds', disabled: true },
-//     { id: 2, name: 'Kenton Towne' },
-//     { id: 3, name: 'Therese Wunsch' },
-//     { id: 4, name: 'Benedict Kessler' },
-//     { id: 5, name: 'Katelyn Rohan' },
-// ]
-
 export interface ListBoxItem {
     value: string
-    content: ReactNode
+    label: ReactNode
     disabled?: boolean
 }
+
 
 interface ListBoxProps {
     items?: ListBoxItem[];
@@ -24,6 +17,8 @@ interface ListBoxProps {
     value?: string;
     defaultValue?: string;
     onChange?: (value: string) => void;
+    readonly?: boolean;
+    label?: ReactNode;
 }
 
 export function ListBox(props: ListBoxProps) {
@@ -32,7 +27,9 @@ export function ListBox(props: ListBoxProps) {
         items = [],
         defaultValue,
         onChange,
-        value
+        value,
+        readonly,
+        label
     } = props;
 
     return (
@@ -41,9 +38,10 @@ export function ListBox(props: ListBoxProps) {
             className={ classNames(cls.listbox, {}, [className]) }
             value={ value }
             onChange={ onChange }
+            disabled={ readonly }
         >
+            {label && <span>{label + ': '}</span>}
             <ListboxButton
-                // className={ cls.trigger }
                 as={ Fragment }
             >
                 <Button theme={ ButtonTheme.BACKGROUND_INVERTED } className={ cls.trigger }>
@@ -52,7 +50,7 @@ export function ListBox(props: ListBoxProps) {
             </ListboxButton>
             <ListboxOptions
                 className={ cls.options }
-                anchor="bottom">
+                anchor={ 'bottom start' }>
                 {items.map(item => (
                     <ListboxOption
                         key={ item.value }
@@ -61,7 +59,7 @@ export function ListBox(props: ListBoxProps) {
                         as={ Fragment }>
                         {({ selected, focus, disabled }) => (
                             <li className={ classNames(cls.option, { [cls.selected]: selected, [cls.active]: focus, [cls.disabled]: disabled }, []) }>
-                                {item.content}
+                                {item.label}
                             </li>
                         )}
                     </ListboxOption>
