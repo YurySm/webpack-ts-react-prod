@@ -1,5 +1,5 @@
-import { Listbox as HListBox, ListboxButton, ListboxOption, ListboxOptions, ListboxProps } from '@headlessui/react';
-import { Fragment, ReactNode, useState } from 'react';
+import { Listbox as HListBox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
+import { Fragment, ReactNode } from 'react';
 import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
