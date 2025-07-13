@@ -118,7 +118,7 @@ export default [
         },
     },
     {
-        files: ['**/src/**/*.{spec,test,story}.{ts,tsx}'],
+        files: ['**/src/**/*.{spec,test,story,stories}.{ts,tsx}'],
         rules: {
             'i18next/no-literal-string': 'off',
         },
