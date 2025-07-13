@@ -15,11 +15,11 @@ export const Row: Story = {
     args: {
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -31,11 +31,11 @@ export const RowGap4: Story = {
         gap: '4',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -47,11 +47,11 @@ export const RowGap8: Story = {
         gap: '8',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -63,11 +63,11 @@ export const RowGap16: Story = {
         gap: '16',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -79,11 +79,11 @@ export const RowGap32: Story = {
         gap: '32',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -95,11 +95,11 @@ export const Column: Story = {
         direction: 'column',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -112,11 +112,11 @@ export const ColumnGap4: Story = {
         gap: '4',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -129,11 +129,11 @@ export const ColumnGap8: Story = {
         gap: '8',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -147,11 +147,11 @@ export const ColumnGap16: Story = {
         gap: '16',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -164,11 +164,11 @@ export const ColumnGap32: Story = {
         gap: '32',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -180,11 +180,11 @@ export const JustifyBetween: Story = {
         justify: 'between',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
@@ -197,11 +197,11 @@ export const ColumnAlignEnd: Story = {
         align: 'end',
         children: (
             <>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }} >text</div>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
+                { }
                 <div style={{ padding: '10px', border: '1px solid black' }}>text</div>
             </>
         )
