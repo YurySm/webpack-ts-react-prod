@@ -24,6 +24,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import {
     ArticleDetailsPageHeader,
 } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticlesRecommendationsList } from 'features/ArticlesRecommendationsList';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer
@@ -49,9 +50,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const commentsIsLoading = useAppSelector(getArticleCommentsIsLoading)
     const commentsError = useAppSelector(getArticleCommentsError)
 
-    const recommendations = useAppSelector(getArticleRecommendations.selectAll)
-    const recommendationsIsLoading = useAppSelector(getArticleDetailsRecommendationsIsLoading)
-
     const dispatch = useAppDispatch();
 
     const onSendComment = useCallback((text: string) => {
@@ -60,7 +58,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
-        dispatch(fetchArticleRecommendations())
     })
 
     if(!id) {
@@ -86,16 +83,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
                 <ArticleDetails id={ id } />
 
-                <Text
-                    className={ cls.commentTitle }
-                    title={ t('Рекомендуем') } />
-
-                <ArticleList
-                    target={ '_blank' }
-                    articles={ recommendations }
-                    isLoading={ recommendationsIsLoading }
-                    className={ cls.recommendations }
-                />
+                <ArticlesRecommendationsList/>
 
                 <Text
                     className={ cls.commentTitle }

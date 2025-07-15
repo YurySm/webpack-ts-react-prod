@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider';
 import { StateSchema } from 'app/providers/StoreProvider';
 
-const tmpState: StateSchema = {
+const tmpState: DeepPartial<StateSchema> = {
     loginForm: {
         username: 'test',
         password: 'test',
@@ -19,7 +19,7 @@ const tmpState: StateSchema = {
     },
     scrollSave: {
         scroll: {}
-    }
+    },
 };
 
 const meta: Meta<typeof LoginForm> = {
