@@ -3,26 +3,13 @@ import { Text } from 'shared/ui/Text/Text';
 import { ArticleList } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
-import { rtkApi } from 'shared/api/rtkApi';
+import {
+    useGetArticlesRecommendationsListQuery
+} from '../api/articleRecommendationsApi';
 
 interface ArticlesRecommendationsListProps {
     className?: string;
 }
-
-const recommendationsApi = rtkApi.injectEndpoints({
-    endpoints: (build) => ({
-        getArticlesRecommendationsList: build.query({
-            query: (limit) => ({
-                url: '/articles',
-                params: {
-                    _limit: limit
-                }
-            }),
-        }),
-    })
-})
-
-const { useGetArticlesRecommendationsListQuery } = recommendationsApi
 
 export const ArticlesRecommendationsList = (props: ArticlesRecommendationsListProps) => {
     const {
@@ -32,7 +19,7 @@ export const ArticlesRecommendationsList = (props: ArticlesRecommendationsListPr
     const { t } = useTranslation('articles');
 
     const {
-        data,
+        data: articles,
         isLoading,
         isFetching
     } = useGetArticlesRecommendationsListQuery(3)
@@ -44,7 +31,7 @@ export const ArticlesRecommendationsList = (props: ArticlesRecommendationsListPr
 
             <ArticleList
                 target={ '_blank' }
-                articles={ data || [] }
+                articles={ articles || [] }
                 isLoading={ isLoading || isFetching }
             />
         </VStack>
