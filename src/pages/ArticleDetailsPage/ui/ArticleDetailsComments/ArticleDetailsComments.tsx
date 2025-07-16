@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetailsComments.module.scss';
 import { Text } from 'shared/ui/Text/Text';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
@@ -44,7 +43,6 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     return (
         <div className={ classNames('', {}, [className]) }>
             <Text
-                className={ cls.commentTitle }
                 title={ t('Комментарии') } />
 
             <AddCommentForm
