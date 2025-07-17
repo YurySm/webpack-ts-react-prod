@@ -12,10 +12,12 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 interface ArticlesInfinityListProps {
     searchParams: URLSearchParams
+    className?: string
 }
 
 export const ArticlesInfinityList = (props: ArticlesInfinityListProps) => {
     const {
+        className,
         searchParams
     } = props;
 
@@ -34,6 +36,7 @@ export const ArticlesInfinityList = (props: ArticlesInfinityListProps) => {
 
     if(error ) {
         return <Text
+            className={ className }
             text={ 'Что-то пошло не так!' }
             align={ TextAlign.CENTER }
             theme={ TextTheme.ERROR }  />
@@ -41,6 +44,7 @@ export const ArticlesInfinityList = (props: ArticlesInfinityListProps) => {
 
     return (
         <ArticleList
+            className={ className }
             isLoading={ isLoading }
             view={ view }
             articles={ articles }

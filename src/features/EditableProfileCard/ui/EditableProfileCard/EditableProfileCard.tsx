@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './EditableProfileCard.module.scss';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useCallback } from 'react';
@@ -19,6 +18,9 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    EditableProfileCardHeader
+} from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -90,14 +92,16 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames(cls.EditableProfileCard, {}, [className]) }>
-                {validateErrors && validateErrors?.length > 0 &&
-                validateErrors.map(error => (
-                    <Text
-                        key={ error }
-                        theme={ TextTheme.ERROR }
-                        text={ validateErrorsTranslation[error] }/>
-                ))
+            <div className={ classNames('', {}, [className]) }>
+                <EditableProfileCardHeader/>
+                {
+                    validateErrors && validateErrors?.length > 0 &&
+                    validateErrors.map(error => (
+                        <Text
+                            key={ error }
+                            theme={ TextTheme.ERROR }
+                            text={ validateErrorsTranslation[error] }/>
+                    ))
                 }
 
                 <ProfileCard

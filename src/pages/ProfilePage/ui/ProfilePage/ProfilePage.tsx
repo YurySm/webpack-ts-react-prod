@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 import { Page } from 'widgets/Page/ui/Page';
 import { EditableProfileCard } from 'features/EditableProfileCard';
@@ -15,7 +14,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const { id } = useParams<{id: string}>();
     const { t } = useTranslation('profile');
 
-
     if(!id) {
         return (
             <Text
@@ -27,7 +25,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <Page className={ classNames(cls.profilePage, {}, [className]) }>
-            <ProfilePageHeader/>
             <EditableProfileCard id={ id }/>
         </Page>
     );
