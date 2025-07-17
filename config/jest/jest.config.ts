@@ -60,6 +60,24 @@ const config: Config = {
         '^.+\\.tsx?$': ['ts-jest', {}],
     },
 
+    // reporters: [
+    //     'default',
+    //     ['./node_modules/jest-html-reporter', {
+    //         pageTitle: 'Test Report',
+    //         outputPath: '<rootDir>/reports/unit/test-report.html'
+    //     }]
+    // ]
+
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            'publicPath': '<rootDir>/reports/unit',
+            'filename': 'report.html',
+            'openReport': true,
+            inlineSource: true,
+        }]
+    ]
+
     // transform: {
     // 	'\\.tsx$': '<rootDir>/node_modules/ts-node/transform',
     // },
