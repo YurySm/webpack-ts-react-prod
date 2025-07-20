@@ -46,19 +46,25 @@ export const EditableProfileCardHeader = ({ className }: ProfilePageHeaderProps)
                             readonly ?
                                 <Button
                                     onClick={ onEdit }
-                                    theme={ ButtonTheme.OUTLINE }>
+                                    theme={ ButtonTheme.OUTLINE }
+                                    data-testid={ 'EditableProfileCardHeader.EditButton' }
+                                >
                                     {t('Редактировать')}
                                 </Button> :
                                 <>
                                     <Button
                                         onClick={ onCancelEdit }
-                                        theme={ ButtonTheme.OUTLINE_RED }>
+                                        theme={ ButtonTheme.OUTLINE_RED }
+                                        data-testid={ 'EditableProfileCardHeader.CancelButton' }
+                                    >
                                         {t('Отменить')}
                                     </Button>
 
                                     <Button
                                         onClick={ onSave }
-                                        theme={ ButtonTheme.OUTLINE }>
+                                        theme={ ButtonTheme.OUTLINE }
+                                        data-testid={ 'EditableProfileCardHeader.SaveButton' }
+                                    >
                                         {t('Сохранить')}
                                     </Button>
                                 </>

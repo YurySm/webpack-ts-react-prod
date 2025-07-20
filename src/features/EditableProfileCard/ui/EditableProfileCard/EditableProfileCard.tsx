@@ -92,12 +92,13 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers }>
-            <div className={ classNames('', {}, [className]) }>
+            <div data-testid={ 'EditableProfileCard' } className={ classNames('', {}, [className]) }>
                 <EditableProfileCardHeader/>
                 {
                     validateErrors && validateErrors?.length > 0 &&
                     validateErrors.map(error => (
                         <Text
+                            data-testid={ 'EditableProfileCard.Error' }
                             key={ error }
                             theme={ TextTheme.ERROR }
                             text={ validateErrorsTranslation[error] }/>
