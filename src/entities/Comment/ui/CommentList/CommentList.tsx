@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './CommentList.module.scss';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +22,7 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if(isLoading) {
         return (
-            <div className={ classNames(cls.commentlist, {}, [className]) }>
+            <div className={ classNames('', {}, [className]) }>
                 <CommentCard
                     isLoading={ isLoading } />
 
@@ -37,7 +36,7 @@ export const CommentList = memo((props: CommentListProps) => {
     }
 
     return (
-        <div className={ classNames(cls.commentlist, {}, [className]) }>
+        <div className={ classNames('', {}, [className]) }>
             {
                 comments && comments.length === 0 &&
                 <Text text={ t('Комментарии отсутствуют') } />

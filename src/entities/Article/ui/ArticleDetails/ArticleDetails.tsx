@@ -22,6 +22,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -142,21 +143,28 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     size={ TextSize.L }
                 />
 
-                <div className={ cls.articleInfo }>
+                <VStack
+                    gap={ '8' }
+                    className={ cls.articleInfo }
+                >
                     <Icon Svg={ EaeIcon }/>
 
                     <Text
                         text={ article?.views.toString() }
                     />
-                </div>
+                </VStack>
 
-                <div className={ cls.articleInfo }>
+                <VStack
+                    gap={ '8' }
+                    className={ cls.articleInfo }
+                >
                     <Icon Svg={ CalendarIcon }/>
 
                     <Text
                         text={ article?.createdAt }
                     />
-                </div>
+                </VStack>
+
                 {article?.blocks.map(renderBlock)}
             </>
         )
