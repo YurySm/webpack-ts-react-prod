@@ -7,12 +7,13 @@ const isDev = true
 
 const config: StorybookConfig = {
     stories: ['../../src/**/*.mdx', '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    staticDirs: ['../../public'],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
-        // '@storybook/addon-onboarding',
         '@storybook/addon-essentials',
         '@chromatic-com/storybook', 
         '@storybook/addon-interactions',
+        'storybook-addon-mock',
     ],
     framework: {
         name: '@storybook/react-webpack5',
@@ -76,7 +77,7 @@ const config: StorybookConfig = {
         if(config.plugins) {
             config.plugins.push(new webpack.DefinePlugin({
                 __IS_DEV__: true,
-                __API__: JSON.stringify(''),
+                __API__: JSON.stringify('http://localhost:6006/'),
                 __PROJECT__: JSON.stringify('storybook')
             }));
         }

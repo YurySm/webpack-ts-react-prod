@@ -5,7 +5,7 @@ import { CommentList } from 'entities/Comment';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import {
     addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -14,10 +14,11 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import {
     fetchCommentsByArticleId
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    id: string
+    id?: string
 }
 
 export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
@@ -45,9 +46,11 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
             <Text
                 title={ t('Комментарии') } />
 
-            <AddCommentForm
-                onSendComment={ onSendComment }
-            />
+            <Suspense fallback={ <Loader/> }>
+                <AddCommentForm
+                    onSendComment={ onSendComment }
+                />
+            </Suspense>
 
             <CommentList
                 isLoading={ commentsIsLoading }

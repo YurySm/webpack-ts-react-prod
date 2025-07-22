@@ -40,6 +40,15 @@ export const Light: Story = {
                 currency: Currency.USD,
                 country: Country.Russia,
             },
+            form: {
+                firstName: 'Max',
+                lastName: 'Min',
+                age: 22,
+                username: 'admin',
+                city: 'Moscow',
+                currency: Currency.USD,
+                country: Country.Russia,
+            },
             readonly: true,
             isLoading: false
         }

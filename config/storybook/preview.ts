@@ -4,7 +4,9 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider';
 import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-// import { TranslationDecorator } from 'shared/config/storybook/decorators/TranslationDecorator';
+import { initialize, mswLoader } from 'msw-storybook-addon';
+
+initialize();
 
 const preview: Preview = { 
     parameters: {
@@ -18,9 +20,9 @@ const preview: Preview = {
     decorators: [
         ThemeDecorator(Theme.LIGHT),
         RouterDecorator(),
-        StoreDecorator({})
-        // TranslationDecorator()
+        StoreDecorator({}),
     ],
+    loaders: [mswLoader],
 };
 
 export default preview;

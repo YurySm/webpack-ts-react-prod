@@ -35,13 +35,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     const commentsError = useAppSelector(getArticleCommentsError)
 
-    if(!id) {
-        return (
-            <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
-                {t('Статья не найдена')}
-            </Page>
-        );
-    }
+    // if(!id) {
+    //     return (
+    //         <Page className={ classNames(cls.articleDetailsPage, {}, [className]) }>
+    //             {t('Статья не найдена')}
+    //         </Page>
+    //     );
+    // }
 
     if(commentsError) {
         return (
