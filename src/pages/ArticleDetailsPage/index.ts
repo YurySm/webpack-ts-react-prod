@@ -1,6 +1,6 @@
 export { ArticleDetailsPageLazy as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.lazy'
 
-export { ArticleDetailsCommentsSchema } from './model/types/articleDetailsCommentsSchema'
-export { ArticleDetailsPageRecommendationsSchema } from './model/types/articleDetailsPageRecommendationsSchema'
+export type { ArticleDetailsCommentsSchema } from './model/types/articleDetailsCommentsSchema'
+export type { ArticleDetailsPageRecommendationsSchema } from './model/types/articleDetailsPageRecommendationsSchema'
 
-export { ArticleDetailsPageSchema } from './model/types'
+export type { ArticleDetailsPageSchema } from './model/types'

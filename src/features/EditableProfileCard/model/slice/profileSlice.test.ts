@@ -1,10 +1,11 @@
 import { profileActions, profileReducer } from './profileSlice';
-import { ProfileSchema, ValidateProfileError } from '../../model/types/editableProfileCard';
+import type { ProfileSchema } from '../../model/types/editableProfileCard';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { Action } from '@reduxjs/toolkit';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { ValidateProfileError } from '../consts/consts';
 
 const data = {
     firstName: 'Max',

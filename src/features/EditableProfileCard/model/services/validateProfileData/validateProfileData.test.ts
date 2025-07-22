@@ -1,7 +1,7 @@
 import { validateProfileData } from './validateProfileData';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { ValidateProfileError } from '../../../model/types/editableProfileCard';
+import { ValidateProfileError } from '../../../model/consts/consts';
 
 const profileData= {
     firstName: 'Max',

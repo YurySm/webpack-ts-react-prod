@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { Article, ArticleBlockType, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
@@ -12,6 +12,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { HTMLAttributeAnchorTarget } from 'react';
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
 interface ArticleListItemProps {
     className?: string;
