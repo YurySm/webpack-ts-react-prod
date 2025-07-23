@@ -1,12 +1,6 @@
-import {
-    Action,
-    configureStore,
-    ReducersMapObject,
-    ThunkAction,
-} from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArgs } from './StateSchema';
+import { Action, configureStore, ReducersMapObject, ThunkAction } from '@reduxjs/toolkit';
+import type { StateSchema, ThunkExtraArgs } from './StateSchema';
 import { userReducer } from 'entities/User';
-import { useDispatch, useSelector } from 'react-redux';
 import { counterReducer } from 'entities/Counter';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
@@ -69,5 +63,3 @@ export type AppThunk<ReturnType = void> = ThunkAction<
     Action<string>
 >;
 
-export const useAppSelector = useSelector.withTypes<RootState>();
-export const useAppDispatch = () => useDispatch<AppDispatch>();

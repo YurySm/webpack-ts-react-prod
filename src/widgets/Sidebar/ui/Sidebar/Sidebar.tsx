@@ -5,9 +5,9 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import cls from './Sidebar.module.scss';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
-import { useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 interface SidebarProps {
     className?: string;

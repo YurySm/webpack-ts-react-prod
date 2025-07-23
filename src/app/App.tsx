@@ -3,9 +3,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { useEffect } from 'react';
 import { getUserInited, userActions } from 'entities/User';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 export const App = () => {
     const { theme } = useTheme();

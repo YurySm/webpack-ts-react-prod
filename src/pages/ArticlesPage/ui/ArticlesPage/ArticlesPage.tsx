@@ -3,12 +3,12 @@ import cls from './ArticlesPage.module.scss';
 import { memo, useCallback } from 'react';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/store';
 import { Page } from 'widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticlesInfinityList } from '../ArticlesInfinityList/ArticlesInfinityList';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 
 interface ArticlesPageProps {
     className?: string;

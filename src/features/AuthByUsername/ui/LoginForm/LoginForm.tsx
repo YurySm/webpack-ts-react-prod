@@ -6,10 +6,6 @@ import { Button } from 'shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import {
-    useAppDispatch,
-    useAppSelector,
-} from 'app/providers/StoreProvider/config/store';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -19,6 +15,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 interface LoginFormProps {
     className?: string;

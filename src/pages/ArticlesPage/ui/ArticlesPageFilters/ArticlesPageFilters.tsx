@@ -10,7 +10,6 @@ import {
 } from 'entities/Article';
 import { useCallback } from 'react';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
@@ -24,6 +23,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useThrottle/useDebounce';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 interface ArticlesPageFiltersProps {
     className?: string;

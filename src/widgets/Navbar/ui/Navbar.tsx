@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { useAppDispatch } from 'app/providers/StoreProvider/config/store';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -12,6 +11,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
 
 interface NavbarProps {
     className?: string;

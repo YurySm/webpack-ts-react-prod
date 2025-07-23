@@ -3,7 +3,6 @@ import cls from './ArticleDetails.module.scss';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailSlice';
 import { memo, useCallback } from 'react';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
     getArticleDetailsData,
@@ -24,6 +23,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ArticleBlockType } from '../../model/consts/consts';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 interface ArticleDetailsProps {
     className?: string;

@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/store';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useCallback } from 'react';
 import { Currency } from 'entities/Currency';
@@ -21,6 +20,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import {
     EditableProfileCardHeader
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
 
 interface EditableProfileCardProps {
     className?: string;
