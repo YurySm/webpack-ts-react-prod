@@ -3,7 +3,7 @@ import { Dropdown } from './Dropdown';
 import { Button } from 'shared/ui/Button/Button';
 
 const meta: Meta<typeof Dropdown> = {
-    title: 'shared/Dropdown',
+    title: 'shared/popups/Dropdown',
     component: Dropdown,
     argTypes: {},
     decorators: [

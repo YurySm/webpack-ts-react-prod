@@ -10,7 +10,6 @@ export interface ListBoxItem {
     disabled?: boolean
 }
 
-
 interface ListBoxProps {
     items?: ListBoxItem[];
     className?: string;
@@ -44,7 +43,7 @@ export function ListBox(props: ListBoxProps) {
             <ListboxButton
                 as={ Fragment }
             >
-                <Button theme={ ButtonTheme.BACKGROUND_INVERTED } className={ cls.trigger }>
+                <Button theme={ ButtonTheme.BACKGROUND_INVERTED }>
                     {value || defaultValue}
                 </Button>
             </ListboxButton>

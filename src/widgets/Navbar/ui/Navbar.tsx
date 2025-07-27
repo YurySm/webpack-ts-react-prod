@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
@@ -9,9 +9,12 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entiti
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useAppDispatch } from 'app/providers/StoreProvider/config/hooks';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
+import { Dropdown, Popover } from 'shared/ui/popups';
 
 interface NavbarProps {
     className?: string;
@@ -49,35 +52,49 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <header className={ classNames(cls.navbar, {}, [className]) }>
                 <Text
+                    className={ cls.title }
                     theme={ TextTheme.INVERTED }
                     title={ t('Articles App') }/>
 
-                <div className={ cls.links }>
+                <HStack gap={ '16' } justify={ 'between' }>
                     <AppLink
                         theme={ AppLinkTheme.SECONDARY }
                         to={ RoutesPaths.article_create }>
                         {t('Создать статью')}
                     </AppLink>
-                    <Dropdown
-                        anchor={ 'bottom end' }
-                        items={ [
-                            ...((isAdmin || isManager) ? [{
-                                content: t('Админка'),
-                                href: RoutesPaths.admin_panel
-                            }] : []),
-                            {
-                                content: t('Профиль'),
-                                href: RoutesPaths.profile + authData.id
-                            },
-                            {
-                                content: t('Выйти'),
-                                onClick: onLogout
-                            },
 
-                        ] }
-                        trigger={ <Avatar size={ 30 } src={ authData.avatar } /> }
-                    />
-                </div>
+                    <HStack gap={ '16' } max={ false }>
+                        <Popover
+                            anchor={ 'bottom end' }
+                            trigger={
+                                <Button theme={ ButtonTheme.CLEAR }>
+                                    <Icon inverted Svg={ NotificationIcon }/>
+                                </Button>
+                            }
+                        >
+                            DASFASDFASD
+                        </Popover>
+                        <Dropdown
+                            anchor={ 'bottom end' }
+                            items={ [
+                                ...((isAdmin || isManager) ? [{
+                                    content: t('Админка'),
+                                    href: RoutesPaths.admin_panel
+                                }] : []),
+                                {
+                                    content: t('Профиль'),
+                                    href: RoutesPaths.profile + authData.id
+                                },
+                                {
+                                    content: t('Выйти'),
+                                    onClick: onLogout
+                                },
+
+                            ] }
+                            trigger={ <Avatar size={ 30 } src={ authData.avatar } /> }
+                        />
+                    </HStack>
+                </HStack>
             </header>
         );
     }

@@ -5,14 +5,16 @@ import { FC, SVGProps } from 'react';
 interface IconProps {
     className?: string;
     Svg: FC<SVGProps<SVGElement>>
+    inverted?: boolean
 }
 
 export const Icon = (props: IconProps) => {
     const {
         className,
-        Svg
+        Svg,
+        inverted = false,
     } = props;
     return (
-        <Svg className={ classNames(cls.icon, {}, [className]) }/>
+        <Svg className={ classNames(cls.icon, { [cls.inverted]: inverted }, [className]) }/>
     );
 };

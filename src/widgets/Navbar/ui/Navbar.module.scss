@@ -4,15 +4,12 @@
     background: var(--inverted-bg-color);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     padding: 10px 20px;
 }
 
-.links {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.title {
+    width: var(--sidebar-width);
 }
 
 .logo {
