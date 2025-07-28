@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Popover.module.scss';
 import { Popover as HPopover, PopoverButton, PopoverPanel } from '@headlessui/react'
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { AnchorTo } from '../../types/popups';
 import popupsCls from '../../styles/popups.module.scss'
 
@@ -23,7 +23,10 @@ export const Popover = (props: PopoverProps) => {
     return (
         <HPopover
             className={ classNames(cls.popover, {}, [className]) }>
-            <PopoverButton className={ popupsCls.trigger }>
+            <PopoverButton
+                as={ 'div' }
+                className={ popupsCls.trigger }
+            >
                 {trigger}
             </PopoverButton>
 

@@ -6,10 +6,9 @@ export const VStack = (props: VStackProps) => {
     const { align = 'start' } = props;
     return (
         <Flex
+            align={ align }
             direction={ 'column' }
             { ...props }
-            align={ align }
         />
-
     );
 };
