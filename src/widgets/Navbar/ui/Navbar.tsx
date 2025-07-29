@@ -12,6 +12,8 @@ import { RoutesPaths } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { NotificationsList } from 'entities/Notification';
 
 interface NavbarProps {
     className?: string;
@@ -21,6 +23,16 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+
+    const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
+
+    const handleOpenDrawer = useCallback(() => {
+        setIsOpenDrawer(true)
+    }, [setIsOpenDrawer])
+
+    const handleCloseDrawer = useCallback(() => {
+        setIsOpenDrawer(false)
+    }, [setIsOpenDrawer])
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -46,6 +58,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     </AppLink>
 
                     <HStack gap={ '16' } max={ false }>
+                        {/* eslint-disable-next-line i18next/no-literal-string */}
+                        <Button onClick={ handleOpenDrawer }>Click</Button>
+                        <Drawer isOpen={ isOpenDrawer } onClose={ handleCloseDrawer }>
+                            <NotificationsList />
+                        </Drawer>
                         <NotificationButton />
                         <AvatarDropdown />
                     </HStack>
@@ -56,7 +73,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={ classNames(cls.navbar, {}, [className]) }>
-            <div className={ cls.links }>
+            <HStack justify={ 'end' }>
                 <Button
                     theme={ ButtonTheme.CLEAR_INVERTED }
                     type="button"
@@ -68,7 +85,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {isAuthModal && (
                     <LoginModal isOpen={ isAuthModal } onClose={ onCloseModal } />
                 )}
-            </div>
+            </HStack>
         </header>
     );
 });

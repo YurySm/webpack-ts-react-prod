@@ -20,7 +20,7 @@ export const NotificationsList = (props: NotificationsListProps) => {
         isLoading,
         isFetching,
     } = useGetNotificationsListQuery(undefined, {
-        pollingInterval: 5000
+        // pollingInterval: 5000
     })
 
     if(isLoading || isFetching) {

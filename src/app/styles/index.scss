@@ -4,7 +4,7 @@
 @use 'themes/dark';
 @use 'themes/violet';
 
-.app {
+.app{
     font: var(--font-m);
     background: var(--bg-color);
     color: var(--primary-color);
@@ -14,11 +14,6 @@
 .content-page {
     display: flex;
 }
-
-//* {
-//    scrollbar-width: thin;
-//    scrollbar-color: var(--inverted-primary-color) var(--card-bg);
-//}
 
 *::-webkit-scrollbar {
     width: 10px;
