@@ -24,16 +24,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
 
-    const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
-
-    const handleOpenDrawer = useCallback(() => {
-        setIsOpenDrawer(true)
-    }, [setIsOpenDrawer])
-
-    const handleCloseDrawer = useCallback(() => {
-        setIsOpenDrawer(false)
-    }, [setIsOpenDrawer])
-
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
@@ -58,11 +48,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     </AppLink>
 
                     <HStack gap={ '16' } max={ false }>
-                        {/* eslint-disable-next-line i18next/no-literal-string */}
-                        <Button onClick={ handleOpenDrawer }>Click</Button>
-                        <Drawer isOpen={ isOpenDrawer } onClose={ handleCloseDrawer }>
-                            <NotificationsList />
-                        </Drawer>
                         <NotificationButton />
                         <AvatarDropdown />
                     </HStack>
