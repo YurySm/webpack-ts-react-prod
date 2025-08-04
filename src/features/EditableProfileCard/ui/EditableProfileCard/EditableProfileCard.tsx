@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useCallback } from 'react';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { useTranslation } from 'react-i18next';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -15,12 +15,12 @@ import {
 import { ValidateProfileError } from '../../model/consts/consts';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { ProfileCard } from 'entities/Profile';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ProfileCard } from '@/entities/Profile';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     EditableProfileCardHeader
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 interface EditableProfileCardProps {
     className?: string;

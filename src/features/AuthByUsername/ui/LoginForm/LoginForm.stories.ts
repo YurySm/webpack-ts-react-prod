@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import LoginForm from './LoginForm';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 const tmpState: DeepPartial<StateSchema> = {
     loginForm: {

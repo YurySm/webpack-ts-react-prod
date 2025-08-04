@@ -1,8 +1,8 @@
 
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button/Button';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 export const Counter = () => {
     const dispatch = useAppDispatch();

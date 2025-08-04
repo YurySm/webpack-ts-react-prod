@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailSlice';
 import { memo, useCallback } from 'react';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -10,20 +10,20 @@ import {
     getArticlesDetailsError,
 } from '../../model/selectors/articlesDetails';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import EaeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import EaeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { ArticleBlockType } from '../../model/consts/consts';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 interface ArticleDetailsProps {
     className?: string;

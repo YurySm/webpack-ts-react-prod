@@ -1,8 +1,8 @@
 import { Listbox as HListBox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import cls from './ListBox.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 export interface ListBoxItem {
     value: string

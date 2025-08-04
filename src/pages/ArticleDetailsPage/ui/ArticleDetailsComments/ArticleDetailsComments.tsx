@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { CommentList } from 'entities/Comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text/Text';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList } from '@/entities/Comment';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { Suspense, useCallback } from 'react';
@@ -9,12 +9,12 @@ import {
     addCommentForArticle
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { useTranslation } from 'react-i18next';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
     fetchCommentsByArticleId
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 interface ArticleDetailsCommentsProps {
     className?: string;

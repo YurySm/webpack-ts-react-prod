@@ -14,4 +14,4 @@ export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs'
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector'
 
-export { ArticleSortField, ArticleView, ArticleType } from 'entities/Article/model/consts/consts';
+export { ArticleSortField, ArticleView, ArticleType } from '@/entities/Article/model/consts/consts';

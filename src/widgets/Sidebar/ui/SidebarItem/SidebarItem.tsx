@@ -1,11 +1,11 @@
 import cls from './SidebarItem.module.scss';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
-import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 interface SidebarItemProps {
     item: SidebarItemType;

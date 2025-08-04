@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { memo } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { getArticleCommentsError } from '../../model/selectors/comments';
-import { Page } from 'widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page/ui/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { ArticlesRecommendationsList } from 'features/ArticlesRecommendationsList';
+import { ArticlesRecommendationsList } from '@/features/ArticlesRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer

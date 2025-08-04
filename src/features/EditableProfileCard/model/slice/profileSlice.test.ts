@@ -1,7 +1,7 @@
 import { profileActions, profileReducer } from './profileSlice';
 import type { ProfileSchema } from '../../model/types/editableProfileCard';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { Action } from '@reduxjs/toolkit';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';

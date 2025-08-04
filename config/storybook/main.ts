@@ -29,6 +29,7 @@ const config: StorybookConfig = {
             config.resolve.alias = {
                 ...config.resolve.alias,
                 entities: path.resolve(__dirname, '../../src/entities'),
+                '@': path.resolve(__dirname, '../../src'),
             };
         }
 

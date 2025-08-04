@@ -5,8 +5,8 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { MountedReducers, ReplaceReducer, StateSchema, StateSchemaKeys } from './StateSchema';
-import { UserSchema } from 'entities/User';
-import { CounterSchema } from 'entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { CounterSchema } from '@/entities/Counter';
 
 type StateSchemaType = Partial<{
     counter: CounterSchema | undefined;

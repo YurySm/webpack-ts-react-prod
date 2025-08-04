@@ -1,4 +1,4 @@
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
+import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 import { ReactElement } from 'react';
 
 export function ThemeDecorator(theme: Theme) {

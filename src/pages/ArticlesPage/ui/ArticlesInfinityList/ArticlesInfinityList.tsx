@@ -1,14 +1,14 @@
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider/config/hooks';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
 
 interface ArticlesInfinityListProps {
     searchParams: URLSearchParams

@@ -1,4 +1,5 @@
 export { userReducer, userActions } from './model/slice/userSlece';
+export { UserRole } from '@/entities/User/model/consts/consts';
 
 export type {
     User,
@@ -14,5 +15,5 @@ export {
     isUserManager
 } from './model/selectors/roleSelectors'
 
-export { UserRole } from 'entities/User/model/consts/consts';
+
 
