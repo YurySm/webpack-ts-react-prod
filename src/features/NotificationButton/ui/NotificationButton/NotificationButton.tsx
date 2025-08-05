@@ -7,7 +7,6 @@ import { Popover } from '@/shared/ui/popups';
 import { useCallback, useState } from 'react';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 export const NotificationButton = () => {
 
@@ -42,11 +41,9 @@ export const NotificationButton = () => {
             </BrowserView>
             <MobileView>
                 { trigger }
-                <AnimationProvider>
-                    <Drawer isOpen={ isOpenDrawer } onClose={ handleCloseDrawer }>
-                        <NotificationsList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={ isOpenDrawer } onClose={ handleCloseDrawer }>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
         </div>
     );

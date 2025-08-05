@@ -12,8 +12,6 @@ import { RoutesPaths } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { NotificationsList } from '@/entities/Notification';
 
 interface NavbarProps {
     className?: string;
