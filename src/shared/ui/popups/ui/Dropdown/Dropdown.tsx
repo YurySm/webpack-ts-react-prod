@@ -41,7 +41,7 @@ export function Dropdown(props: DropdownProps) {
                 anchor={ anchor || 'bottom start' }
             >
                 {
-                    items.map(item => {
+                    items.map((item, index) => {
                         const content = ({ focus }: { focus: boolean }) => (
                             <button
                                 type={ 'button' }
@@ -54,14 +54,14 @@ export function Dropdown(props: DropdownProps) {
 
                         if(item?.href) {
                             return (
-                                <MenuItem key={ item?.content } as={ AppLink } to={ item.href } disabled={ item.disabled }>
+                                <MenuItem key={ 'dropdown-item' + index } as={ AppLink } to={ item.href } disabled={ item.disabled }>
                                     { content }
                                 </MenuItem>
                             );
                         }
 
                         return (
-                            <MenuItem key={ item?.content } as={ Fragment } disabled={ item.disabled }>
+                            <MenuItem key={ 'dropdown-item' + index } as={ Fragment } disabled={ item.disabled }>
                                 { content }
                             </MenuItem>
                         );
