@@ -1,5 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Rating.module.scss';
 import { Card } from '@/shared/ui/Card/Card';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { Text } from '@/shared/ui/Text/Text';
@@ -19,9 +17,10 @@ interface RatingProps {
     hasFeedback?: boolean
     onCancel?: (starsCount: number) => void
     onAccept?: (starsCount: number, feedback?: string) => void
+    rate?: number
 }
 
-export const Rating = (props: RatingProps) => {
+export const RatingCard = (props: RatingProps) => {
     const {
         className,
         title,
@@ -29,10 +28,11 @@ export const Rating = (props: RatingProps) => {
         hasFeedback,
         onCancel,
         onAccept,
+        rate = 0
     } = props;
 
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-    const [starsCount, setStarsCount] = useState<number>(0);
+    const [starsCount, setStarsCount] = useState<number>(rate);
     const [feedback, setFeedback] = useState<string>('');
 
     const handeCloseModal = useCallback(() => {
@@ -81,10 +81,11 @@ export const Rating = (props: RatingProps) => {
     )
 
     return (
-        <Card className={ classNames(cls.rating, {}, [className]) }>
+        <Card className={ className }>
             <VStack align={ 'center' } gap={ '16' }>
-                <Text text={ title }/>
+                <Text text={ starsCount ? 'Спасибо за оценку!': title }/>
                 <StarRating
+                    selectedStars={ starsCount }
                     size={ 40 }
                     onSelect={ onSelectStars }
                 />
