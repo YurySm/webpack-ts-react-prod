@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ArticlesInfinityList } from './ArticlesInfinityList';
 
 const meta: Meta<typeof ArticlesInfinityList> = {
-    title: '_/ArticlesInfinityList',
+    title: 'pages/ArticlesPage/ArticlesInfinityList',
     component: ArticlesInfinityList,
     argTypes: {},
 };

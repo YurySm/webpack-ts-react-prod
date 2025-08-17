@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
 
 const meta: Meta<typeof AvatarDropdown> = {
-    title: '_/AvatarDropdown',
+    title: 'features/AvatarDropdown',
     component: AvatarDropdown,
     argTypes: {},
 };
