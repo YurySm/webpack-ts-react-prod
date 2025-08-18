@@ -108,7 +108,12 @@ export default [
             'react-hooks/rules-of-hooks': 'error',
             'react-hooks/exhaustive-deps': 'warn',
             '@typescript-eslint/no-explicit-any': 'warn',
-            'fsd-path-checker/path-checker': 'error',
+            'fsd-path-checker/path-checker': [
+                'error',
+                {
+                    alias: '@'
+                }
+            ],
             'i18next/no-literal-string': [
                 'error',
                 {
