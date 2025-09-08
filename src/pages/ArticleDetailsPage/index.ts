@@ -4,3 +4,5 @@ export type { ArticleDetailsCommentsSchema } from './model/types/articleDetailsC
 export type { ArticleDetailsPageRecommendationsSchema } from './model/types/articleDetailsPageRecommendationsSchema'
 
 export type { ArticleDetailsPageSchema } from './model/types'
+
+export { articleDetailsPageReducer } from './model/slices'

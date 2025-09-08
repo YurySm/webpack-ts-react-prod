@@ -1,4 +1,4 @@
-import { combineReducers, createSlice } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
 import { articleDetailsCommentsReducer } from './articleDetailsCommentsSlice';
 import {
     articleDetailsRecommendationsReducer

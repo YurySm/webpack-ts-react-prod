@@ -15,3 +15,5 @@ export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs'
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector'
 
 export { ArticleSortField, ArticleView, ArticleType } from '@/entities/Article/model/consts/consts';
+
+export { articleDetailsReducer } from './model/slice/articleDetailSlice'

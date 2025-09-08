@@ -114,6 +114,13 @@ export default [
                     alias: '@'
                 }
             ],
+            'fsd-path-checker/public-api-imports': [
+                'error',
+                {
+                    alias: '@',
+                    testFiles: ['**/*.test.*', '**/StoreDecorator.tsx']
+                }
+            ],
             'i18next/no-literal-string': [
                 'error',
                 {
