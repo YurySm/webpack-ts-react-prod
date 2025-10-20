@@ -1,6 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AvatarDropdown.module.scss';
-import { RoutesPaths } from '@/shared/config/routeConfig/routeConfig';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/popups';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +7,7 @@ import { getUserAuthData, isUserAdmin, isUserManager, User, userActions } from '
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
+import { RoutesPaths } from '@/shared/constants/router';
 
 export const AvatarDropdown = () => {
 
