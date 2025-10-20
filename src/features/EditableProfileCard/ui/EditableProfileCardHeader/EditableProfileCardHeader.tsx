@@ -9,7 +9,7 @@ import { useCallback } from 'react';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ProfilePageHeaderProps {
     className?: string;

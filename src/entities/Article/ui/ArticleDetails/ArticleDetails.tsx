@@ -23,7 +23,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { ArticleBlockType } from '../../model/consts/consts';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ArticleDetailsProps {
     className?: string;

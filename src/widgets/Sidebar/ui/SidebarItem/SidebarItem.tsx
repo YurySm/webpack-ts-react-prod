@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
-import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider';
 
 interface SidebarItemProps {
     item: SidebarItemType;

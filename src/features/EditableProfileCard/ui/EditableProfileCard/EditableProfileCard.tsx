@@ -20,7 +20,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import {
     EditableProfileCardHeader
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface EditableProfileCardProps {
     className?: string;

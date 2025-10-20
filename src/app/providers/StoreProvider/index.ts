@@ -4,6 +4,7 @@ import type {
     StateSchema,
     ReduxStoreWithManager,
     ThunkConfig,
+    StateSchemaKeys
 } from './config/StateSchema';
 
 export {
@@ -15,4 +16,10 @@ export type {
     StateSchema,
     ReduxStoreWithManager,
     ThunkConfig,
+    StateSchemaKeys
 };
+
+export {
+    useAppDispatch,
+    useAppSelector
+} from './config/hooks'

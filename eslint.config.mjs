@@ -121,6 +121,13 @@ export default [
                     testFiles: ['**/*.test.*', '**/StoreDecorator.tsx']
                 }
             ],
+            'fsd-path-checker/layers-imports': [
+                'error',
+                {
+                    alias: '@',
+                    ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+                }
+            ],
             'i18next/no-literal-string': [
                 'error',
                 {

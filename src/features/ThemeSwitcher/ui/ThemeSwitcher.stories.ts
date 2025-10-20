@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { LangSwitcher } from './LangSwitcher';
+import { ThemeSwitcher } from './ThemeSwitcher';
+import { Theme } from '@/shared/constants/theme';
 
-const meta: Meta<typeof LangSwitcher> = {
-    title: 'widgets/LangSwitcher',
-    component: LangSwitcher,
+const meta: Meta<typeof ThemeSwitcher> = {
+    title: 'widgets/ThemeSwitcher',
+    component: ThemeSwitcher,
     // parameters: {
     //     layout: 'centered',
     // },
@@ -17,7 +17,7 @@ const meta: Meta<typeof LangSwitcher> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof LangSwitcher>;
+type Story = StoryObj<typeof ThemeSwitcher>;
 
 export const Light: Story = {};
 

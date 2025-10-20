@@ -11,7 +11,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticlesRecommendationsList } from '@/features/ArticlesRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider';
 import { ArticleRating } from '@/features/ArticleRating';
 
 const reducers: ReducersList = {

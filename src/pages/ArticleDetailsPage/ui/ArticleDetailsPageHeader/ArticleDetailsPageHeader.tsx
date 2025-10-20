@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticleDetailsData } from '@/entities/Article';
-import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider';
 import { RoutesPaths } from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {

@@ -8,7 +8,7 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ArticlesInfinityListProps {
     searchParams: URLSearchParams

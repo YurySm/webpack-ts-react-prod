@@ -8,7 +8,7 @@ import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPag
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
 import { ArticlesInfinityList } from '../ArticlesInfinityList/ArticlesInfinityList';
-import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch } from '@/app/providers/StoreProvider';
 
 interface ArticlesPageProps {
     className?: string;

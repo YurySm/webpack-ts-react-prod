@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { PageLoader } from './PageLoader';
+import { Theme } from '@/shared/constants/theme';
 
 const meta: Meta<typeof PageLoader> = {
     title: 'widgets/PageLoader',

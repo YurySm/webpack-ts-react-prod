@@ -3,7 +3,7 @@ import {
     useGetArticleRatingQuery,
     useSetArticleRatingMutation,
 } from '../../api/articleRatingApi';
-import { useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppSelector } from '@/app/providers/StoreProvider';
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useCallback } from 'react';

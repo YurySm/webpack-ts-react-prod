@@ -10,7 +10,7 @@ import {
     // getAddCommentFormError,
     getAddCommentFormText,
 } from '../model/selectors/addCommentFormSelectors';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 
 const reducers: ReducersList = {

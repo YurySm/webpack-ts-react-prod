@@ -2,12 +2,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Page.module.scss';
 import { ReactNode, RefObject, UIEvent, useRef } from 'react';
 import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll/useInfinityScroll';
-import { getScrollSaveByPath, scrollSaveActions } from '@/widgets/ScrollSave';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from '@/app/providers/StoreProvider';
+import { StateSchema, useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useDebounce } from '@/shared/lib/hooks/useThrottle/useDebounce';
-import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
+import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
 
 interface PageProps {
     className?: string;
