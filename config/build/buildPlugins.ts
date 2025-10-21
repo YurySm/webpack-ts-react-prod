@@ -44,11 +44,10 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false
         }))
-        //// temporarily
-        // plugins.push(new CircularDependencyPlugin({
-        //     exclude: /node_modules/,
-        //     failOnError: true,
-        // }))
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }))
     }
     return plugins
 }
