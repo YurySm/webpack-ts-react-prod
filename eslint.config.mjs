@@ -6,6 +6,8 @@ import i18next from 'eslint-plugin-i18next';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import { fixupPluginRules } from '@eslint/compat';
 import fsdPlugin from '@yury_sm/eslint-plugin-fsd-path-checker';
+import unusedImports from 'eslint-plugin-unused-imports';
+
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -31,6 +33,7 @@ export default [
             react: pluginReact,
             'fsd-path-checker': fsdPlugin,
             'react-hooks': fixupPluginRules(reactHooksPlugin),
+            'unused-imports': unusedImports,
         },
         settings: {
             react: {
@@ -133,6 +136,16 @@ export default [
                 {
                     ignoreAttribute: ['data-testid', 'className']
                 }
+            ],
+            'unused-imports/no-unused-imports': 'error',
+            'unused-imports/no-unused-vars': [
+                'warn',
+                {
+                    'vars': 'all',
+                    'varsIgnorePattern': '^_',
+                    'args': 'after-used',
+                    'argsIgnorePattern': '^_',
+                },
             ]
         },
     },
