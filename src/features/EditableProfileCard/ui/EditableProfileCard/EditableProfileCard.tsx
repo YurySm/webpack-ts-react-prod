@@ -4,7 +4,7 @@ import { useCallback } from 'react';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { useTranslation } from 'react-i18next';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

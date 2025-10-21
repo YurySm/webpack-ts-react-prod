@@ -3,7 +3,7 @@ import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Dropdown.module.scss'
 import popupsCls from '../../styles/popups.module.scss'
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { AnchorTo } from '../../types/popups';
 
 export interface DropdownItem {

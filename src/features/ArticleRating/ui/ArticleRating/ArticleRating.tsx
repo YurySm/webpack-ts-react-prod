@@ -5,7 +5,7 @@ import {
 } from '../../api/articleRatingApi';
 import { useAppSelector } from '@/app/providers/StoreProvider';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { useCallback } from 'react';
 
 export interface ArticleRatingProps {
