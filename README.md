@@ -37,9 +37,10 @@
 useContext для тем
 redux/toolkit 
 ## Кодстайл
-- [Eslint](https://eslint.org/)
 - [Stylelint](https://stylelint.io/)
 - [Prettier](https://prettier.io/)
+- [Eslint](https://eslint.org/)
+- [@yury_sm/eslint-plugin-fsd-path-checker](https://www.npmjs.com/package/@yury_sm/eslint-plugin-fsd-path-checker)
 
 ## Тесты 
 - [Jest](https://jestjs.io/ru/) (unit)
