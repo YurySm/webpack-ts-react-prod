@@ -48,6 +48,7 @@ const config: Config = {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/jestEmptyComponent.tsx',
+        '^@/(.*)$': '<rootDir>/src/$1',
         '^entities/(.*)$': '<rootDir>/src/entities/$1',
         '^features/(.*)$': '<rootDir>/src/features/$1',
         '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
