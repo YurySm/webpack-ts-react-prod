@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react';
 import '../../src/app/styles/index.scss'
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import { Theme } from '@/shared/constants/theme';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 initialize();
 
@@ -16,11 +16,21 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        backgrounds: {
+            disable: true,
+        },
     },
     decorators: [
-        ThemeDecorator(Theme.LIGHT),
         RouterDecorator(),
         StoreDecorator({}),
+        withThemeByClassName({
+            themes: {
+                light: `app ${Theme.LIGHT}`,
+                dark: `app ${Theme.DARK}`,
+                violet: `app ${Theme.VIOLET}`,
+            },
+            defaultTheme: 'light',
+        }),
     ],
     loaders: [mswLoader],
 };
