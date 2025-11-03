@@ -12,7 +12,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { AppLink } from '@/shared/ui/AppLink';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import { RoutesPaths } from '@/shared/constants/router';
+import { getRouteArticleDetails } from '@/shared/constants/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -62,7 +62,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     <div className={ cls.footer }>
                         <AppLink
                             target={ target }
-                            to={ RoutesPaths.article_details + article.id }
+                            to={ getRouteArticleDetails(article.id) }
                         >
                             <Button
                                 theme={ ButtonTheme.OUTLINE }
@@ -81,7 +81,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     return (
         <AppLink
             target={ target }
-            to={ RoutesPaths.article_details + article.id }
+            to={ getRouteArticleDetails(article.id) }
             className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
             <Card>
                 <div className={ cls.imgWrapp }>

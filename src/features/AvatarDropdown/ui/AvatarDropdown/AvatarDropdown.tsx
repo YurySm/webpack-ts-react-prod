@@ -5,7 +5,7 @@ import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/enti
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
-import { RoutesPaths } from '@/shared/constants/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
 
 export const AvatarDropdown = () => {
 
@@ -29,11 +29,11 @@ export const AvatarDropdown = () => {
             items={ [
                 ...((isAdmin || isManager) ? [{
                     content: t('Админка'),
-                    href: RoutesPaths.admin_panel
+                    href: getRouteAdminPanel()
                 }] : []),
                 {
                     content: t('Профиль'),
-                    href: RoutesPaths.profile + authData.id
+                    href: getRouteProfile(authData.id)
                 },
                 {
                     content: t('Выйти'),

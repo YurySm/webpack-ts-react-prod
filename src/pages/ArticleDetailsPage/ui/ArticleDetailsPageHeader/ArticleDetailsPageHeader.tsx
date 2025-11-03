@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticleDetailsData } from '@/entities/Article';
 import { useAppSelector } from '@/app/providers/StoreProvider';
-import { RoutesPaths } from '@/shared/constants/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -25,11 +25,11 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     const navigate = useNavigate();
 
     const onBackToList = useCallback(() => {
-        navigate(RoutesPaths.articles)
+        navigate(getRouteArticles())
     }, [navigate])
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutesPaths.articles}/${article?.id}/edit`)
+        navigate(getRouteArticleEdit(article?.id || ''))
     }, [navigate, article])
 
     return (
