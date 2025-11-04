@@ -14,6 +14,7 @@ const buildBabelLoader = ({ isDev, isTSX }: BuildBabelLoaderOptions) => {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: [
                     ['@babel/preset-env'],
                     [
@@ -32,7 +33,7 @@ const buildBabelLoader = ({ isDev, isTSX }: BuildBabelLoaderOptions) => {
                         }
                     ],
                     '@babel/plugin-transform-runtime',
-                    isTSX && [
+                    isTSX && !isDev && [
                         babelRemovePropsPlugin,
                         {
                             props: ['data-testid']
@@ -64,6 +65,7 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
             isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
