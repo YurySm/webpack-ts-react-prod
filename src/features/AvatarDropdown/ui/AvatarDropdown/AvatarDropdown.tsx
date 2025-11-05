@@ -41,7 +41,7 @@ export const AvatarDropdown = () => {
                 },
 
             ] }
-            trigger={ <Avatar size={ 30 } src={ authData.avatar } /> }
+            trigger={ <Avatar size={ 30 } src={ authData.avatar } invertedFallback /> }
         />
     );
 };

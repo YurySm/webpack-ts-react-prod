@@ -13,6 +13,7 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { getRouteArticleDetails } from '@/shared/constants/router';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleListItemProps {
     className?: string;
@@ -38,8 +39,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             <Icon Svg={ EyeIcon } />
         </>
     )
-    const img = <img src={ article.img } alt={ article.title } className={ cls.img } />
 
+    // const img = <img src={ article.img } alt={ article.title } className={ cls.img } />
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT)
@@ -54,7 +55,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     <Text title={ article.title } className={ cls.title } />
 
                     {types}
-                    {img}
+                    {/*{img}*/}
+
+                    <AppImage src={ article.img } alt={ article.title } className={ cls.img } />
+
                     {
                         textBlock &&
                         <ArticleTextBlockComponent block={ textBlock } className={ cls.textBlock }/>
@@ -85,7 +89,8 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             className={ classNames(cls.articlelistitem, {}, [className, cls[view]]) }>
             <Card>
                 <div className={ cls.imgWrapp }>
-                    {img}
+                    {/*{img}*/}
+                    <AppImage src={ article.img } alt={ article.title } className={ cls.img }/>
                     <Text text={ article.createdAt } className={ cls.date } />
                 </div>
 
