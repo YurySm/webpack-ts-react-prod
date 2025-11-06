@@ -44,5 +44,4 @@ export const AppImage = (props: AppImageProps) => {
     return (
         <img src={ src } alt={ alt } width={ width } height={ height } className={ className } { ...otherProps }/>
     );
-
 };

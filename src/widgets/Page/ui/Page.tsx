@@ -7,8 +7,9 @@ import { StateSchema, useAppDispatch, useAppSelector } from '@/app/providers/Sto
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useDebounce } from '@/shared/lib/hooks/useThrottle/useDebounce';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
+import { TestProps } from '@/shared/types/test';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children?: ReactNode;
     onScrollEnd?: () => void;
@@ -18,7 +19,8 @@ export const Page = (props: PageProps) => {
     const {
         className,
         children,
-        onScrollEnd
+        onScrollEnd,
+        'data-testid': dataTestId,
     } = props;
 
     const { pathname } = useLocation();
@@ -57,6 +59,7 @@ export const Page = (props: PageProps) => {
 
     return (
         <main
+            data-testid={ dataTestId ?? 'Page' }
             ref={ wrapperRef }
             className={ classNames(cls.page, {}, [className]) }
             onScroll={ onHandleScroll }

@@ -1,8 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ProfilePage.module.scss';
 import { Page } from '@/widgets/Page';
-import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { useParams } from 'react-router';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 
 interface ProfilePageProps {
     className?: string;
@@ -10,9 +10,9 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { id } = useParams<{id: string}>();
-
+    console.log(id)
     return (
-        <Page className={ classNames(cls.profilePage, {}, [className]) }>
+        <Page data-testid={ 'ProfilePage' } className={ classNames(cls.profilePage, {}, [className]) }>
             <EditableProfileCard id={ id }/>
         </Page>
     );
