@@ -92,6 +92,7 @@
     "jest-fixed-jsdom": "^0.0.9",
     "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.0",
+    "lint-staged": "^16.2.6",
     "loki": "^0.35.1",
     "mini-css-extract-plugin": "^2.9.2",
     "msw": "^2.10.4",
@@ -161,5 +162,8 @@
       "public",
       "src"
     ]
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   }
 }
