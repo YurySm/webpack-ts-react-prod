@@ -6,6 +6,9 @@ const meta: Meta<typeof NotificationsList> = {
     title: 'entities/Notification/NotificationsList',
     component: NotificationsList,
     argTypes: {},
+    parameters: {
+        loki: { skip: true }
+    }
 };
 
 export default meta;

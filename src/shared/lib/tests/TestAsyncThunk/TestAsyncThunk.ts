@@ -8,6 +8,17 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 
 jest.mock('axios');
 
+jest.mock('@/shared/api/api', () => ({
+    $api: {
+        get: jest.fn(),
+        post: jest.fn(),
+        interceptors: {
+            request: { use: jest.fn() },
+            response: { use: jest.fn() },
+        },
+    },
+}));
+
 const mockedAxios = jest.mocked(axios);
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
@@ -28,8 +39,8 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
         this.api = mockedAxios
     }
 
-    async callThunk(arg: Arg) {
-        const action = this.actionCreator(arg);
+    async callThunk(arg?: Arg) {
+        const action = this.actionCreator(arg as Arg);
         const result = await action(
             this.dispatch,
             this.getState,

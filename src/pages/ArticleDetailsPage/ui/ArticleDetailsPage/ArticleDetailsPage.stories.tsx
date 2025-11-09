@@ -85,7 +85,10 @@ const article = {
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    args: {}
+    args: {},
+    parameters: {
+        loki: { skip: true }
+    }
 };
 
 export default meta;

@@ -1,8 +1,28 @@
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
 jest.mock('../fetchArticlesList/fetchArticlesList')
 
-
 describe('fetchNextArticlesPage', () => {
+    test('success', async () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+            articlesPage: {
+                ids: [],
+                entities: {},
+                isLoading: false,
+                hasMore: true,
+                limit: 4,
+                page: 2,
+            }
+        });
+
+        await thunk.callThunk();
+
+        expect(thunk.dispatch).toHaveBeenCalledTimes(4)
+    });
+
     // test('success', async () => {
     //     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
     //         articlesPage: {

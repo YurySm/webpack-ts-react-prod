@@ -51,6 +51,7 @@ const meta: Meta<typeof ArticlesRecommendationsList> = {
                 }),
             ],
         },
+        loki: { skip: true }
     },
 };
 

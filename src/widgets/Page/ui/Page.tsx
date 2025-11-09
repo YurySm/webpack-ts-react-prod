@@ -7,7 +7,7 @@ import { StateSchema, useAppDispatch, useAppSelector } from '@/app/providers/Sto
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useDebounce } from '@/shared/lib/hooks/useThrottle/useDebounce';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
-import { TestProps } from '@/shared/types/test';
+import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
     className?: string;

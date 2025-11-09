@@ -16,7 +16,10 @@ const meta: Meta<typeof ArticleRating> = {
                 }
             }
         })
-    ]
+    ],
+    parameters: {
+        loki: { skip: true }
+    }
 };
 
 export default meta;

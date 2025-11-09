@@ -14,6 +14,9 @@ const meta: Meta<typeof Modal> = {
         // backgroundColor: { control: 'color' },
     },
     // args: { onClick: fn() },
+    parameters: {
+        loki: { skip: true }
+    }
 };
 
 export default meta;

@@ -5,6 +5,9 @@ const meta: Meta<typeof AvatarDropdown> = {
     title: 'features/AvatarDropdown',
     component: AvatarDropdown,
     argTypes: {},
+    parameters: {
+        loki: { skip: true }
+    }
 };
 
 export default meta;

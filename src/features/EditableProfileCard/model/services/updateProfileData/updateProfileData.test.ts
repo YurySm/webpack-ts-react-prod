@@ -1,6 +1,8 @@
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { Profile } from '@/entities/Profile';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { updateProfileData } from './updateProfileData';
 
 const data: Profile = {
     id: '1',
@@ -14,6 +16,18 @@ const data: Profile = {
 };
 
 describe('fetchProfileData', () => {
+    test('fulfilled', async () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: data } });
+        thunk.api.put.mockReturnValue(Promise.resolve({ data }));
+
+        const result = await thunk.callThunk(undefined);
+
+        expect(thunk.api.put).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toEqual(data);
+    });
     // test('fulfilled', async () => {
     //     const thunk = new TestAsyncThunk(updateProfileData, { profile: { form: data } });
     //     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
