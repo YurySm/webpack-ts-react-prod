@@ -53,6 +53,11 @@ jobs:
         if: always()
         uses: actions/deploy-pages@v4
 
+      - name: Print deployed report URL
+        if: always()
+        run:
+          echo "Report URL: ${{ steps.deployment.outputs.page_url }}/report.html"
+
   checks:
     runs-on: ubuntu-latest
     strategy:
