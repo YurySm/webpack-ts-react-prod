@@ -3,44 +3,119 @@ run-name: Testing GitHub Actions 🚀
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
-
+    branches: [ master ]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 jobs:
-  Explore-GitHub-Actions:
+  build-and-ui-testing:
+    runs-on: ubuntu-latest
+    concurrency: ci-${{ github.ref }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    strategy:
+      matrix:
+        node-version: [ 22.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build production project
+        run: npm run build:prod
+        if: always()
+      - name: Run UI testing
+        run: npm run test:ui:ci:concurrently
+        if: always()
+      - name: Generate HTML report
+        run: npm run test:ui:report
+        if: always()
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        if: always()
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        if: always()
+        with:
+          path: '.loki'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: always()
+        uses: actions/deploy-pages@v4
+
+  checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 22.x ]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
 
-      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Install dependencies
-        run: npm install
-
-      - name: Build production project
-        run: npm run build:prod
-        if: always()
-
+        run: npm ci
       - name: Run linting TypeScript
         run: npm run lint:ts
         if: always()
-
       - name: Run linting CSS
         run: npm run lint:scss
-        if: always()
-
       - name: Run unit testing
+        if: always()
         run: npm run test:unit
-        if: always()
 
-      - name: Run UI testing
-        run: npm run test:ui:ci:concurrently
-        if: always()
+#on:
+#  push:
+#    branches: [master]
+#  pull_request:
+#    branches: [master]
+#
+#jobs:
+#  Explore-GitHub-Actions:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node-version: [ 22.x ]
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v3
+#
+#      - name: Set up Node.js
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#
+#      - name: Install dependencies
+#        run: npm ci
+#
+#      - name: Build production project
+#        run: npm run build:prod
+#        if: always()
+#
+#      - name: Run linting TypeScript
+#        run: npm run lint:ts
+#        if: always()
+#
+#      - name: Run linting CSS
+#        run: npm run lint:scss
+#        if: always()
+#
+#      - name: Run unit testing
+#        run: npm run test:unit
+#        if: always()
+#
+#      - name: Run UI testing
+#        run: npm run test:ui:ci:concurrently
+#        if: always()
