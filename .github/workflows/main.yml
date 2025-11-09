@@ -55,10 +55,7 @@ jobs:
 
       - name: Print deployed report URL
         if: always()
-        run: |
-          url="${{ steps.deployment.outputs.page_url }}"
-          url="${url%/}"
-          echo "::notice title=Report URL::$url/report.html"
+        run: echo "::notice title=Deployed Report::${{ steps.deployment.outputs.page_url }}report.html"
 
   checks:
     runs-on: ubuntu-latest
