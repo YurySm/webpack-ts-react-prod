@@ -61,15 +61,15 @@ const config: Config = {
         '^.+\\.tsx?$': ['ts-jest', {}],
     },
 
-    // reporters: [
-    //     'default',
-    //     ['jest-html-reporters', {
-    //         'publicPath': '<rootDir>/reports/unit',
-    //         'filename': 'report.html',
-    //         'openReport': true,
-    //         inlineSource: true,
-    //     }]
-    // ]
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            'publicPath': '<rootDir>/reports/unit',
+            'filename': 'report.html',
+            'openReport': true,
+            inlineSource: true,
+        }]
+    ]
 
 
 

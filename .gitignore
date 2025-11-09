@@ -3,5 +3,5 @@
 .idea
 *storybook.log
 /storybook-static
-/reports
+/reports/unit
 /coverage
