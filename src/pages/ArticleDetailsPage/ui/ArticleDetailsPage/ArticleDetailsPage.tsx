@@ -8,11 +8,13 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/Dynam
 import { getArticleCommentsError } from '../../model/selectors/comments';
 import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../../model/slices';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticlesRecommendationsList } from '@/features/ArticlesRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { useAppSelector } from '@/app/providers/StoreProvider';
 import { ArticleRating } from '@/features/ArticleRating';
+import {
+    ArticleDetailsPageHeader
+} from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer

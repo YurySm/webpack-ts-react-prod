@@ -69,7 +69,7 @@
     "@types/webpack-dev-server": "^4.7.1",
     "@typescript-eslint/parser": "^8.21.0",
     "@vitejs/plugin-react": "^4.7.0",
-    "@yury_sm/eslint-plugin-fsd-path-checker": "^0.0.12",
+    "@yury_sm/eslint-plugin-fsd-path-checker": "^0.0.16",
     "babel-loader": "^10.0.0",
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^9.1.2",
