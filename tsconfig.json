@@ -14,11 +14,12 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "isolatedModules": true
+    "isolatedModules": true,
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

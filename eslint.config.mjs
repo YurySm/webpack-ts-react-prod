@@ -168,4 +168,10 @@ export default [
             'fsd-path-checker/path-checker': 'off',
         },
     },
+    {
+        files: ['**/cypress/**/*'],
+        rules: {
+            'no-undef': 'off',
+        },
+    },
 ];

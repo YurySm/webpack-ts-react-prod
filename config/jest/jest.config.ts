@@ -16,7 +16,7 @@ const config: Config = {
         TextDecoder: TextDecoder,
         __IS_DEV__: true,
         __API__: '',
-        __PROJECT__: 'jest'
+        __PROJECT__: 'jest',
     },
     rootDir: '../../',
     clearMocks: true,
