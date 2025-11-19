@@ -753,6 +753,17 @@
       "city": "Moscow",
       "username": "manager",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU"
+    },
+    {
+      "id": "4",
+      "firstName": "Test",
+      "lastName": "Test",
+      "age": 99,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
     }
   ],
   "notifications": [
