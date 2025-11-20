@@ -69,7 +69,7 @@ export const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <div className={ classNames(cls.articleList, {}, [className, cls[view]]) }>
+        <div className={ classNames(cls.articleList, {}, [className, cls[view]]) } data-testid="ArticleList">
             {
                 articles.length > 0 ?
                     articles.map(renderArticle) : null

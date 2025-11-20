@@ -21,7 +21,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
@@ -137,34 +137,44 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={ cls.avatar }
                 />
 
-                <Text
-                    className={ cls.title }
-                    title={ article?.title }
-                    text={ article?.subtitle }
-                    size={ TextSize.L }
-                />
 
                 <VStack
-                    gap={ '8' }
-                    className={ cls.articleInfo }
+                    gap={ '4' }
+                    data-testid={ 'ArticleDetails.Info' }
                 >
-                    <Icon Svg={ EaeIcon }/>
-
                     <Text
-                        text={ article?.views.toString() }
+                        className={ cls.title }
+                        title={ article?.title }
+                        text={ article?.subtitle }
+                        size={ TextSize.L }
                     />
+
+                    <HStack
+                        gap={ '8' }
+                        className={ cls.articleInfo }
+                    >
+                        <Icon Svg={ EaeIcon }/>
+
+                        <Text
+                            text={ article?.views.toString() }
+                        />
+                    </HStack>
+
+                    <HStack
+                        gap={ '8' }
+                        className={ cls.articleInfo }
+                    >
+                        <Icon Svg={ CalendarIcon }/>
+
+                        <Text
+                            text={ article?.createdAt }
+                        />
+                    </HStack>
                 </VStack>
 
-                <VStack
-                    gap={ '8' }
-                    className={ cls.articleInfo }
-                >
-                    <Icon Svg={ CalendarIcon }/>
 
-                    <Text
-                        text={ article?.createdAt }
-                    />
-                </VStack>
+
+
 
                 {article?.blocks.map(renderBlock)}
             </>
