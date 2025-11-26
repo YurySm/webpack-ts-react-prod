@@ -697,6 +697,71 @@
       ],
       "blocks": [],
       "id": "SYsbStl"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2025?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 973,
+      "createdAt": "09.01.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "M-H807y"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2025?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 973,
+      "createdAt": "09.01.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "Jv-Pfxl"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2025?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 973,
+      "createdAt": "09.01.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "alpKucB"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2025?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 973,
+      "createdAt": "09.01.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "lBWtJei"
+    },
+    {
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS в 2025?",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png",
+      "views": 973,
+      "createdAt": "09.01.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "IjIylX7"
     }
   ],
   "comments": [
@@ -771,6 +836,12 @@
       "userId": "1",
       "text": "erftgywerty",
       "id": "3VY_OU4"
+    },
+    {
+      "articleId": "alpKucB",
+      "userId": "4",
+      "text": "test",
+      "id": "MclxQXU"
     }
   ],
   "users": [

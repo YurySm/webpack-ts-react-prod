@@ -66,14 +66,17 @@ export const RatingCard = (props: RatingProps) => {
         >
             <Text text={ feedbackTitle }/>
             <Input
+                data-testid={ 'RatingCard.Input' }
                 value={ feedback }
                 onChange={ setFeedback }
                 placeholder={ feedbackTitle }/>
             <HStack justify={ 'between' }>
                 <Button
+                    data-testid={ 'RatingCard.CloseButton' }
                     onClick={ handleOnCancel }
                     theme={ ButtonTheme.OUTLINE_RED }>{'Закрыть'}</Button>
                 <Button
+                    data-testid={ 'RatingCard.SendButton' }
                     onClick={ handleOnAccept }
                     theme={ ButtonTheme.BACKGROUND_INVERTED }>{'Отправить'}</Button>
             </HStack>
@@ -81,7 +84,7 @@ export const RatingCard = (props: RatingProps) => {
     )
 
     return (
-        <Card className={ className }>
+        <Card className={ className } data-testid={ 'RatingCard' }>
             <VStack align={ 'center' } gap={ '16' }>
                 <Text text={ starsCount ? 'Спасибо за оценку!': title }/>
                 <StarRating

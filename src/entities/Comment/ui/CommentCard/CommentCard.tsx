@@ -24,7 +24,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={ classNames(cls.commentCard, {}, [className, cls.loading]) }>
+            <div className={ classNames(cls.commentCard, {}, [className, cls.loading]) } data-testid={ 'CommentCard.Loading' }>
                 <div className={ cls.header }>
                     <Skeleton
                         width={ 30 }
@@ -48,7 +48,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     if(!comment) return null
 
     return (
-        <div className={ classNames(cls.commentCard, {}, [className]) }>
+        <div className={ classNames(cls.commentCard, {}, [className]) } data-testid={ 'CommentCard.Content' }>
             <AppLink to={ getRouteProfile(comment?.user?.id) } className={ cls.header }>
                 {
                     comment.user?.avatar &&
@@ -62,6 +62,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 <Text title={ comment.user?.username } />
             </AppLink>
             <Text
+                data-testid={ 'CommentCard.Text' }
                 className={ cls.text }
                 text={ comment?.text }/>
         </div>

@@ -1,7 +1,7 @@
 import { Article } from '../../../src/entities/Article';
 
 const defaultArticle = {
-    'title': 'Javascript news',
+    'title': 'Test Article',
     'subtitle': 'Что нового в JS в 2025?',
     'img': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1280px-Unofficial_JavaScript_logo_2.svg.png',
     'views': 973,

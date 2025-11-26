@@ -25,7 +25,7 @@ export const ArticlesRecommendationsList = (props: ArticlesRecommendationsListPr
     } = useGetArticlesRecommendationsListQuery(3)
 
     return (
-        <VStack gap={ '8' } className={ classNames('', {}, [className]) }>
+        <VStack gap={ '8' } className={ classNames('', {}, [className]) } data-testid="ArticlesRecommendationsList">
             <Text
                 title={ t('Рекомендуем') } />
 

@@ -13,8 +13,25 @@ describe('Пользователь заходит на страницу стат
         cy.deleteArticle(currentArticleId)
     })
 
-
     it('И видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist')
+    })
+
+    it('И видит список рекомендаций', () => {
+        cy.getByTestId('ArticlesRecommendationsList').should('exist')
+    })
+
+    it('И оставляет комментарий', () => {
+        cy.getByTestId('ArticleDetails.Info').should('exist')
+        cy.getByTestId('AddCommentForm').scrollIntoView()
+        cy.addComment('test')
+        cy.getByTestId('CommentCard.Content').should('have.length', 1)
+    })
+
+    it('И ставит оценку', () => {
+        cy.getByTestId('ArticleDetails.Info').should('exist')
+        cy.getByTestId('RatingCard').scrollIntoView()
+        cy.setRate(5, 'test')
+        cy.get('[data-selected=true]').should('have.length', 5)
     })
 }) 
