@@ -34,4 +34,12 @@ describe('Пользователь заходит на страницу стат
         cy.setRate(5, 'test')
         cy.get('[data-selected=true]').should('have.length', 5)
     })
+
+    it('И ставит оценку (пример с фикстурами)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' })
+        cy.getByTestId('ArticleDetails.Info').should('exist')
+        cy.getByTestId('RatingCard').scrollIntoView()
+        cy.setRate(5, 'test')
+        cy.get('[data-selected=true]').should('have.length', 5)
+    })
 }) 
