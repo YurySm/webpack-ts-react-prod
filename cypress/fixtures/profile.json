@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "firstName": "Test",
+  "lastName": "Test",
+  "age": 99,
+  "currency": "EUR",
+  "country": "Russia",
+  "city": "Moscow",
+  "username": "testuser",
+  "avatar": "https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+}
