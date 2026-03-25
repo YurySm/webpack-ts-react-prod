@@ -7,7 +7,7 @@ import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import { fixupPluginRules } from '@eslint/compat';
 import fsdPlugin from '@yury_sm/eslint-plugin-fsd-path-checker';
 import unusedImports from 'eslint-plugin-unused-imports';
-
+// import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -72,30 +72,31 @@ export default [
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat[`jsx-runtime`],
     i18next.configs['flat/recommended'],
+    // eslintPluginPrettierRecommended,
     {
         rules: {
-            indent: [`error`, 4],
-            'react/jsx-indent': [`error`, 4],
-            'react/jsx-indent-props': [`error`, 4],
+            // indent: [`error`, 4],
+            // 'react/jsx-indent': [`error`, 4],
+            // 'react/jsx-indent-props': [`error`, 4],
             'react/jsx-filename-extension': [
                 `error`,
                 { extensions: [`.js`, `.jsx`, `.ts`, `.tsx`] },
             ],
-            'react/jsx-curly-spacing': [
-                2,
-                {
-                    when: `always`,
-                    spacing: {
-                        objectLiterals: `never`,
-                    },
-                },
-            ],
-            'object-curly-spacing': [`error`, `always`],
-            quotes: [
-                'error',
-                'single',
-                { avoidEscape: true, allowTemplateLiterals: true },
-            ],
+            // 'react/jsx-curly-spacing': [
+            //     2,
+            //     {
+            //         when: `always`,
+            //         spacing: {
+            //             objectLiterals: `never`,
+            //         },
+            //     },
+            // ],
+            // 'object-curly-spacing': [`error`, `always`],
+            // quotes: [
+            //     'error',
+            //     'single',
+            //     { avoidEscape: true, allowTemplateLiterals: true },
+            // ],
             'import/no-unresolved': `off`,
             'import/prefer-default-export': `off`,
             'no-unused-vars': `off`,
@@ -114,39 +115,39 @@ export default [
             'fsd-path-checker/path-checker': [
                 'error',
                 {
-                    alias: '@'
-                }
+                    alias: '@',
+                },
             ],
             'fsd-path-checker/public-api-imports': [
                 'error',
                 {
                     alias: '@',
-                    testFiles: ['**/*.test.*', '**/StoreDecorator.tsx']
-                }
+                    testFiles: ['**/*.test.*', '**/StoreDecorator.tsx'],
+                },
             ],
             'fsd-path-checker/layers-imports': [
                 'error',
                 {
                     alias: '@',
-                    ignoreImportPatterns: ['**/StoreProvider', '**/testing']
-                }
+                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                },
             ],
             'i18next/no-literal-string': [
                 'error',
                 {
-                    ignoreAttribute: ['data-testid', 'className']
-                }
+                    ignoreAttribute: ['data-testid', 'className'],
+                },
             ],
             'unused-imports/no-unused-imports': 'error',
             'unused-imports/no-unused-vars': [
                 'warn',
                 {
-                    'vars': 'all',
-                    'varsIgnorePattern': '^_',
-                    'args': 'after-used',
-                    'argsIgnorePattern': '^_',
+                    vars: 'all',
+                    varsIgnorePattern: '^_',
+                    args: 'after-used',
+                    argsIgnorePattern: '^_',
                 },
-            ]
+            ],
         },
     },
     {
