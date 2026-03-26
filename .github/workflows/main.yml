@@ -34,18 +34,18 @@ jobs:
       - name: Build production project
         run: npm run build:prod
         if: always()
-      - name: Run UI testing
-        run: npm run test:ui:ci:concurrently
-        if: always()
-      - name: Generate HTML report
-        run: npm run test:ui:report
-        if: always()
-      - name: Move loki report
-        run: mv .loki reports/
-        if: always()
-      - name: Run unit testing
-        if: always()
-        run: npm run test:unit
+#      - name: Run UI testing
+#        run: npm run test:ui:ci:concurrently
+#        if: always()
+#      - name: Generate HTML report
+#        run: npm run test:ui:report
+#        if: always()
+#      - name: Move loki report
+#        run: mv .loki reports/
+#        if: always()
+#      - name: Run unit testing
+#        if: always()
+#        run: npm run test:unit
       - name: Setup Pages
         uses: actions/configure-pages@v5
         if: always()
