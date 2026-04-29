@@ -855,6 +855,18 @@
       "userId": "4",
       "text": "test",
       "id": "MclxQXU"
+    },
+    {
+      "articleId": "15",
+      "userId": "4",
+      "text": "asdfasdf",
+      "id": "MAZWxyR"
+    },
+    {
+      "articleId": "15",
+      "userId": "4",
+      "text": "asdfasdf",
+      "id": "oBk93lu"
     }
   ],
   "users": [
@@ -865,7 +877,11 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+      "avatar": "https://www.pngkey.com/png/detail/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      }
     },
     {
       "id": "2",
@@ -874,7 +890,11 @@
       "roles": [
         "USER"
       ],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      }
     },
     {
       "id": "3",
@@ -883,7 +903,11 @@
       "roles": [
         "MANAGER"
       ],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": true
+      }
     },
     {
       "id": "4",
@@ -892,7 +916,11 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU"
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDnI9ruH113ERMUf-pnbwqQea-AXP1FrF46jtxwOb4w0UXRTqLpCAsMuAnBJNUGpZ2EI&usqp=CAU",
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      }
     }
   ],
   "profile": [
@@ -1064,6 +1092,13 @@
       "userId": "4",
       "feedback": "test",
       "id": "iu0t9ji"
+    },
+    {
+      "rate": 4,
+      "articleId": "15",
+      "userId": "4",
+      "feedback": "fasdfsdf",
+      "id": "fzyY5tC"
     }
   ],
   "profiles-ratings": [
