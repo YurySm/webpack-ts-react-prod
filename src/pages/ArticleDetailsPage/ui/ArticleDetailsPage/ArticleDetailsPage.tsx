@@ -16,8 +16,8 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { useAppSelector } from '@/app/providers/StoreProvider';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { getFeatureFlag } from '@/shared/lib/features';
-import { Counter } from '@/entities/Counter';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -26,6 +26,11 @@ const reducers: ReducersList = {
 interface ArticleDetailsPageProps {
     className?: string;
 }
+
+// eslint-disable-next-line i18next/no-literal-string
+const Counter = () => <div>old counter</div>;
+// eslint-disable-next-line i18next/no-literal-string
+const CounterRedesigned = () => <div>new counter</div>;
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
@@ -36,9 +41,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if (__PROJECT__ === 'storybook') {
         id = '1';
     }
-
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     const commentsError = useAppSelector(getArticleCommentsError);
 
@@ -62,6 +64,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         );
     }
 
+    const articleRatingCard = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+    });
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page
@@ -69,8 +77,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             >
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
-                {isCounterEnabled && <Counter />}
+                {articleRatingCard}
                 <ArticlesRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </Page>

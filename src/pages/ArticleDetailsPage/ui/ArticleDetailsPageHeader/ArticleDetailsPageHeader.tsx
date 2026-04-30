@@ -7,49 +7,49 @@ import { useTranslation } from 'react-i18next';
 import { getCanEditArticle } from '../../model/selectors/article';
 import { getArticleDetailsData } from '@/entities/Article';
 import { useAppSelector } from '@/app/providers/StoreProvider';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/constants/router';
+import {
+    getRouteArticleEdit,
+    getRouteArticles,
+} from '@/shared/constants/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
-    const {
-        className,
-    } = props;
+export const ArticleDetailsPageHeader = (
+    props: ArticleDetailsPageHeaderProps,
+) => {
+    const { className } = props;
     const { t } = useTranslation('articles');
 
-    const isCanEdit = useAppSelector(getCanEditArticle)
-    const article = useAppSelector(getArticleDetailsData)
+    const isCanEdit = useAppSelector(getCanEditArticle);
+    const article = useAppSelector(getArticleDetailsData);
 
     const navigate = useNavigate();
 
     const onBackToList = useCallback(() => {
-        navigate(getRouteArticles())
-    }, [navigate])
+        navigate(getRouteArticles());
+    }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(getRouteArticleEdit(article?.id || ''))
-    }, [navigate, article])
+        navigate(getRouteArticleEdit(article?.id || ''));
+    }, [navigate, article]);
 
     return (
-        <div className={ classNames(cls.articleDetailsPageHeader, {}, [className]) }>
-            <Button
-                theme={ ButtonTheme.OUTLINE }
-                onClick={ onBackToList }
-            >
+        <div
+            className={classNames(cls.articleDetailsPageHeader, {}, [
+                className,
+            ])}
+        >
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Вернуться к списку')}
             </Button>
 
-            {
-                isCanEdit &&
-                <Button
-                    theme={ ButtonTheme.OUTLINE }
-                    onClick={ onEditArticle }
-                >
+            {isCanEdit && (
+                <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
                     {t('Редактировать')}
                 </Button>
-            }
+            )}
         </div>
     );
 };
