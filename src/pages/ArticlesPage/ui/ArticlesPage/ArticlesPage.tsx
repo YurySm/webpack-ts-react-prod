@@ -13,6 +13,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ArticlesInfinityList } from '../ArticlesInfinityList/ArticlesInfinityList';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { useGetArticleItemById } from '../../model/selectors/articlesPageSelectors';
+import { ArticlesPageGreeting } from '@/features/ArticlesPageGreeting';
 
 interface ArticlesPageProps {
     className?: string;
@@ -50,6 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     searchParams={searchParams}
                     className={cls.list}
                 />
+                <ArticlesPageGreeting />
             </Page>
         </DynamicModuleLoader>
     );
