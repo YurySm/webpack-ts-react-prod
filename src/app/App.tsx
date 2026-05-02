@@ -10,16 +10,16 @@ import { AppRouter } from './providers/router';
 export const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
-    const inited = useAppSelector(getUserInited)
+    const inited = useAppSelector(getUserInited);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
 
     return (
-        <div className={ classNames('app', {}, [theme]) }>
+        <div className={classNames('app', {}, [theme])}>
             <Navbar />
-            <div className={ 'content-page' }>
+            <div className={'content-page'}>
                 <Sidebar />
                 {inited && <AppRouter />}
             </div>
