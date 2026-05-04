@@ -11,6 +11,13 @@
     min-height: 100vh;
 }
 
+.app_redesigned {
+    font: var(--font-m-redesigened);
+    background: var(--bg-redesigned);
+    color: var(--text-redesigned);
+    min-height: 100vh;
+}
+
 .content-page {
     display: flex;
 }

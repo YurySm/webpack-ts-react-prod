@@ -2,21 +2,44 @@
     --font-famaly-main: consolas, 'Times New Roman', serif;
     --font-size-s: 12px;
     --font-line-s: 20px;
+
+    --font-famaly-title-redesigend: "Roboto", sans-serif;
+    --font-famaly-text-redesigend: "Nunito Sans", sans-serif;
+
+    // s
     --font-s: var(--font-size-s) / var(--font-line-s) var(--font-famaly-main);
     --font-size-m: 16px;
     --font-line-m: 24px;
+
+    // m
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-famaly-main);
     --font-size-l: 24px;
     --font-line-l: 32px;
+
+    // l
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-famaly-main);
     --font-size-xl: 32px;
     --font-line-xl: 40px;
+
+    // xl
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-famaly-main);
     --navbar-height: 50px;
     --sidebar-width: 300px;
+
+    //
     --sidebar-width-collapsed: 80px;
     --bg-overlay: rgb(0 0 0 / 60%);
     --red-light: #ff0808;
     --red-dark: #ac1c1c;
     --z-index-overlay: 10;
+
+    // redesigned
+    // s
+    --font-s-redesigened: var(--font-size-s) / var(--font-line-s) var(--font-famaly-text-redesigend);
+    // m
+    --font-m-redesigened: var(--font-size-m) / var(--font-line-m) var(--font-famaly-text-redesigend);
+    // l
+    --font-l-redesigened: var(--font-size-l) / var(--font-line-l) var(--font-famaly-title-redesigend);
+    // xl
+    --font-xl-redesigened: var(--font-size-xl) / var(--font-line-xl) var(--font-famaly-title-redesigend);
 }

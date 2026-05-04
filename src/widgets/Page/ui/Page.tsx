@@ -3,11 +3,16 @@ import cls from './Page.module.scss';
 import { ReactNode, RefObject, UIEvent, useRef } from 'react';
 import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll/useInfinityScroll';
 import { useLocation } from 'react-router-dom';
-import { StateSchema, useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    useAppDispatch,
+    useAppSelector,
+} from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useDebounce } from '@/shared/lib/hooks/useThrottle/useDebounce';
 import { getScrollSaveByPath, scrollSaveActions } from '@/features/ScrollSave';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -25,11 +30,13 @@ export const Page = (props: PageProps) => {
 
     const { pathname } = useLocation();
 
-    const dispatch = useAppDispatch()
-    const scrollPosition = useAppSelector((state: StateSchema) => getScrollSaveByPath(state, pathname))
+    const dispatch = useAppDispatch();
+    const scrollPosition = useAppSelector((state: StateSchema) =>
+        getScrollSaveByPath(state, pathname),
+    );
 
     const triggerRef = useRef(null) as unknown as RefObject<HTMLDivElement>;
-    const wrapperRef = useRef(null) as unknown  as RefObject<HTMLDivElement>;
+    const wrapperRef = useRef(null) as unknown as RefObject<HTMLDivElement>;
 
     const onHandleScroll = (e: UIEvent<HTMLDivElement>) => {
         const scrollTop = e.currentTarget?.scrollTop;
@@ -39,33 +46,43 @@ export const Page = (props: PageProps) => {
     };
 
     const debouncedScrollHandler = useDebounce((scrollTop: number) => {
-        dispatch(scrollSaveActions.setScrollPosition({
-            path: pathname,
-            position: scrollTop,
-        }));
+        dispatch(
+            scrollSaveActions.setScrollPosition({
+                path: pathname,
+                position: scrollTop,
+            }),
+        );
     }, 500);
 
     useInitialEffect(() => {
         if (wrapperRef.current) {
             wrapperRef.current.scrollTop = scrollPosition;
         }
-    })
+    });
 
     useInfinityScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd
-    })
+        callback: onScrollEnd,
+    });
 
     return (
         <main
-            data-testid={ dataTestId ?? 'Page' }
-            ref={ wrapperRef }
-            className={ classNames(cls.page, {}, [className]) }
-            onScroll={ onHandleScroll }
+            data-testid={dataTestId ?? 'Page'}
+            ref={wrapperRef}
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.page_redesigned,
+                    off: () => cls.page,
+                }),
+                {},
+                [className],
+            )}
+            onScroll={onHandleScroll}
         >
             {children}
-            {onScrollEnd && <div className={ cls.trigger } ref={ triggerRef } />}
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </main>
     );
 };

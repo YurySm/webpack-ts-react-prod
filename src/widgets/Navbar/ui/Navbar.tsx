@@ -12,6 +12,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getRouteArticleCreate } from '@/shared/constants/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
     className?: string;
@@ -32,41 +33,60 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <header className={ classNames(cls.navbar, {}, [className]) }>
-                <Text
-                    className={ cls.title }
-                    theme={ TextTheme.INVERTED }
-                    title={ t('Articles App') }/>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <header
+                        className={classNames(cls.navbar_redesigned, {}, [
+                            className,
+                        ])}
+                    >
+                        <HStack gap={'16'} max={false}>
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+                off={
+                    <header className={classNames(cls.navbar, {}, [className])}>
+                        <Text
+                            className={cls.title}
+                            theme={TextTheme.INVERTED}
+                            title={t('Articles App')}
+                        />
 
-                <HStack gap={ '16' } justify={ 'between' }>
-                    <AppLink
-                        theme={ AppLinkTheme.SECONDARY }
-                        to={ getRouteArticleCreate() }>
-                        {t('Создать статью')}
-                    </AppLink>
+                        <HStack gap={'16'} justify={'between'}>
+                            <AppLink
+                                theme={AppLinkTheme.SECONDARY}
+                                to={getRouteArticleCreate()}
+                            >
+                                {t('Создать статью')}
+                            </AppLink>
 
-                    <HStack gap={ '16' } max={ false }>
-                        <NotificationButton />
-                        <AvatarDropdown />
-                    </HStack>
-                </HStack>
-            </header>
+                            <HStack gap={'16'} max={false}>
+                                <NotificationButton />
+                                <AvatarDropdown />
+                            </HStack>
+                        </HStack>
+                    </header>
+                }
+            />
         );
     }
 
     return (
-        <header className={ classNames(cls.navbar, {}, [className]) }>
-            <HStack justify={ 'end' }>
+        <header className={classNames(cls.navbar, {}, [className])}>
+            <HStack justify={'end'}>
                 <Button
-                    theme={ ButtonTheme.CLEAR_INVERTED }
+                    theme={ButtonTheme.CLEAR_INVERTED}
                     type="button"
-                    onClick={ onShowModal }
+                    onClick={onShowModal}
                 >
                     {t('Войти')}
                 </Button>
 
                 {isAuthModal && (
-                    <LoginModal isOpen={ isAuthModal } onClose={ onCloseModal } />
+                    <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
                 )}
             </HStack>
         </header>
