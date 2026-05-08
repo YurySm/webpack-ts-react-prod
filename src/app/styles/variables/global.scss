@@ -2,9 +2,8 @@
     --font-famaly-main: consolas, 'Times New Roman', serif;
     --font-size-s: 12px;
     --font-line-s: 20px;
-
-    --font-famaly-title-redesigend: "Roboto", sans-serif;
-    --font-famaly-text-redesigend: "Nunito Sans", sans-serif;
+    --font-famaly-title-redesigend: 'Roboto', sans-serif;
+    --font-famaly-text-redesigend: 'Nunito Sans', sans-serif;
 
     // s
     --font-s: var(--font-size-s) / var(--font-line-s) var(--font-famaly-main);
@@ -26,7 +25,7 @@
     --navbar-height: 50px;
     --sidebar-width: 300px;
 
-    //
+    // other
     --sidebar-width-collapsed: 80px;
     --bg-overlay: rgb(0 0 0 / 60%);
     --red-light: #ff0808;
@@ -35,11 +34,18 @@
 
     // redesigned
     // s
-    --font-s-redesigened: var(--font-size-s) / var(--font-line-s) var(--font-famaly-text-redesigend);
+    --font-s-redesigened: var(--font-size-s) / var(--font-line-s)
+        var(--font-famaly-text-redesigend);
+
     // m
-    --font-m-redesigened: var(--font-size-m) / var(--font-line-m) var(--font-famaly-text-redesigend);
+    --font-m-redesigened: var(--font-size-m) / var(--font-line-m)
+        var(--font-famaly-text-redesigend);
+
     // l
-    --font-l-redesigened: var(--font-size-l) / var(--font-line-l) var(--font-famaly-title-redesigend);
+    --font-l-redesigened: var(--font-size-l) / var(--font-line-l)
+        var(--font-famaly-title-redesigend);
+
     // xl
-    --font-xl-redesigened: var(--font-size-xl) / var(--font-line-xl) var(--font-famaly-title-redesigend);
+    --font-xl-redesigened: var(--font-size-xl) / var(--font-line-xl)
+        var(--font-famaly-title-redesigend);
 }
