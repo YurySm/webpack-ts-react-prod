@@ -27,9 +27,10 @@
     "test:e2e": "cypress open",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "remove-feature": "ts-node ./scripts/remove-feature.ts",
     "prepare": "husky",
-    "postinstall": "node ./scripts/clear-cache.js",
-    "remove-feature": "ts-node ./scripts/remove-feature.ts"
+    "postinstall": "node ./scripts/clear-cache.js"
   },
   "keywords": [],
   "author": "",
