@@ -20,48 +20,64 @@ const buildBabelLoader = ({ isDev, isTSX }: BuildBabelLoaderOptions) => {
                     [
                         '@babel/preset-react',
                         {
-                            'runtime': 'automatic'
-                        }
-                    ]
+                            runtime: 'automatic',
+                        },
+                    ],
                 ],
                 plugins: [
                     isDev && require.resolve('react-refresh/babel'),
                     [
                         '@babel/plugin-transform-typescript',
                         {
-                            isTSX
-                        }
+                            isTSX,
+                        },
                     ],
                     '@babel/plugin-transform-runtime',
-                    isTSX && !isDev && [
-                        babelRemovePropsPlugin,
-                        {
-                            props: ['data-testid']
-                        }
-                    ]
+                    isTSX &&
+                        !isDev && [
+                            babelRemovePropsPlugin,
+                            {
+                                props: ['data-testid'],
+                            },
+                        ],
                 ].filter(Boolean),
-            }
-        }
-    }
-}
+            },
+        },
+    };
+};
 
-export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
 
-    const fileLoader ={
+    const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
                 loader: 'file-loader',
             },
         ],
-    }
+    };
 
-    const svgLoader =  {
+    const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
-    }
+        use: [
+            {
+                loader: '@svgr/webpack',
+                icon: true,
+                svgoConfig: {
+                    plugins: [
+                        {
+                            name: 'convertColors',
+                            params: {
+                                currentColor: true,
+                            },
+                        },
+                    ],
+                },
+            },
+        ],
+    };
 
     const cssLoader = {
         test: /\.s[ac]ss$/i,
@@ -73,16 +89,17 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
                 options: {
                     modules: {
                         namedExport: false,
-                        auto: ((resourcePath: string) => resourcePath.includes('.module')),
-                        localIdentName: isDev ?
-                            '[path][name]__[local]--[hash:base64:5]'
-                            : '[hash:base64:8]'
+                        auto: (resourcePath: string) =>
+                            resourcePath.includes('.module'),
+                        localIdentName: isDev
+                            ? '[path][name]__[local]--[hash:base64:5]'
+                            : '[hash:base64:8]',
                     },
                 },
             },
             'sass-loader',
         ],
-    }
+    };
 
     // const typescriptLoader = {
     //     test: /\.tsx?$/,
@@ -104,10 +121,9 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
     //     }
     // }
 
-    const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false })
+    const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
 
-    const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true })
-
+    const tsxBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
     return [
         // typescriptLoader,
@@ -116,6 +132,6 @@ export function buildLoaders (options: BuildOptions): webpack.RuleSetRule[] {
         fileLoader,
         // babelLoader
         codeBabelLoader,
-        tsxBabelLoader
-    ]
+        tsxBabelLoader,
+    ];
 }

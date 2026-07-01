@@ -55,6 +55,7 @@
     "@storybook/react": "^8.5.2",
     "@storybook/react-webpack5": "^8.5.2",
     "@storybook/test": "^8.5.2",
+    "@svgr/plugin-svgo": "^8.1.0",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

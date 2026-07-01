@@ -8,48 +8,46 @@ import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view?: ArticleView
-    onViewClick?: (view: ArticleView) => void
+    view?: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
     {
         view: ArticleView.SMALL,
-        icon: TiledIcon
+        icon: TiledIcon,
     },
     {
         view: ArticleView.BIG,
-        icon: ListIcon
-    }
-]
+        icon: ListIcon,
+    },
+];
 
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
-    const onClick = (newView: ArticleView) =>  () => {
+    const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
-    }
-
+    };
 
     return (
-        <div className={ classNames(cls.articleViewSelector, {}, [className]) }>
-            {
-                viewTypes.map((viewType) => (
-                    <Button
-                        key={ viewType.view }
-                        theme={ ButtonTheme.CLEAR }
-                        onClick={ onClick(viewType.view ) }
-                    >
-                        <Icon
-                            className={ classNames('', { [cls.selected]: viewType.view === view }) }
-                            Svg={ viewType.icon }/>
-                    </Button>
-                ))
-            }
+        <div className={classNames(cls.articleViewSelector, {}, [className])}>
+            {viewTypes.map((viewType) => (
+                <Button
+                    key={viewType.view}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClick(viewType.view)}
+                >
+                    <Icon
+                        width={24}
+                        height={24}
+                        className={classNames('', {
+                            [cls.selected]: viewType.view === view,
+                        })}
+                        Svg={viewType.icon}
+                    />
+                </Button>
+            ))}
         </div>
     );
 };

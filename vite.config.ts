@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
@@ -7,16 +7,28 @@ export default defineConfig({
         react(),
         svgr({
             include: '**/*.svg',
-        })
+            // exportAsDefault: true,
+            svgrOptions: {
+                plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+                svgoConfig: {
+                    plugins: [
+                        {
+                            name: 'convertColors',
+                            params: {
+                                currentColor: true,
+                            },
+                        },
+                    ],
+                },
+            },
+        }),
     ],
     resolve: {
-        alias: [
-            { find: '@', replacement: '/src' }
-        ]
+        alias: [{ find: '@', replacement: '/src' }],
     },
     define: {
         __IS_DEV__: JSON.stringify(true),
         __API__: JSON.stringify('http://localhost:5000'),
         __PROJECT__: JSON.stringify('frontend'),
-    }
-})
+    },
+});

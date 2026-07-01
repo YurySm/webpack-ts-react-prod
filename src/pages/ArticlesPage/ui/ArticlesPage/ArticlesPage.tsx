@@ -12,7 +12,6 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { useSearchParams } from 'react-router-dom';
 import { ArticlesInfinityList } from '../ArticlesInfinityList/ArticlesInfinityList';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
-import { useGetArticleItemById } from '../../model/selectors/articlesPageSelectors';
 import { ArticlesPageGreeting } from '@/features/ArticlesPageGreeting';
 
 interface ArticlesPageProps {
@@ -36,8 +35,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         }
     }, [dispatch]);
 
-    const articleItemById = useGetArticleItemById('IjIylX7');
-    console.log(articleItemById);
+    // const articleItemById = useGetArticleItemById('IjIylX7');
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
