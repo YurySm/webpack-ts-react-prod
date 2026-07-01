@@ -7,47 +7,47 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Text, TextAlign, TextTheme } from 'src/shared/ui/deprecated/Text';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ArticlesInfinityListProps {
-    searchParams: URLSearchParams
-    className?: string
+    searchParams: URLSearchParams;
+    className?: string;
 }
 
 export const ArticlesInfinityList = (props: ArticlesInfinityListProps) => {
-    const {
-        className,
-        searchParams
-    } = props;
+    const { className, searchParams } = props;
 
     const dispatch = useAppDispatch();
 
-    const articles = useAppSelector(getArticles.selectAll)
-    const isLoading = useAppSelector(getArticlesPageIsLoading)
-    const view = useAppSelector(getArticlesPageView)
-    const error = useAppSelector(getArticlesPageError)
+    const articles = useAppSelector(getArticles.selectAll);
+    const isLoading = useAppSelector(getArticlesPageIsLoading);
+    const view = useAppSelector(getArticlesPageView);
+    const error = useAppSelector(getArticlesPageError);
 
     useInitialEffect(() => {
-        if(__PROJECT__ !== 'storybook') {
+        if (__PROJECT__ !== 'storybook') {
             dispatch(initArticlesPage(searchParams));
         }
-    })
+    });
 
-    if(error ) {
-        return <Text
-            className={ className }
-            text={ 'Что-то пошло не так!' }
-            align={ TextAlign.CENTER }
-            theme={ TextTheme.ERROR }  />
+    if (error) {
+        return (
+            <Text
+                className={className}
+                text={'Что-то пошло не так!'}
+                align={TextAlign.CENTER}
+                theme={TextTheme.ERROR}
+            />
+        );
     }
 
     return (
         <ArticleList
-            className={ className }
-            isLoading={ isLoading }
-            view={ view }
-            articles={ articles }
+            className={className}
+            isLoading={isLoading}
+            view={view}
+            articles={articles}
         />
     );
 };

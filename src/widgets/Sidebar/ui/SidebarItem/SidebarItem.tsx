@@ -1,5 +1,5 @@
 import cls from './SidebarItem.module.scss';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink, AppLinkTheme } from 'src/shared/ui/deprecated/AppLink';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
@@ -15,20 +15,20 @@ interface SidebarItemProps {
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation();
 
-    const isAuth = useAppSelector(getUserAuthData)
+    const isAuth = useAppSelector(getUserAuthData);
 
-    if(item.authOnly && !isAuth) {
-        return null
+    if (item.authOnly && !isAuth) {
+        return null;
     }
 
     return (
         <AppLink
-            theme={ AppLinkTheme.SECONDARY }
-            to={ item.path }
-            className={ classNames(cls.link, { [cls.collapsed]: collapsed }, []) }
+            theme={AppLinkTheme.SECONDARY}
+            to={item.path}
+            className={classNames(cls.link, { [cls.collapsed]: collapsed }, [])}
         >
-            <item.Icon className={ cls.icon } />
-            <span className={ cls.linkText }>{t(item.text)}</span>
+            <item.Icon className={cls.icon} />
+            <span className={cls.linkText}>{t(item.text)}</span>
         </AppLink>
     );
 });

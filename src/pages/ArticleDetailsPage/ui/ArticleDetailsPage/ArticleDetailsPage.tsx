@@ -17,7 +17,7 @@ import { useAppSelector } from '@/app/providers/StoreProvider';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
+import { Card } from 'src/shared/ui/deprecated/Card';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,

@@ -1,10 +1,10 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextAlign, TextTheme } from 'src/shared/ui/deprecated/Text';
+import { Input } from 'src/shared/ui/deprecated/Input';
+import { Loader } from 'src/shared/ui/deprecated/Loader';
+import { Avatar } from 'src/shared/ui/deprecated/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 
 import { Country, CountrySelect } from '@/entities/Country';
@@ -12,18 +12,18 @@ import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile
+    data?: Profile;
     isLoading?: boolean;
-    error?: string
-    readonly?: boolean
-    onChangeFirstname?: (value: string) => void
-    onChangeLastname?: (value: string) => void
-    onChangeCity?: (value: string) => void
-    onChangeAge?: (value: string) => void
-    onChangeAvatar?: (value: string) => void
-    onChangeUsername?: (value: string) => void
-    onChangeCurrency?: (value: Currency) => void
-    onChangeCountry?: (value: Country) => void
+    error?: string;
+    readonly?: boolean;
+    onChangeFirstname?: (value: string) => void;
+    onChangeLastname?: (value: string) => void;
+    onChangeCity?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeCurrency?: (value: Currency) => void;
+    onChangeCountry?: (value: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -40,104 +40,111 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAvatar,
         onChangeUsername,
         onChangeCurrency,
-        onChangeCountry
-    } = props
+        onChangeCountry,
+    } = props;
 
     const { t } = useTranslation('profile');
 
     const mods: Mods = {
-        [cls.editing]: !readonly
-    }
+        [cls.editing]: !readonly,
+    };
 
-    if(isLoading){
+    if (isLoading) {
         return (
-            <div className={ classNames(cls.profileCard, {}, [cls.loading, className]) }>
+            <div
+                className={classNames(cls.profileCard, {}, [
+                    cls.loading,
+                    className,
+                ])}
+            >
                 <Loader />
             </div>
-        )
+        );
     }
 
-    if(error){
+    if (error) {
         return (
-            <div className={ classNames(cls.profileCard, {}, [cls.error, className]) }>
+            <div
+                className={classNames(cls.profileCard, {}, [
+                    cls.error,
+                    className,
+                ])}
+            >
                 <Text
-                    theme={ TextTheme.ERROR }
-                    align={ TextAlign.CENTER }
-                    title={ t('Произошла ошибка при загрузке') }
-                    text={ t('Попробуйте перезагрузить страницу') }
+                    theme={TextTheme.ERROR}
+                    align={TextAlign.CENTER}
+                    title={t('Произошла ошибка при загрузке')}
+                    text={t('Попробуйте перезагрузить страницу')}
                 />
             </div>
-        )
+        );
     }
 
     return (
-        <div className={ classNames(cls.profileCard, mods, [className]) }>
-            <div className={ cls.data }>
-                {
-                    data?.avatar &&
-                    <div className={ cls.avatarWrapp }>
-                        <Avatar
-                            src={ data?.avatar }
-                            alt={ data?.username }/>
+        <div className={classNames(cls.profileCard, mods, [className])}>
+            <div className={cls.data}>
+                {data?.avatar && (
+                    <div className={cls.avatarWrapp}>
+                        <Avatar src={data?.avatar} alt={data?.username} />
                     </div>
-                }
+                )}
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.firstName }
-                    placeholder={ t('Ваше имя') }
-                    className={ cls.input }
-                    onChange={ onChangeFirstname }
-                    data-testid={ 'ProfileCard.FirstName' }
+                    readOnly={readonly}
+                    value={data?.firstName}
+                    placeholder={t('Ваше имя')}
+                    className={cls.input}
+                    onChange={onChangeFirstname}
+                    data-testid={'ProfileCard.FirstName'}
                 />
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.lastName }
-                    placeholder={ t('Ваша фамилия') }
-                    className={ cls.input }
-                    onChange={ onChangeLastname }
-                    data-testid={ 'ProfileCard.LastName' }
+                    readOnly={readonly}
+                    value={data?.lastName}
+                    placeholder={t('Ваша фамилия')}
+                    className={cls.input}
+                    onChange={onChangeLastname}
+                    data-testid={'ProfileCard.LastName'}
                 />
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.age }
-                    placeholder={ t('Ваш возраст') }
-                    className={ cls.input }
-                    onChange={ onChangeAge }
+                    readOnly={readonly}
+                    value={data?.age}
+                    placeholder={t('Ваш возраст')}
+                    className={cls.input}
+                    onChange={onChangeAge}
                 />
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.city }
-                    placeholder={ t('Город') }
-                    className={ cls.input }
-                    onChange={ onChangeCity }
+                    readOnly={readonly}
+                    value={data?.city}
+                    placeholder={t('Город')}
+                    className={cls.input}
+                    onChange={onChangeCity}
                 />
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.username }
-                    placeholder={ t('Введите имя пользователя') }
-                    className={ cls.input }
-                    onChange={ onChangeUsername }
+                    readOnly={readonly}
+                    value={data?.username}
+                    placeholder={t('Введите имя пользователя')}
+                    className={cls.input}
+                    onChange={onChangeUsername}
                 />
                 <Input
-                    readOnly={ readonly }
-                    value={ data?.avatar }
-                    placeholder={ t('Введите ссылку на аватар') }
-                    className={ cls.input }
-                    onChange={ onChangeAvatar }
+                    readOnly={readonly}
+                    value={data?.avatar}
+                    placeholder={t('Введите ссылку на аватар')}
+                    className={cls.input}
+                    onChange={onChangeAvatar}
                 />
 
                 <CurrencySelect
-                    value={ data?.currency }
-                    onChange={ onChangeCurrency }
-                    readonly={ readonly }
-                    className={ cls.input }
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
+                    className={cls.input}
                 />
 
                 <CountrySelect
-                    value={ data?.country }
-                    onChange={ onChangeCountry }
-                    readonly={ readonly }
-                    className={ cls.input }
+                    value={data?.country}
+                    onChange={onChangeCountry}
+                    readonly={readonly}
+                    className={cls.input}
                 />
             </div>
         </div>

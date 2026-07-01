@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AddCommentForm.module.scss';
-import { Input } from '@/shared/ui/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Input } from 'src/shared/ui/deprecated/Input';
+import { Button, ButtonTheme } from 'src/shared/ui/deprecated/Button';
 import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,

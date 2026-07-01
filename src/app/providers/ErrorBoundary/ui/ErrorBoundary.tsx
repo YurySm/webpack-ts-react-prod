@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from '@/widgets/PageError';
-import { Loader } from '@/shared/ui/Loader';
+import { Loader } from 'src/shared/ui/deprecated/Loader';
 
 interface ErrorBoundaryState {
     hasError: boolean;
@@ -30,7 +30,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
         if (hasError) {
             return (
-                <Suspense fallback={ <Loader /> }>
+                <Suspense fallback={<Loader />}>
                     <PageError />
                 </Suspense>
             );

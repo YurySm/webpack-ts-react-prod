@@ -1,8 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
-import { Card, CardTheme } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
+import { Card, CardTheme } from 'src/shared/ui/deprecated/Card';
+import { Text } from 'src/shared/ui/deprecated/Text';
 
 interface NotificationItemProps {
     className?: string;
@@ -10,26 +10,23 @@ interface NotificationItemProps {
 }
 
 export const NotificationItem = (props: NotificationItemProps) => {
-    const {
-        className,
-        notification
-    } = props;
+    const { className, notification } = props;
 
     const content = (
         <Card
-            className={ classNames(cls.notificationItem, {}, [className]) }
-            theme={ CardTheme.OUTLINED }
+            className={classNames(cls.notificationItem, {}, [className])}
+            theme={CardTheme.OUTLINED}
         >
-            <Text title={ notification.title } text={ notification.description }/>
+            <Text title={notification.title} text={notification.description} />
         </Card>
-    )
+    );
 
-    if(notification.href) {
+    if (notification.href) {
         return (
-            <a target="_blank" href={ notification.href } rel="noreferrer">
+            <a target="_blank" href={notification.href} rel="noreferrer">
                 {content}
             </a>
-        )
+        );
     }
     return content;
 };

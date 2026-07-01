@@ -1,12 +1,12 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/shared/ui/Input';
+import { Input } from 'src/shared/ui/deprecated/Input';
 import cls from './LoginForm.module.scss';
-import { Button } from '@/shared/ui/Button';
+import { Button } from 'src/shared/ui/deprecated/Button';
 import { useCallback } from 'react';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from 'src/shared/ui/deprecated/Text';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -58,28 +58,28 @@ const LoginForm = ({ className, onSuccess }: LoginFormProps) => {
     }, [dispatch, password, username, onSuccess]);
 
     return (
-        <DynamicModuleLoader reducers={ initialReducers }>
-            <div className={ classNames(cls.loginForm, {}, [className]) }>
-                <Text title={ t('Авторизация') } />
+        <DynamicModuleLoader reducers={initialReducers}>
+            <div className={classNames(cls.loginForm, {}, [className])}>
+                <Text title={t('Авторизация')} />
 
                 {error && (
                     <Text
-                        text={ t('Вы ввели неверный логин или пароль') }
-                        theme={ TextTheme.ERROR }
+                        text={t('Вы ввели неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
                     />
                 )}
                 <Input
-                    onChange={ changeUsername }
+                    onChange={changeUsername}
                     autofocus
-                    placeholder={ t('Логин') }
-                    value={ username }
+                    placeholder={t('Логин')}
+                    value={username}
                 />
                 <Input
-                    onChange={ changePassword }
-                    placeholder={ t('Пароль') }
-                    value={ password }
+                    onChange={changePassword}
+                    placeholder={t('Пароль')}
+                    value={password}
                 />
-                <Button disabled={ isLoading } onClick={ onLoginClick }>
+                <Button disabled={isLoading} onClick={onLoginClick}>
                     {t('Войти')}
                 </Button>
             </div>

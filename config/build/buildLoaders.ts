@@ -64,16 +64,18 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: [
             {
                 loader: '@svgr/webpack',
-                icon: true,
-                svgoConfig: {
-                    plugins: [
-                        {
-                            name: 'convertColors',
-                            params: {
-                                currentColor: true,
+                // icon: true,
+                options: {
+                    svgoConfig: {
+                        plugins: [
+                            {
+                                name: 'convertColors',
+                                params: {
+                                    currentColor: true,
+                                },
                             },
-                        },
-                    ],
+                        ],
+                    },
                 },
             },
         ],
