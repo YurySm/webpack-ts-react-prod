@@ -1,14 +1,14 @@
-import { Card } from 'src/shared/ui/deprecated/Card';
-import { VStack } from 'src/shared/ui/deprecated/Stack';
-import { Text } from 'src/shared/ui/deprecated/Text';
-import { StarRating } from 'src/shared/ui/deprecated/StarRating';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { useCallback, useState } from 'react';
-import { Modal } from 'src/shared/ui/deprecated/Modal';
-import { Input } from 'src/shared/ui/deprecated/Input';
-import { HStack } from 'src/shared/ui/deprecated/Stack';
-import { Button, ButtonTheme } from 'src/shared/ui/deprecated/Button';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Drawer } from 'src/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface RatingProps {
     className?: string;

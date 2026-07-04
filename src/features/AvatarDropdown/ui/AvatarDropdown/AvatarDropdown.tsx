@@ -1,5 +1,5 @@
-import { Avatar } from 'src/shared/ui/deprecated/Avatar';
-import { Dropdown } from 'src/shared/ui/deprecated/popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown } from '@/shared/ui/deprecated/popups';
 import { useTranslation } from 'react-i18next';
 import {
     getUserAuthData,

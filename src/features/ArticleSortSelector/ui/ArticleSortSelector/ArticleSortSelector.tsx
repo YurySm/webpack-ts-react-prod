@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleSortSelector.module.scss';
-import { Select, SelectOption } from 'src/shared/ui/deprecated/Select';
+import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 import { SortOrder } from '@/shared/types/sort';

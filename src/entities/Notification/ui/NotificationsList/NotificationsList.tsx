@@ -1,10 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationsList.module.scss';
 import { useGetNotificationsListQuery } from '../../api/notificationApi';
-import { VStack } from 'src/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Notification } from '../../model/types/notification';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { Skeleton } from 'src/shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface NotificationsListProps {
     className?: string;

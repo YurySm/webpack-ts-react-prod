@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './EditableProfileCardHeader.module.scss';
-import { Text } from 'src/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
@@ -8,7 +8,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { useCallback } from 'react';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { Button, ButtonTheme } from 'src/shared/ui/deprecated/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ProfilePageHeaderProps {

@@ -1,18 +1,25 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import ThemeIcon from '@/shared/assets/icons/theme-light.svg';
+import ThemeIconDeprecated from '@/shared/assets/icons/theme-light.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+
 import { memo, useCallback } from 'react';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
-import { Icon } from 'src/shared/ui/deprecated/Icon';
-import { Button, ButtonTheme } from 'src/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 
 interface ThemeSwitcherProps {
     className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-    const { theme, toggleTheme } = useTheme();
+    const { toggleTheme } = useTheme();
 
     const dispatch = useAppDispatch();
 
@@ -28,13 +35,24 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
     }, [dispatch, toggleTheme]);
 
     return (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            className={classNames('', {}, [className])}
-            onClick={onToggleHandler}
-        >
-            <Icon Svg={ThemeIcon} width={40} height={40} inverted={true} />
-        </Button>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+            off={
+                <ButtonDeprecated
+                    theme={ButtonTheme.CLEAR}
+                    className={classNames('', {}, [className])}
+                    onClick={onToggleHandler}
+                >
+                    <IconDeprecated
+                        Svg={ThemeIconDeprecated}
+                        width={40}
+                        height={40}
+                        inverted={true}
+                    />
+                </ButtonDeprecated>
+            }
+        />
     );
 });
 

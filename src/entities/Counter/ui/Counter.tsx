@@ -1,4 +1,4 @@
-import { Button } from 'src/shared/ui/deprecated/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { useCounterActions } from '../model/slice/counterSlice';
 // CircularDependencyPlugin
 

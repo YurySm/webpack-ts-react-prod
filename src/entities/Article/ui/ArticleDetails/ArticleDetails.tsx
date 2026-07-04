@@ -18,18 +18,18 @@ import {
     TextAlign,
     TextSize,
     TextTheme,
-} from 'src/shared/ui/deprecated/Text';
-import { Skeleton } from 'src/shared/ui/deprecated/Skeleton';
-import { Avatar } from 'src/shared/ui/deprecated/Avatar';
+} from '@/shared/ui/deprecated/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EaeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { Icon } from 'src/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from 'src/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 

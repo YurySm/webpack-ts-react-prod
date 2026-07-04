@@ -1,11 +1,11 @@
-import { Modal } from 'src/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign } from 'src/shared/ui/deprecated/Text';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 import { saveJsonSettings, useGetJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { isMobile } from 'react-device-detect';
-import { Drawer } from 'src/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 export const ArticlesPageGreeting = () => {
     const { t } = useTranslation();

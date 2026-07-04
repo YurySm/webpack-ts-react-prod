@@ -1,8 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Modal } from 'src/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
 import { Suspense } from 'react';
-import { Loader } from 'src/shared/ui/deprecated/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 interface LoginModalProps {
     className?: string;

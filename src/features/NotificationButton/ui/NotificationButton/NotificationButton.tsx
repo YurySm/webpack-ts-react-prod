@@ -1,11 +1,11 @@
 import cls from './NotificationButton.module.scss';
-import { Button, ButtonTheme } from 'src/shared/ui/deprecated/Button';
-import { Icon } from 'src/shared/ui/deprecated/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { NotificationsList } from '@/entities/Notification';
-import { Popover } from 'src/shared/ui/deprecated/popups';
+import { Popover } from '@/shared/ui/deprecated/popups';
 import { useCallback, useState } from 'react';
-import { Drawer } from 'src/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 export const NotificationButton = () => {

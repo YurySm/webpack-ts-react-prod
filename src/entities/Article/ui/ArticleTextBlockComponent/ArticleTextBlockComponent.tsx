@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleTextBlockComponent.module.scss';
 import { memo } from 'react';
 import { ArticleTextBlock } from '../../model/types/article';
-import { Text } from 'src/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 interface ArticleTextBlockComponentProps {
     className?: string;

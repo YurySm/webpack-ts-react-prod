@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from '@/widgets/PageError';
-import { Loader } from 'src/shared/ui/deprecated/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 interface ErrorBoundaryState {
     hasError: boolean;

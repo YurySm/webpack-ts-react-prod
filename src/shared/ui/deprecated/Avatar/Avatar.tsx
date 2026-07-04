@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from '@/shared/ui/deprecated/Avatar/Avatar.module.scss';
 import { CSSProperties, useMemo } from 'react';
 import { AppImage } from '@/shared/ui/deprecated/Code/AppImage';
-import UserIcon from '@/shared/assets/icons/user-avatar.svg';
+import UserIcon from '@/shared/assets/icons/user-32-32.png';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 

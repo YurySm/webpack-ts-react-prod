@@ -7,7 +7,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { Text, TextAlign, TextTheme } from 'src/shared/ui/deprecated/Text';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ArticlesInfinityListProps {

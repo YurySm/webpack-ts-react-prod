@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from 'src/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -9,7 +9,7 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { Loader } from 'src/shared/ui/deprecated/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 
 interface ArticleDetailsCommentsProps {
