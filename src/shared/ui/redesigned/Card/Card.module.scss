@@ -1,7 +1,3 @@
-.card {
-    border-radius: 6px;
-}
-
 .padding0 {
     padding: 0;
 }
@@ -28,4 +24,12 @@
 
 .light {
     background: var(--light-bg-redesigned);
+}
+
+.normal {
+    border-radius: 10px;
+}
+
+.round {
+    border-radius: 40px;
 }

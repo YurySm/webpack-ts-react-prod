@@ -1,7 +1,14 @@
 .articleViewSelector {
     display: block;
+
+    .selected {
+        fill: var(--red-light);
+    }
 }
 
-.selected {
-    fill: var(--red-light);
+.articleViewSelectorRedesigned {
+    .notSelected {
+        //fill: var(--red-light);
+        color: var(--light-bg-redesigned);
+    }
 }
