@@ -3,7 +3,7 @@ import { memo, ReactNode, useMemo, useState } from 'react';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useAppSelector } from '@/app/providers/StoreProvider';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
@@ -86,8 +86,8 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 <aside
                     data-testid="sidebar"
                     className={classNames(
-                        cls.sidebar_redesigned,
-                        { [cls.collapsed_redesigned]: collapsed },
+                        cls.sidebarRedesigned,
+                        { [cls.collapsedRedesigned]: collapsed },
                         [className],
                     )}
                 >

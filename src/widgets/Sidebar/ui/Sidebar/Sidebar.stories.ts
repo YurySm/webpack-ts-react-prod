@@ -13,11 +13,11 @@ const meta: Meta<typeof Sidebar> = {
             user: {
                 authData: {
                     id: '1',
-                    username: 'admin'
-                }
-            }
-        })
-    ]
+                    username: 'admin',
+                },
+            },
+        }),
+    ],
 };
 
 export default meta;
@@ -33,9 +33,9 @@ export const LightWithoutAuth: Story = {
     decorators: [
         StoreDecorator({
             user: {
-                authData: undefined
-            }
-        })
+                authData: undefined,
+            },
+        }),
     ],
 };
 
@@ -44,9 +44,8 @@ export const DarkWithoutAuth: Story = {
         ThemeDecorator(Theme.DARK),
         StoreDecorator({
             user: {
-                authData: undefined
-            }
-        })
+                authData: undefined,
+            },
+        }),
     ],
 };
-

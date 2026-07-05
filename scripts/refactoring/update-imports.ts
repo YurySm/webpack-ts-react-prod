@@ -2,34 +2,40 @@ import { Project } from 'ts-morph';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths('src/**/*.ts')
-project.addSourceFilesAtPaths('src/**/*.tsx')
+project.addSourceFilesAtPaths('@/**/*.ts');
+project.addSourceFilesAtPaths('@/**/*.tsx');
 
-const files = project.getSourceFiles()
+const files = project.getSourceFiles();
 
 function isAbsolute(value: string): boolean {
-    const layers = ['app', 'shared', 'features', 'widgets', 'entities', 'pages']
-    return layers.some(layer => value.startsWith(layer))
+    const layers = [
+        'app',
+        'shared',
+        'features',
+        'widgets',
+        'entities',
+        'pages',
+    ];
+    return layers.some((layer) => value.startsWith(layer));
 }
 
-files.forEach(file => {
-    const importDeclarations = file.getImportDeclarations()
-    const exportDeclarations = file.getExportDeclarations()
+files.forEach((file) => {
+    const importDeclarations = file.getImportDeclarations();
+    const exportDeclarations = file.getExportDeclarations();
 
-    importDeclarations.forEach(importDeclaration => {
-        const value = importDeclaration.getModuleSpecifierValue()
+    importDeclarations.forEach((importDeclaration) => {
+        const value = importDeclaration.getModuleSpecifierValue();
         if (isAbsolute(value)) {
-            importDeclaration.setModuleSpecifier('@/' + value)
+            importDeclaration.setModuleSpecifier('@/' + value);
         }
-    })
+    });
 
-    exportDeclarations.forEach(exportDeclaration => {
-        const value = exportDeclaration.getModuleSpecifierValue()
+    exportDeclarations.forEach((exportDeclaration) => {
+        const value = exportDeclaration.getModuleSpecifierValue();
         if (value && isAbsolute(value)) {
-            exportDeclaration.setModuleSpecifier('@/' + value)
+            exportDeclaration.setModuleSpecifier('@/' + value);
         }
-    })
+    });
+});
 
-})
-
-project.save()
+project.save();

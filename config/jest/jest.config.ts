@@ -3,8 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
-import { TextEncoder, TextDecoder } from 'util'
-global.TextEncoder = TextEncoder
+import { TextEncoder, TextDecoder } from 'util';
+global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder as never;
 
 import type { Config } from 'jest';
@@ -21,12 +21,8 @@ const config: Config = {
     rootDir: '../../',
     clearMocks: true,
     testEnvironment: 'jest-fixed-jsdom',
-    coveragePathIgnorePatterns: [
-        '/node_modules/'
-    ],
-    moduleDirectories: [
-        'node_modules'
-    ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
+    moduleDirectories: ['node_modules'],
     moduleFileExtensions: [
         'js',
         'mjs',
@@ -35,24 +31,20 @@ const config: Config = {
         'ts',
         'tsx',
         'json',
-        'node'
+        'node',
     ],
-    testMatch: [
-        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
-    modulePaths: [
-        '<rootDir>/src',
-    ],
+    testMatch: ['<rootDir>/@/**/*(*.)@(spec|test).[tj]s?(x)'],
+    modulePaths: ['<rootDir>/src'],
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts'],
 
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/jestEmptyComponent.tsx',
-        '^@/(.*)$': '<rootDir>/src/$1',
-        '^entities/(.*)$': '<rootDir>/src/entities/$1',
-        '^features/(.*)$': '<rootDir>/src/features/$1',
-        '^widgets/(.*)$': '<rootDir>/src/widgets/$1',
-        '^shared/(.*)$': '<rootDir>/src/shared/$1',
+        '^@/(.*)$': '<rootDir>/@/$1',
+        '^entities/(.*)$': '<rootDir>/@/entities/$1',
+        '^features/(.*)$': '<rootDir>/@/features/$1',
+        '^widgets/(.*)$': '<rootDir>/@/widgets/$1',
+        '^shared/(.*)$': '<rootDir>/@/shared/$1',
     },
 
     preset: 'ts-jest',
@@ -63,15 +55,16 @@ const config: Config = {
 
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            'publicPath': '<rootDir>/reports/unit',
-            'filename': 'report.html',
-            'openReport': true,
-            inlineSource: true,
-        }]
-    ]
-
-
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: true,
+                inlineSource: true,
+            },
+        ],
+    ],
 
     // transform: {
     // 	'\\.tsx$': '<rootDir>/node_modules/ts-node/transform',
@@ -80,34 +73,26 @@ const config: Config = {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
-
     // Stop running tests after `n` failures
     // bail: 0,
 
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "/tmp/jest_rs",
 
-
     // The test environment that will be used for testing
     // testEnvironment: 'jsdom',
 
-
     // Automatically clear mock calls, instances, contexts and results before every test
-
 
     // The root directory that Jest should scan for tests and modules within
 
-
     // An array of regexp pattern strings used to skip coverage collection
-
 
     // An array of directory names to be searched recursively up from the requiring module's location
 
     // The glob patterns Jest uses to detect test files
 
-
     // An array of file extensions your modules use
-
 
     // A preset that is used as a base for Jest's configuration
 

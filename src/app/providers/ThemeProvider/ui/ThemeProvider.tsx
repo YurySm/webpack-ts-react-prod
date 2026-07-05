@@ -40,6 +40,12 @@ const ThemeProvider = ({
         [theme],
     );
 
+    useEffect(() => {
+        if (document) {
+            document.body.className = theme;
+        }
+    }, [theme]);
+
     return (
         <ThemeContext.Provider value={defaultProps}>
             {children}

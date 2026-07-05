@@ -1,1 +1,1 @@
-export { AppLogo } from '@/shared/ui/redesigned/AppLogo/AppLogo';
+export { AppLogo } from './AppLogo';

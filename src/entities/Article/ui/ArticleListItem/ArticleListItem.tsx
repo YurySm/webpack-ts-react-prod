@@ -13,7 +13,7 @@ import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 import { getRouteArticleDetails } from '@/shared/constants/router';
-import { AppImage } from '@/shared/ui/deprecated/Code/AppImage';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
 
 interface ArticleListItemProps {
     className?: string;

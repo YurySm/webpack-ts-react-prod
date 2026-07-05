@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleList } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useGetArticlesRecommendationsListQuery } from '../api/articleRecommendationsApi';
 
 interface ArticlesRecommendationsListProps {

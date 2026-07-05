@@ -21,8 +21,8 @@ if (flagArg !== 'on' && flagArg !== 'off') {
     throw new Error('Некорректное состояние фичи, укажите on или off');
 }
 
-project.addSourceFilesAtPaths('src/**/*.ts');
-project.addSourceFilesAtPaths('src/**/*.tsx');
+project.addSourceFilesAtPaths('@/**/*.ts');
+project.addSourceFilesAtPaths('@/**/*.tsx');
 
 const files = project.getSourceFiles();
 

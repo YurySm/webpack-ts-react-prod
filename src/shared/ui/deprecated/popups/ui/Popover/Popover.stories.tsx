@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Popover } from '@/shared/ui/deprecated/popups/ui/Popover/Popover';
+import { Popover } from './Popover';
 import { Button } from '@headlessui/react';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '../../../../redesigned/Stack';
 
 const meta: Meta<typeof Popover> = {
     title: 'shared/Popover',
@@ -14,6 +14,7 @@ type Story = StoryObj<typeof Popover>;
 
 export const Primary: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         children: (
             <VStack>

@@ -35,8 +35,8 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
                     variant={'secondary'}
                     to={item.path}
                     className={classNames(
-                        cls.link_redesigned,
-                        { [cls.collapsed_redesigned]: collapsed },
+                        cls.linkRedesigned,
+                        { [cls.collapsedRedesigned]: collapsed },
                         [],
                     )}
                     activeClassName={cls.active}

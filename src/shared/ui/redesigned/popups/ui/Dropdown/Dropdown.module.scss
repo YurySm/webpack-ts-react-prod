@@ -1,0 +1,26 @@
+.items {
+    min-width: var(--button-width);
+    //background: var(--dark-bg-redesigned);
+    //border-radius: 18px;
+    //box-shadow: 3px 3px 5px var(--inverted-primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    --anchor-gap: 5px;
+    border: 1px solid var(--accent-redesigned);
+}
+
+.item {
+    padding: 5px 20px;
+    //border-radius: 3px;
+    border: none;
+    color: var(--text-redesigned);
+    background: transparent;
+    font: var(--font-famaly-text-redesigend);
+}
+
+.focus {
+    background: var(--light-bg-redesigned);
+    color: var(--inverted-primary-color);
+}

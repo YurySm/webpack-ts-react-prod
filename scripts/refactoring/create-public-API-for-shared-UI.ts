@@ -3,49 +3,58 @@ import path from 'path';
 
 const project = new Project();
 
-project.addSourceFilesAtPaths('src/**/*.ts')
-project.addSourceFilesAtPaths('src/**/*.tsx')
+project.addSourceFilesAtPaths('@/**/*.ts');
+project.addSourceFilesAtPaths('@/**/*.tsx');
 
-const files = project.getSourceFiles()
+const files = project.getSourceFiles();
 
-const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui')
-const sharedUiDirectory = project.getDirectory(uiPath)
-const componentsDirs = sharedUiDirectory?.getDirectories()
+const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui');
+const sharedUiDirectory = project.getDirectory(uiPath);
+const componentsDirs = sharedUiDirectory?.getDirectories();
 
-componentsDirs?.forEach(dir => {
-    const indexFilePath = dir.getPath() + '/index.ts'
-    const indexFile = dir.getSourceFile(indexFilePath)
+componentsDirs?.forEach((dir) => {
+    const indexFilePath = dir.getPath() + '/index.ts';
+    const indexFile = dir.getSourceFile(indexFilePath);
 
-    if(!indexFile) {
-        const sourceCode = `export * from './${dir.getBaseName()}';`
-        const file = dir.createSourceFile(indexFilePath, sourceCode, { overwrite: true })
+    if (!indexFile) {
+        const sourceCode = `export * from './${dir.getBaseName()}';`;
+        const file = dir.createSourceFile(indexFilePath, sourceCode, {
+            overwrite: true,
+        });
 
-        file.save()
+        file.save();
     }
-})
+});
 
 function isAbsolute(value: string): boolean {
-    const layers = ['app', 'shared', 'features', 'widgets', 'entities', 'pages']
-    return layers.some(layer => value.startsWith(layer))
+    const layers = [
+        'app',
+        'shared',
+        'features',
+        'widgets',
+        'entities',
+        'pages',
+    ];
+    return layers.some((layer) => value.startsWith(layer));
 }
 
-files.forEach(file => {
-    const importDeclarations = file.getImportDeclarations()
+files.forEach((file) => {
+    const importDeclarations = file.getImportDeclarations();
 
-    importDeclarations.forEach(importDeclaration => {
-        const value = importDeclaration.getModuleSpecifierValue()
-        const valueWithoutAlias = value.replace('@/', '')
+    importDeclarations.forEach((importDeclaration) => {
+        const value = importDeclaration.getModuleSpecifierValue();
+        const valueWithoutAlias = value.replace('@/', '');
 
-        const segments = valueWithoutAlias.split('/')
+        const segments = valueWithoutAlias.split('/');
 
-        const isSharedLayer = segments[0] === 'shared'
-        const isUiSlice = segments[1] === 'ui'
+        const isSharedLayer = segments[0] === 'shared';
+        const isUiSlice = segments[1] === 'ui';
 
         if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice) {
-            const result = valueWithoutAlias.split('/').slice(0, 3).join('/')
-            importDeclaration.setModuleSpecifier('@/' + result)
+            const result = valueWithoutAlias.split('/').slice(0, 3).join('/');
+            importDeclaration.setModuleSpecifier('@/' + result);
         }
-    })
-})
+    });
+});
 
-project.save()
+project.save();

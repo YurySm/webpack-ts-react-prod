@@ -3,24 +3,24 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 
-const isDev = true
+const isDev = true;
 
 const config: StorybookConfig = {
-    stories: ['../../src/**/*.mdx', '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    stories: ['../../@/**/*.mdx', '../../@/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     staticDirs: ['../../public'],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
         '@storybook/addon-essentials',
         '@chromatic-com/storybook',
         '@storybook/addon-interactions',
-        '@storybook/addon-themes'
+        '@storybook/addon-themes',
     ],
     framework: {
         name: '@storybook/react-webpack5',
         options: {},
     },
     webpackFinal: async (config) => {
-        if(config.resolve) {
+        if (config.resolve) {
             config.resolve.modules = [
                 ...(config.resolve.modules || []),
                 path.resolve(__dirname, '../../src'),
@@ -28,12 +28,12 @@ const config: StorybookConfig = {
 
             config.resolve.alias = {
                 ...config.resolve.alias,
-                entities: path.resolve(__dirname, '../../src/entities'),
+                entities: path.resolve(__dirname, '../../@/entities'),
                 '@': path.resolve(__dirname, '../../src'),
             };
         }
 
-        if(config.module && config.module.rules) {
+        if (config.module && config.module.rules) {
             config.module.rules.push({
                 test: /\.s[ac]ss$/i,
                 use: [
@@ -43,42 +43,48 @@ const config: StorybookConfig = {
                         options: {
                             modules: {
                                 namedExport: false,
-                                auto: ((resourcePath: string) => resourcePath.includes('.module')),
-                                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                                auto: (resourcePath: string) =>
+                                    resourcePath.includes('.module'),
+                                localIdentName:
+                                    '[path][name]__[local]--[hash:base64:5]',
                             },
                         },
                     },
                     'sass-loader',
                 ],
-            })
-
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
-                if(rule) {
-                    if (/svg/.test(rule.test as string)) {
-                        return {
-                            ...rule,
-                            exclude: /\.svg$/i,
-                        };
-                    }
-
-                    return rule;
-                }
             });
+
+            config.module.rules = config.module.rules.map(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                (rule: webpack.RuleSetRule) => {
+                    if (rule) {
+                        if (/svg/.test(rule.test as string)) {
+                            return {
+                                ...rule,
+                                exclude: /\.svg$/i,
+                            };
+                        }
+
+                        return rule;
+                    }
+                },
+            );
 
             config.module.rules.push({
                 test: /\.svg$/i,
                 use: ['@svgr/webpack'],
-            })
+            });
         }
 
-        if(config.plugins) {
-            config.plugins.push(new webpack.DefinePlugin({
-                __IS_DEV__: true,
-                __API__: JSON.stringify('http://localhost:6006/'),
-                __PROJECT__: JSON.stringify('storybook')
-            }));
+        if (config.plugins) {
+            config.plugins.push(
+                new webpack.DefinePlugin({
+                    __IS_DEV__: true,
+                    __API__: JSON.stringify('http://localhost:6006/'),
+                    __PROJECT__: JSON.stringify('storybook'),
+                }),
+            );
         }
 
         return config;
@@ -87,10 +93,10 @@ const config: StorybookConfig = {
         jsc: {
             transform: {
                 react: {
-                    runtime: 'automatic'
-                }
-            }
-        }
+                    runtime: 'automatic',
+                },
+            },
+        },
     }),
 };
 export default config;

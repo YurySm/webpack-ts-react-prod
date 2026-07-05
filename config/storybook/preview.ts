@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
-import '../../src/app/styles/index.scss'
+import '../../@/app/styles/index.scss';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
@@ -8,7 +8,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 
 initialize();
 
-const preview: Preview = { 
+const preview: Preview = {
     parameters: {
         controls: {
             matchers: {
@@ -31,7 +31,7 @@ const preview: Preview = {
             },
             defaultTheme: 'light',
         }),
-        mswDecorator
+        mswDecorator,
     ],
     // loaders: [mswLoader],
 };

@@ -1,10 +1,10 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from '@/shared/ui/deprecated/popups/ui/Dropdown/Dropdown.module.scss';
-import popupsCls from '@/shared/ui/deprecated/popups/styles/popups.module.scss';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { AnchorTo } from '@/shared/ui/deprecated/popups/types/popups';
+import cls from './Dropdown.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
+import { AppLink } from '../../../AppLink';
+import { AnchorTo } from '../../types/popups';
 
 export interface DropdownItem {
     href?: string;
