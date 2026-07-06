@@ -11,7 +11,7 @@ import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 //     BACKGROUND_INVERTED = 'backgroundInverted',
 // }
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 

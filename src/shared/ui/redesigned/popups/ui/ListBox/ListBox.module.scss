@@ -3,19 +3,25 @@
     //background: var(--inverted-secondary-color);
     border-radius: 18px;
     //box-shadow: 3px 3px 5px var(--inverted-primary-color);
+    background: var(--dark-bg-redesigned);
+    color: var(--text-redesigned);
 }
 
 .option {
     padding: 10px 20px;
     cursor: pointer;
+    border: none;
+    color: var(--text-redesigned);
+    background: transparent;
+    font: var(--font-m-redesigned);
 }
 
 .selected {
-    background: var(--dark-bg-redesigned);
+    background: var(--light-bg-redesigned);
 }
 
 .active {
-    background: var(--dark-bg-redesigned);
+    background: var(--light-bg-redesigned);
 }
 
 .disabled {

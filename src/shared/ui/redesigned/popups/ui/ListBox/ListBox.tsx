@@ -4,10 +4,11 @@ import {
     ListboxOption,
     ListboxOptions,
 } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '../../../Button/Button';
+import popupsCls from '../../styles/popups.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -15,17 +16,17 @@ export interface ListBoxItem {
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     items?: ListBoxItem[];
     className?: string;
-    value?: string;
-    defaultValue?: string;
-    onChange?: (value: string) => void;
+    value?: T;
+    defaultValue?: T;
+    onChange?: (value: T) => void;
     readonly?: boolean;
     label?: ReactNode;
 }
 
-export function ListBox(props: ListBoxProps) {
+export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const {
         className,
         items = [],
@@ -35,6 +36,10 @@ export function ListBox(props: ListBoxProps) {
         readonly,
         label,
     } = props;
+
+    const selectedItem = useMemo(() => {
+        return items?.find((item) => item.value === value);
+    }, [items, value]);
 
     return (
         <HListBox
@@ -46,9 +51,14 @@ export function ListBox(props: ListBoxProps) {
         >
             {label && <span>{label + ': '}</span>}
             <ListboxButton as={Fragment}>
-                <Button variant={'outline'}>{value || defaultValue}</Button>
+                <Button variant={'filled'}>
+                    {selectedItem?.label || defaultValue}
+                </Button>
             </ListboxButton>
-            <ListboxOptions className={cls.options} anchor={'bottom start'}>
+            <ListboxOptions
+                className={classNames(cls.options, {}, [popupsCls.panel])}
+                anchor={'bottom start'}
+            >
                 {items.map((item) => (
                     <ListboxOption
                         key={item.value}
@@ -76,4 +86,4 @@ export function ListBox(props: ListBoxProps) {
             </ListboxOptions>
         </HListBox>
     );
-}
+};

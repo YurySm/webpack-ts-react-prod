@@ -1,0 +1,13 @@
+.inputWrapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input {
+    width: 100%;
+}
+
+.readOnly {
+    opacity: 0.7;
+}

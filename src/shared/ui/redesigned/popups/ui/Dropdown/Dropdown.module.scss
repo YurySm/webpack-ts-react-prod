@@ -17,10 +17,11 @@
     border: none;
     color: var(--text-redesigned);
     background: transparent;
-    font: var(--font-famaly-text-redesigend);
+    font: var(--font-m-redesigned);
+    cursor: pointer;
 }
 
 .focus {
     background: var(--light-bg-redesigned);
-    color: var(--inverted-primary-color);
+    //color: var(--inverted-primary-color);
 }

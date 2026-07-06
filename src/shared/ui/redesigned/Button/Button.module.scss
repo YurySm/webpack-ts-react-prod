@@ -1,5 +1,5 @@
 .button {
-    padding: 6px 20px;
+    padding: 8px 20px;
     cursor: pointer;
     transition: opacity 0.2s;
     color: var(--text-redesigned);
@@ -28,6 +28,13 @@
         color: var(--accent-redesigned);
         border: 1px solid var(--accent-redesigned);
     }
+}
+
+.filled {
+    background: var(--light-bg-redesigned);
+    border-radius: 40px;
+    border: none;
+    outline: none;
 }
 
 .disabled {
