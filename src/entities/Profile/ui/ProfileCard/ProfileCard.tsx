@@ -1,16 +1,20 @@
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import cls from './ProfileCard.module.scss';
-import { useTranslation } from 'react-i18next';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Currency } from '@/entities/Currency';
 
-import { Country, CountrySelect } from '@/entities/Country';
+import { Country } from '@/entities/Country';
 import { Profile } from '../../model/types/profile';
+import { ToggleFeatures } from '@/shared/lib/features';
+import {
+    ProfileCardDeprecated,
+    ProfileCardDeprecatedError,
+    ProfileCardDeprecatedLoader,
+} from '../ProfileCardDeprecated/ProfileCardDeprecated';
+import {
+    ProfileCardRedesigned,
+    ProfileCardRedesignedError,
+    ProfileCardRedesignedSkeleton,
+} from '../ProfileCardRedesigned/ProfileCardRedesigned';
 
-interface ProfileCardProps {
+export interface ProfileCardProps {
     className?: string;
     data?: Profile;
     isLoading?: boolean;
@@ -27,126 +31,33 @@ interface ProfileCardProps {
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
-    const {
-        className,
-        data,
-        isLoading,
-        error,
-        readonly,
-        onChangeFirstname,
-        onChangeLastname,
-        onChangeCity,
-        onChangeAge,
-        onChangeAvatar,
-        onChangeUsername,
-        onChangeCurrency,
-        onChangeCountry,
-    } = props;
-
-    const { t } = useTranslation('profile');
-
-    const mods: Mods = {
-        [cls.editing]: !readonly,
-    };
+    const { isLoading, error, className } = props;
 
     if (isLoading) {
         return (
-            <div
-                className={classNames(cls.profileCard, {}, [
-                    cls.loading,
-                    className,
-                ])}
-            >
-                <Loader />
-            </div>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<ProfileCardRedesignedSkeleton />}
+                off={<ProfileCardDeprecatedLoader />}
+            />
         );
     }
 
     if (error) {
         return (
-            <div
-                className={classNames(cls.profileCard, {}, [
-                    cls.error,
-                    className,
-                ])}
-            >
-                <Text
-                    theme={TextTheme.ERROR}
-                    align={TextAlign.CENTER}
-                    title={t('Произошла ошибка при загрузке')}
-                    text={t('Попробуйте перезагрузить страницу')}
-                />
-            </div>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<ProfileCardRedesignedError />}
+                off={<ProfileCardDeprecatedError />}
+            />
         );
     }
 
     return (
-        <div className={classNames(cls.profileCard, mods, [className])}>
-            <div className={cls.data}>
-                {data?.avatar && (
-                    <div className={cls.avatarWrapp}>
-                        <Avatar src={data?.avatar} alt={data?.username} />
-                    </div>
-                )}
-                <Input
-                    readOnly={readonly}
-                    value={data?.firstName}
-                    placeholder={t('Ваше имя')}
-                    className={cls.input}
-                    onChange={onChangeFirstname}
-                    data-testid={'ProfileCard.FirstName'}
-                />
-                <Input
-                    readOnly={readonly}
-                    value={data?.lastName}
-                    placeholder={t('Ваша фамилия')}
-                    className={cls.input}
-                    onChange={onChangeLastname}
-                    data-testid={'ProfileCard.LastName'}
-                />
-                <Input
-                    readOnly={readonly}
-                    value={data?.age}
-                    placeholder={t('Ваш возраст')}
-                    className={cls.input}
-                    onChange={onChangeAge}
-                />
-                <Input
-                    readOnly={readonly}
-                    value={data?.city}
-                    placeholder={t('Город')}
-                    className={cls.input}
-                    onChange={onChangeCity}
-                />
-                <Input
-                    readOnly={readonly}
-                    value={data?.username}
-                    placeholder={t('Введите имя пользователя')}
-                    className={cls.input}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    readOnly={readonly}
-                    value={data?.avatar}
-                    placeholder={t('Введите ссылку на аватар')}
-                    className={cls.input}
-                    onChange={onChangeAvatar}
-                />
-
-                <CurrencySelect
-                    value={data?.currency}
-                    onChange={onChangeCurrency}
-                    readonly={readonly}
-                    className={cls.input}
-                />
-
-                <CountrySelect
-                    value={data?.country}
-                    onChange={onChangeCountry}
-                    readonly={readonly}
-                    className={cls.input}
-                />
-            </div>
-        </div>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={<ProfileCardRedesigned {...props} />}
+            off={<ProfileCardDeprecated {...props} />}
+        />
     );
 };

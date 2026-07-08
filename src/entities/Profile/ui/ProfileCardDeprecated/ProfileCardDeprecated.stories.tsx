@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ProfileCard } from './ProfileCard';
+import { ProfileCardDeprecated } from './ProfileCardDeprecated';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import avatar from '@/shared/assets/tests/storybook.png'
+import avatar from '@/shared/assets/tests/storybook.png';
 
-const meta: Meta<typeof ProfileCard> = {
+const meta: Meta<typeof ProfileCardDeprecated> = {
     title: 'entities/ProfileCard',
-    component: ProfileCard,
+    component: ProfileCardDeprecated,
     argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfileCard>;
+type Story = StoryObj<typeof ProfileCardDeprecated>;
 
 export const Primary: Story = {
     args: {
@@ -23,8 +23,8 @@ export const Primary: Story = {
             city: 'Moscow',
             currency: Currency.USD,
             country: Country.Russia,
-            avatar
-        }
+            avatar,
+        },
     },
 };
 

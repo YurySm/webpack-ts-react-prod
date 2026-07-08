@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from '../../deprecated/Skeleton/Skeleton.module.scss';
+import cls from './Skeleton.module.scss';
 import { CSSProperties } from 'react';
 
 interface SkeletonProps {
@@ -8,11 +8,6 @@ interface SkeletonProps {
     height?: number | string;
     borderRadius?: number | string;
 }
-
-/**
- * Устарел, использовать из папки redesigned
- * @deprecated
- */
 
 export const Skeleton = (props: SkeletonProps) => {
     const { className, width, height, borderRadius } = props;

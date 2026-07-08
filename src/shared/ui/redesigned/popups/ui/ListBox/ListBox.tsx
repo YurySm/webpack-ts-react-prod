@@ -11,6 +11,7 @@ import { Button } from '../../../Button/Button';
 import popupsCls from '../../styles/popups.module.scss';
 import { Icon } from '../../../Icon';
 import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
+import { Flex, FlexDirection } from '../../../Stack';
 
 export interface ListBoxItem {
     value: string;
@@ -26,6 +27,7 @@ interface ListBoxProps<T extends string> {
     onChange?: (value: T) => void;
     readonly?: boolean;
     label?: ReactNode;
+    labelDirection?: FlexDirection;
 }
 
 export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
@@ -37,6 +39,7 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         value,
         readonly,
         label,
+        labelDirection = 'row',
     } = props;
 
     const selectedItem = useMemo(() => {
@@ -51,15 +54,18 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             onChange={onChange}
             disabled={readonly}
         >
-            {label && <span>{label + ': '}</span>}
-            <ListboxButton as={Fragment}>
-                <Button
-                    variant={'filled'}
-                    addonRight={<Icon Svg={ArrowIcon} />}
-                >
-                    {selectedItem?.label || defaultValue}
-                </Button>
-            </ListboxButton>
+            <Flex direction={labelDirection} gap={'8'}>
+                {label && <span>{label + ': '}</span>}
+                <ListboxButton as={Fragment}>
+                    <Button
+                        variant={'filled'}
+                        addonRight={<Icon Svg={ArrowIcon} />}
+                    >
+                        {selectedItem?.label || defaultValue}
+                    </Button>
+                </ListboxButton>
+            </Flex>
+
             <ListboxOptions
                 className={classNames(cls.options, {}, [popupsCls.panel])}
                 anchor={'bottom start'}
