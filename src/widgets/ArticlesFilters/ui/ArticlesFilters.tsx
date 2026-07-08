@@ -8,6 +8,8 @@ import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesFilters.module.scss';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface ArticlesFiltersProps {
     className?: string;
@@ -45,6 +47,7 @@ export const ArticlesFilters = (props: ArticlesFiltersProps) => {
                     value={search}
                     onChange={onChangeSearch}
                     placeholder={t('Поиск')}
+                    addonLeft={<Icon Svg={SearchIcon} />}
                 />
 
                 <ArticleTypeTabs

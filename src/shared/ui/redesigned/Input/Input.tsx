@@ -1,8 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import {
     ChangeEvent,
     InputHTMLAttributes,
     memo,
+    ReactNode,
     useCallback,
     useEffect,
     useRef,
@@ -21,6 +22,8 @@ interface InputProps extends HTMLInputProps {
     autofocus?: boolean;
     readOnly?: boolean;
     placeholder?: string;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 export const Input = memo(
@@ -32,6 +35,8 @@ export const Input = memo(
         autofocus,
         readOnly = false,
         placeholder,
+        addonLeft,
+        addonRight,
         ...otherProps
     }: InputProps) => {
         const ref = useRef<HTMLInputElement>(null);
@@ -49,18 +54,15 @@ export const Input = memo(
             }
         }, [autofocus]);
 
-        return (
-            <div
-                className={classNames(
-                    cls.inputWrapp,
-                    { [cls.readOnly]: readOnly },
-                    [className],
-                )}
-            >
-                {placeholder && (
-                    <span className={cls.placeholder}>{placeholder}</span>
-                )}
+        const mods: Mods = {
+            [cls.readOnly]: readOnly,
+            [cls.withAddonLeft]: Boolean(addonLeft),
+            [cls.withAddonRight]: Boolean(addonRight),
+        };
 
+        return (
+            <div className={classNames(cls.inputWrapp, mods, [className])}>
+                <div className={cls.addonLeft}>{addonLeft}</div>
                 <input
                     ref={ref}
                     className={cls.input}
@@ -68,8 +70,10 @@ export const Input = memo(
                     value={value}
                     onChange={handleChange}
                     readOnly={readOnly}
+                    placeholder={placeholder}
                     {...otherProps}
                 />
+                <div className={cls.addonRight}>{addonRight}</div>
             </div>
         );
     },

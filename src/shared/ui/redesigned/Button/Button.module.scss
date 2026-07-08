@@ -2,11 +2,18 @@
     padding: 8px 20px;
     cursor: pointer;
     transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     color: var(--text-redesigned);
 
     &:hover {
         opacity: 0.7;
         color: var(--accent-redesigned);
+
+        & svg {
+            color: var(--accent-redesigned);
+        }
     }
 }
 
@@ -27,6 +34,10 @@
         opacity: 0.7;
         color: var(--accent-redesigned);
         border: 1px solid var(--accent-redesigned);
+
+        & svg {
+            color: var(--accent-redesigned);
+        }
     }
 }
 
@@ -72,3 +83,19 @@
 .xl {
     font: var(--font-xl-redesigned);
 }
+
+.withAddon {
+    padding: 2px 15px;
+}
+
+.addonLeft,
+.addonRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & svg {
+        color: var(--hint-redesigned);
+    }
+}
+

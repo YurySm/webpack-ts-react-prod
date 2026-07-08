@@ -9,6 +9,8 @@ import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '../../../Button/Button';
 import popupsCls from '../../styles/popups.module.scss';
+import { Icon } from '../../../Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 export interface ListBoxItem {
     value: string;
@@ -51,7 +53,10 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         >
             {label && <span>{label + ': '}</span>}
             <ListboxButton as={Fragment}>
-                <Button variant={'filled'}>
+                <Button
+                    variant={'filled'}
+                    addonRight={<Icon Svg={ArrowIcon} />}
+                >
                     {selectedItem?.label || defaultValue}
                 </Button>
             </ListboxButton>
