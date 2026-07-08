@@ -17,6 +17,12 @@ export const ArticleListItemSkeleton = (
 ) => {
     const { className, view } = props;
 
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.articlelistitemredesigned,
+        off: () => cls.articlelistitem,
+    });
+
     const Skeleton = toggleFeatures({
         name: 'isAppRedesigned',
         on: () => SkeletonRedesigned,
@@ -31,12 +37,7 @@ export const ArticleListItemSkeleton = (
 
     if (view === ArticleView.BIG) {
         return (
-            <div
-                className={classNames(cls.articlelistitem, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames(mainClass, {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.header}>
                         <Skeleton
@@ -70,12 +71,7 @@ export const ArticleListItemSkeleton = (
     }
 
     return (
-        <div
-            className={classNames(cls.articlelistitem, {}, [
-                className,
-                cls[view],
-            ])}
-        >
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
             <Card>
                 <div className={cls.imgWrapp}>
                     <Skeleton width={200} height={200} className={cls.img} />

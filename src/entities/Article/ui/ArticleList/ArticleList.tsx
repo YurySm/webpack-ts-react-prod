@@ -7,6 +7,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { Text } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleView } from '../../model/consts/consts';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
     className?: string;
@@ -74,11 +76,29 @@ export const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.articleList, {}, [className, cls[view]])}
-            data-testid="ArticleList"
-        >
-            {articles.length > 0 ? articles.map(renderArticle) : null}
-        </div>
+        <ToggleFeatures
+            feature={'isAppRedesigned'}
+            on={
+                <HStack
+                    wrap={'wrap'}
+                    gap={'16'}
+                    className={classNames(cls.articleListRedesigned, {}, [])}
+                    data-testid="ArticleList"
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
+                </HStack>
+            }
+            off={
+                <div
+                    className={classNames(cls.articleList, {}, [
+                        className,
+                        cls[view],
+                    ])}
+                    data-testid="ArticleList"
+                >
+                    {articles.length > 0 ? articles.map(renderArticle) : null}
+                </div>
+            }
+        />
     );
 };
