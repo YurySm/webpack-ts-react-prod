@@ -27,11 +27,10 @@
 
 .outline {
     background: none;
-    border-radius: 5px;
-    border: 1px solid var(--text-redesigned);
+    border: 1px solid var(--icon-redesigned);
+    border-radius: 34px;
 
     &:hover {
-        opacity: 0.7;
         color: var(--accent-redesigned);
         border: 1px solid var(--accent-redesigned);
 
