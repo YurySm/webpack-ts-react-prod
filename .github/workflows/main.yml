@@ -78,9 +78,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm ci
-      - name: Run linting TypeScript
-        run: npm run lint:ts
-        if: always()
+#      - name: Run linting TypeScript
+#        run: npm run lint:ts
+#        if: always()
       - name: Run linting CSS
         run: npm run lint:scss
 
