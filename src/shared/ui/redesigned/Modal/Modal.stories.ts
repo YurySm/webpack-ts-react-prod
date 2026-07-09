@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
+import { Modal } from './Modal';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from '@/shared/constants/theme';
 
@@ -15,8 +15,8 @@ const meta: Meta<typeof Modal> = {
     },
     // args: { onClick: fn() },
     parameters: {
-        loki: { skip: true }
-    }
+        loki: { skip: true },
+    },
 };
 
 export default meta;

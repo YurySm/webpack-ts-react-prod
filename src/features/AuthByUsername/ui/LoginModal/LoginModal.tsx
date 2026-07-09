@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Modal } from '@/shared/ui/redesigned/Modal';
 import { LoginFormLazy as LoginForm } from '../LoginForm/LoginForm.lazy';
 import { Suspense } from 'react';
 import { Loader } from '@/shared/ui/deprecated/Loader';

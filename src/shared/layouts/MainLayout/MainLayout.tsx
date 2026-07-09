@@ -13,7 +13,7 @@ interface MainLayoutProps {
 export const MainLayout = (props: MainLayoutProps) => {
     const { className, content, header, sidebar, toolbar } = props;
     return (
-        <div className={classNames(cls.mainlayout, {}, [className])}>
+        <div className={classNames(cls.mainlayout, {}, [className])} id={'app'}>
             <div className={cls.sidebar}>{sidebar}</div>
             <div className={cls.content}>{content}</div>
             <div className={cls.rightbar}>
