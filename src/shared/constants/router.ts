@@ -1,5 +1,6 @@
 export enum AppRoutes {
     MAIN = 'main',
+    SETTINGS = 'settings',
     ABOUT = 'about',
     ARTICLES = 'articles',
     ARTICLE_DETAILS = 'article_details',
@@ -11,12 +12,13 @@ export enum AppRoutes {
     FORBIDDEN = 'forbidden',
 }
 
-export const getRouteMain = () => '/'
-export const getRouteAbout = () => '/about'
-export const getRouteArticles = () => '/articles'
-export const getRouteArticleDetails = (id: string) => '/articles/' + id
-export const getRouteArticleCreate = () => '/articles/create'
-export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`
-export const getRouteProfile = (id: string) => `/profile/${id}`
-export const getRouteAdminPanel = () => '/admin'
-export const getRouteForbidden = () => '/forbidden'
+export const getRouteMain = () => '/';
+export const getRouteSettings = () => '/settings';
+export const getRouteAbout = () => '/about';
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => '/articles/' + id;
+export const getRouteArticleCreate = () => '/articles/create';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteAdminPanel = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';

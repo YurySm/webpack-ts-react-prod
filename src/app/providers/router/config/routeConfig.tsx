@@ -10,18 +10,29 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import {
     AppRoutes,
-    getRouteAbout, getRouteAdminPanel, getRouteArticleCreate,
-    getRouteArticleDetails, getRouteArticleEdit,
-    getRouteArticles, getRouteForbidden,
-    getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteAdminPanel,
+    getRouteArticleCreate,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
+    getRouteMain,
+    getRouteProfile,
+    getRouteSettings,
 } from '@/shared/constants/router';
 
 import { AppRouteProps } from '@/shared/types/router';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
         element: <MainPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
     },
     [AppRoutes.ABOUT]: {
         path: getRouteAbout(),

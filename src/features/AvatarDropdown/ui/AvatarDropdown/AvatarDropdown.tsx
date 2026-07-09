@@ -10,7 +10,11 @@ import {
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/constants/router';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/constants/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/popups/ui/Dropdown/Dropdown';
 import { Avatar } from '@/shared/ui/redesigned/Avatar/Avatar';
@@ -39,6 +43,10 @@ export const AvatarDropdown = () => {
                   },
               ]
             : []),
+        {
+            content: t('Настройки'),
+            href: getRouteSettings(),
+        },
         {
             content: t('Профиль'),
             href: getRouteProfile(authData.id),
