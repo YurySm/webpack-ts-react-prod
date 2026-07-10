@@ -18,6 +18,10 @@ import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -26,11 +30,6 @@ const reducers: ReducersList = {
 interface ArticleDetailsPageProps {
     className?: string;
 }
-
-// eslint-disable-next-line i18next/no-literal-string
-const Counter = () => <div>old counter</div>;
-// eslint-disable-next-line i18next/no-literal-string
-const CounterRedesigned = () => <div>new counter</div>;
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
@@ -66,19 +65,45 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page
-                className={classNames(cls.articleDetailsPage, {}, [className])}
-            >
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <ToggleFeatures
-                    feature={'isArticleRatingEnabled'}
-                    on={<ArticleRating articleId={id} />}
-                    off={<Card>{t('Оценка статей скоро появится')}</Card>}
-                />
-                <ArticlesRecommendationsList />
-                <ArticleDetailsComments id={id} />
-            </Page>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <StickyContentLayout
+                        content={
+                            <Page
+                                className={classNames(
+                                    cls.articleDetailsPage,
+                                    {},
+                                    [className],
+                                )}
+                            >
+                                {/*<ArticleDetailsPageHeader />*/}
+                                <VStack gap={'16'}>
+                                    {/*<ArticleDetails id={id} />*/}
+                                    <DetailsContainer />
+                                    <ArticleRating articleId={id} />
+                                    <ArticlesRecommendationsList />
+                                    <ArticleDetailsComments id={id} />
+                                </VStack>
+                            </Page>
+                        }
+                        right={<AdditionalInfoContainer />}
+                    />
+                }
+                off={
+                    <Page
+                        className={classNames(cls.articleDetailsPage, {}, [
+                            className,
+                        ])}
+                    >
+                        <ArticleDetailsPageHeader />
+                        <ArticleDetails id={id} />
+                        <Card>{t('Оценка статей скоро появится')}</Card>
+                        <ArticlesRecommendationsList />
+                        <ArticleDetailsComments id={id} />
+                    </Page>
+                }
+            />
         </DynamicModuleLoader>
     );
 };
