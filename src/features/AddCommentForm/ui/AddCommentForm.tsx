@@ -1,7 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AddCommentForm.module.scss';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader,
@@ -17,6 +20,13 @@ import {
     getAddCommentFormText,
 } from '../model/selectors/addCommentFormSelectors';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Input } from '@/shared/ui/redesigned/Input';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 const reducers: ReducersList = {
     addCommentFrom: addCommentFormReducer,
@@ -50,26 +60,63 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.addCommentFormProps, {}, [className])}
-                data-testid={'AddCommentForm'}
-            >
-                <Input
-                    data-testid={'AddCommentForm.Input'}
-                    className={cls.input}
-                    value={text}
-                    onChange={onCommentTextChange}
-                    placeholder={t('Введите текст комментария')}
-                />
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <Card
+                        padding={'24'}
+                        border={'round'}
+                        className={classNames(
+                            cls.addCommentFormRedesigned,
+                            {},
+                            [className],
+                        )}
+                    >
+                        <HStack gap={'16'} data-testid={'AddCommentForm'}>
+                            <Input
+                                data-testid={'AddCommentForm.Input'}
+                                className={cls.input}
+                                value={text}
+                                onChange={onCommentTextChange}
+                                placeholder={t('Введите текст комментария')}
+                                addonLeft={<Icon Svg={SearchIcon} />}
+                            />
 
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onSendHandler}
-                    data-testid={'AddCommentForm.Button'}
-                >
-                    {t('отправить')}
-                </Button>
-            </div>
+                            <Button
+                                variant={'outline'}
+                                onClick={onSendHandler}
+                                data-testid={'AddCommentForm.Button'}
+                            >
+                                {t('отправить')}
+                            </Button>
+                        </HStack>
+                    </Card>
+                }
+                off={
+                    <div
+                        className={classNames(cls.addCommentFormProps, {}, [
+                            className,
+                        ])}
+                        data-testid={'AddCommentForm'}
+                    >
+                        <InputDeprecated
+                            data-testid={'AddCommentForm.Input'}
+                            className={cls.input}
+                            value={text}
+                            onChange={onCommentTextChange}
+                            placeholder={t('Введите текст комментария')}
+                        />
+
+                        <ButtonDeprecated
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onSendHandler}
+                            data-testid={'AddCommentForm.Button'}
+                        >
+                            {t('отправить')}
+                        </ButtonDeprecated>
+                    </div>
+                }
+            />
         </DynamicModuleLoader>
     );
 };

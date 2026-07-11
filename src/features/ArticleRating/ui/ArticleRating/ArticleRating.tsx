@@ -5,8 +5,10 @@ import {
 } from '../../api/articleRatingApi';
 import { useAppSelector } from '@/app/providers/StoreProvider';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { useCallback } from 'react';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -56,7 +58,13 @@ const ArticleRating = (props: ArticleRatingProps) => {
     );
 
     if (isFetching || isLoading) {
-        return <Skeleton width={'100%'} height={100} />;
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<SkeletonDeprecated width={'100%'} height={100} />}
+                off={<Skeleton width={'100%'} height={100} />}
+            />
+        );
     }
 
     const rating = data?.[0];

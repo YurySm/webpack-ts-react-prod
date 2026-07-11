@@ -867,6 +867,48 @@
       "userId": "4",
       "text": "asdfasdf",
       "id": "oBk93lu"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "awertgfsadg",
+      "id": "S6ZXT0o"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "asdfasdfa",
+      "id": "WCt1bgc"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "asdfasdfasd",
+      "id": "sM_-ezd"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis cupiditate facilis impedit inventore     iusto, nobis, quaerat quod reiciendis temporibus tenetur totam, velit voluptatibus? Ab consectetur debitis     doloremque laboriosam qui!?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis cupiditate facilis impedit inventore     iusto, nobis, quaerat quod reiciendis temporibus tenetur totam, velit voluptatibus? Ab consectetur debitis     doloremque laboriosam qui!",
+      "id": "wIroG6z"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid corporis cupiditate facilis impedit inventore     iusto, nobis, quaerat quod reiciendis temporibus tenetur totam, velit voluptatibus? Ab consectetur debitis     doloremque laboriosam qui!",
+      "id": "7uxkSKl"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "cls.commentList",
+      "id": "VeC3CDc"
+    },
+    {
+      "articleId": "SYsbStl",
+      "userId": "1",
+      "text": "cls.commentList",
+      "id": "9coWhko"
     }
   ],
   "users": [
@@ -884,7 +926,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -1126,6 +1168,19 @@
       "userId": "4",
       "feedback": "fasdfsdf",
       "id": "fzyY5tC"
+    },
+    {
+      "rate": 3,
+      "articleId": "15",
+      "userId": "1",
+      "feedback": "",
+      "id": "8dzVj4c"
+    },
+    {
+      "rate": 4,
+      "articleId": "15",
+      "userId": "1",
+      "id": "gfB2qm8"
     }
   ],
   "profiles-ratings": [

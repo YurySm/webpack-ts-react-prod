@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
+import { StarRating } from './StarRating';
 
 const meta: Meta<typeof StarRating> = {
     title: 'shared/StarRating',

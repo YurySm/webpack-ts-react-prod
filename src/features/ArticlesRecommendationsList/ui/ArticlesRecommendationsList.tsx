@@ -1,9 +1,11 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { ArticleList } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useGetArticlesRecommendationsListQuery } from '../api/articleRecommendationsApi';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticlesRecommendationsListProps {
     className?: string;
@@ -28,7 +30,11 @@ export const ArticlesRecommendationsList = (
             className={classNames('', {}, [className])}
             data-testid="ArticlesRecommendationsList"
         >
-            <Text title={t('Рекомендуем')} />
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<Text size={'l'} title={t('Рекомендуем')} />}
+                off={<TextDeprecated title={t('Рекомендуем')} />}
+            />
 
             <ArticleList
                 target={'_blank'}

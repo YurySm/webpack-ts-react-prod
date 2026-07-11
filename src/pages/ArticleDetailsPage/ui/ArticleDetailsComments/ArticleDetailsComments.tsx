@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
@@ -11,6 +11,9 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -38,14 +41,18 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
     });
 
     return (
-        <div className={classNames('', {}, [className])}>
-            <Text title={t('Комментарии')} />
+        <VStack className={classNames('', {}, [className])}>
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={<Text size={'l'} title={t('Комментарии')} />}
+                off={<TextDeprecated title={t('Комментарии')} />}
+            />
 
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
 
             <CommentList isLoading={commentsIsLoading} comments={comments} />
-        </div>
+        </VStack>
     );
 };

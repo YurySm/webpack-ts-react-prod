@@ -2,8 +2,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 import { useTranslation } from 'react-i18next';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { memo } from 'react';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+
+import cls from './CommentList.module.scss';
 
 interface CommentListProps {
     className?: string;
@@ -18,7 +23,7 @@ export const CommentList = memo((props: CommentListProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames('', {}, [className])}>
+            <div className={classNames(cls.commentList, {}, [className])}>
                 <CommentCard isLoading={isLoading} />
 
                 <CommentCard isLoading={isLoading} />
@@ -29,20 +34,26 @@ export const CommentList = memo((props: CommentListProps) => {
     }
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div className={classNames(cls.commentList, {}, [className])}>
             {comments && comments.length === 0 && (
-                <Text text={t('Комментарии отсутствуют')} />
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={<Text text={t('Комментарии отсутствуют')} />}
+                    off={<TextDeprecated text={t('Комментарии отсутствуют')} />}
+                />
             )}
 
-            {comments &&
-                comments.length > 0 &&
-                comments.map((comment) => (
-                    <CommentCard
-                        key={comment.id}
-                        isLoading={isLoading}
-                        comment={comment}
-                    />
-                ))}
+            <VStack gap={'16'}>
+                {comments &&
+                    comments.length > 0 &&
+                    comments.map((comment) => (
+                        <CommentCard
+                            key={comment.id}
+                            isLoading={isLoading}
+                            comment={comment}
+                        />
+                    ))}
+            </VStack>
         </div>
     );
 });

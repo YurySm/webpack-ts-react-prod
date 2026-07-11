@@ -20,6 +20,8 @@ import {
     TextTheme,
 } from '@/shared/ui/deprecated/Text';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+
 import { Avatar as AvatarDeprecared } from '@/shared/ui/deprecated/Avatar';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import EaeIcon from '@/shared/assets/icons/eye-20-20.svg';
@@ -28,7 +30,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 import { renderArticleBlock } from './renderBlock';
-import { ToggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
@@ -45,6 +47,12 @@ const reducers: ReducersList = {
 
 const Deprecated = () => {
     const article = useAppSelector(getArticleDetailsData);
+
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
 
     return (
         <>
@@ -140,7 +148,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const isLoading = useAppSelector(getArticleDetailsIsLoading);
     const error = useAppSelector(getArticlesDetailsError);
-    // const article = useAppSelector(getArticleDetailsData);
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
@@ -150,47 +157,51 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
-            <>
-                <SkeletonDeprecated
+            <VStack gap={'16'}>
+                <Skeleton
                     className={cls.avatar}
                     width={200}
                     height={200}
                     borderRadius={'50%'}
                 />
-                <SkeletonDeprecated
-                    className={cls.title}
-                    width={400}
-                    height={35}
-                />
-                <SkeletonDeprecated
-                    className={cls.skeleton}
-                    width={70}
-                    height={35}
-                />
-                <SkeletonDeprecated
+                <Skeleton className={cls.title} width={400} height={35} />
+                <Skeleton className={cls.skeleton} width={70} height={35} />
+                <Skeleton
                     className={cls.skeleton}
                     width={'100%'}
                     height={250}
                 />
-                <SkeletonDeprecated
+                <Skeleton
                     className={cls.skeleton}
                     width={'100%'}
                     height={250}
                 />
-                <SkeletonDeprecated
+                <Skeleton
                     className={cls.skeleton}
                     width={'100%'}
                     height={250}
                 />
-            </>
+            </VStack>
         );
     } else if (error) {
         content = (
             <>
-                <TextDeprecated
-                    align={TextAlign.CENTER}
-                    title={t('Произошла ошибка при загрузке страницы')}
-                    theme={TextTheme.ERROR}
+                <ToggleFeatures
+                    feature={'isAppRedesigned'}
+                    on={
+                        <Text
+                            align={'center'}
+                            title={t('Произошла ошибка при загрузке страницы')}
+                            variant={'error'}
+                        />
+                    }
+                    off={
+                        <TextDeprecated
+                            align={TextAlign.CENTER}
+                            title={t('Произошла ошибка при загрузке страницы')}
+                            theme={TextTheme.ERROR}
+                        />
+                    }
                 />
             </>
         );
