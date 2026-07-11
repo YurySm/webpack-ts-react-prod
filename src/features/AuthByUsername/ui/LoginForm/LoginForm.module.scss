@@ -1,4 +1,12 @@
 .loginForm {
+    width: 30vw;
+
+    .button {
+        align-self: self-end;
+    }
+}
+
+.loginFormDeprecated {
     display: flex;
     flex-direction: column;
     gap: 15px;

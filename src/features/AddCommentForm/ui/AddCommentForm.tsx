@@ -65,7 +65,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
                 on={
                     <Card
                         padding={'24'}
-                        border={'round'}
+                        border={'partial'}
                         className={classNames(
                             cls.addCommentFormRedesigned,
                             {},

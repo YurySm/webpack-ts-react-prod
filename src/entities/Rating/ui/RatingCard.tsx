@@ -137,7 +137,7 @@ export const RatingCard = (props: RatingProps) => {
                     className={className}
                     data-testid={'RatingCard'}
                     padding={'24'}
-                    border={'round'}
+                    border={'partial'}
                 >
                     <VStack align={'center'} gap={'16'}>
                         <Text

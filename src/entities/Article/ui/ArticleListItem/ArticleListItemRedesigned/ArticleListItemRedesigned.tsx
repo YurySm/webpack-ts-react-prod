@@ -103,7 +103,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                 cls[view],
             ])}
         >
-            <Card padding={'0'} border="round">
+            <Card padding={'0'} border={'partial'}>
                 <AppImage
                     fallback={<Skeleton width={'100%'} height={200} />}
                     alt={article.title}

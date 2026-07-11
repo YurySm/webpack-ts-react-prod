@@ -42,7 +42,7 @@ export const Tabs = (props: TabsProps) => {
                     key={tab.value}
                     className={cls.tab}
                     onClick={clickHandler(tab)}
-                    border={'round'}
+                    border={'partial'}
                 >
                     {tab.content}
                 </Card>

@@ -20,6 +20,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -120,7 +121,8 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
+            <VStack
+                gap={'16'}
                 data-testid={'EditableProfileCard'}
                 className={classNames('', {}, [className])}
             >
@@ -150,7 +152,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 };
