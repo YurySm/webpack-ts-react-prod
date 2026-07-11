@@ -98,10 +98,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
             data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.ArticleListItem, {}, [
-                className,
-                cls[view],
-            ])}
+            className={classNames('', {}, [className, cls[view]])}
         >
             <Card padding={'0'} border={'partial'}>
                 <AppImage
