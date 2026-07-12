@@ -37,6 +37,7 @@
 //.header {
 //  justify-self: end;
 //}
-//.toolbar {
-//  justify-self: end;
-//}
+.toolbar {
+    height: 100%;
+    align-self: stretch;
+}
