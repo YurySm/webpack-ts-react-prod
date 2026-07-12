@@ -6,9 +6,10 @@ import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from './providers/router';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { PageLoader } from '@/widgets/PageLoader';
 
 export const App = () => {
     const { theme } = useTheme();
@@ -19,7 +20,30 @@ export const App = () => {
         dispatch(initAuthData());
     }, [dispatch]);
 
-    if (!inited) return <PageLoader />;
+    if (!inited) {
+        // return (
+        //     <div
+        //         id={'app-container'}
+        //         className={classNames('app_redesigned', {}, [theme])}
+        //     >
+        //         <AppLoaderLayout />
+        //     </div>
+        // );
+        return (
+            <ToggleFeatures
+                feature={'isAppRedesigned'}
+                on={
+                    <div
+                        id={'app-container'}
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
+    }
 
     return (
         <ToggleFeatures
