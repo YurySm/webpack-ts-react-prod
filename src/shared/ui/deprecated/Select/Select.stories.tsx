@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Select } from '@/shared/ui/deprecated/Select/Select';
+import { Select } from './Select';
 
 const meta: Meta<typeof Select> = {
     title: 'shared/Select',

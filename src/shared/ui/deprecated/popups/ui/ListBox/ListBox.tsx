@@ -5,9 +5,9 @@ import {
     ListboxOptions,
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import cls from '@/shared/ui/deprecated/popups/ui/ListBox/ListBox.module.scss';
+import cls from './ListBox.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Button, ButtonTheme } from '../../../Button';
 
 export interface ListBoxItem {
     value: string;

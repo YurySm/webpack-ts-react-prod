@@ -1,5 +1,5 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import cls from '@/shared/ui/deprecated/Button/Button.module.scss';
+import cls from './Button.module.scss';
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 export enum ButtonTheme {

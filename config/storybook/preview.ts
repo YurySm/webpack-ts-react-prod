@@ -1,10 +1,11 @@
 import type { Preview } from '@storybook/react';
-import '../../@/app/styles/index.scss';
+import '../../src/app/styles/index.scss';
 import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { initialize, mswDecorator } from 'msw-storybook-addon';
 import { Theme } from '@/shared/constants/theme';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { FeaturesFlagsDecorator } from '@/shared/config/storybook/decorators/FeaturesFlagsDecorator';
 
 initialize();
 
@@ -32,6 +33,7 @@ const preview: Preview = {
             defaultTheme: 'light',
         }),
         mswDecorator,
+        FeaturesFlagsDecorator({}),
     ],
     // loaders: [mswLoader],
 };

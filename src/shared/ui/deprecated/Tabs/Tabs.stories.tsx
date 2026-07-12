@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tabs } from '@/shared/ui/deprecated/Tabs/Tabs';
+import { Tabs } from './Tabs';
 import { action } from '@storybook/addon-actions';
 
 const meta: Meta<typeof Tabs> = {

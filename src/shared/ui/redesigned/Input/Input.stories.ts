@@ -4,7 +4,7 @@ import { fn } from '@storybook/test';
 import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
-    title: 'shared/Input',
+    title: 'shared/redesigned/Input',
     component: Input,
     // parameters: {
     //     layout: 'centered',

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
     title: 'shared/Input',

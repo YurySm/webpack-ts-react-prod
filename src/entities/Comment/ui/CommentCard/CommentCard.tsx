@@ -100,7 +100,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                             />
                         )}
 
-                        <Text title={comment.user?.username} />
+                        <TextDeptecated title={comment.user?.username} />
                     </AppLinkDeprecated>
                     <TextDeptecated
                         data-testid={'CommentCard.Text'}

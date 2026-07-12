@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Dropdown } from '@/shared/ui/deprecated/popups/ui/Dropdown/Dropdown';
-import { Button } from '@/shared/ui/deprecated/Button';
+import { Dropdown } from './Dropdown';
+import { Button } from '../../../Button';
 
 const meta: Meta<typeof Dropdown> = {
     title: 'shared/popups/Dropdown',
@@ -27,6 +27,7 @@ type Story = StoryObj<typeof Dropdown>;
 
 export const Normal: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -41,6 +42,7 @@ export const Normal: Story = {
 
 export const BottomEnd: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -56,6 +58,7 @@ export const BottomEnd: Story = {
 
 export const BottomStart: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -71,6 +74,7 @@ export const BottomStart: Story = {
 
 export const TopEnd: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -86,6 +90,7 @@ export const TopEnd: Story = {
 
 export const TopStart: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -101,6 +106,7 @@ export const TopStart: Story = {
 
 export const LeftStart: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {
@@ -116,6 +122,7 @@ export const LeftStart: Story = {
 
 export const RightEnd: Story = {
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         trigger: <Button>Open</Button>,
         items: [
             {

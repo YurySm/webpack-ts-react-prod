@@ -11,8 +11,9 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/hooks/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider';
 
-export const App = () => {
+const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useAppSelector(getUserInited);
@@ -72,3 +73,5 @@ export const App = () => {
         />
     );
 };
+
+export default withTheme(App);

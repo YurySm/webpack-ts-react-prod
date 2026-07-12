@@ -8,7 +8,6 @@ import {
 
 import { Theme } from '@/shared/constants/theme';
 import { ThemeContext } from '@/shared/context/ThemeContext';
-import { useGetJsonSettings } from '@/entities/User';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/localstorage';
 
 interface ThemeProviderProps {
@@ -22,18 +21,17 @@ const ThemeProvider = ({
     children,
     initialTheme,
 }: PropsWithChildren<ThemeProviderProps>) => {
-    const { theme: defaultTheme } = useGetJsonSettings();
     const [isThemeInited, setIsThemeInited] = useState(false);
     const [theme, setTheme] = useState<Theme>(
         initialTheme || fallbackTheme || Theme.LIGHT,
     );
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme);
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme);
             setIsThemeInited(true);
         }
-    }, [defaultTheme, isThemeInited]);
+    }, [initialTheme, isThemeInited]);
 
     const defaultProps = useMemo(
         () => ({
@@ -45,7 +43,7 @@ const ThemeProvider = ({
 
     useEffect(() => {
         if (document) {
-            document.body.className = theme;
+            document.documentElement.className = theme;
             localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
         }
     }, [theme]);

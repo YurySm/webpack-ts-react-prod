@@ -1,14 +1,15 @@
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/index';
+import { Button } from './Button';
+
 import { render, screen } from '@testing-library/react';
 
 describe('Button', () => {
     test('Test render', () => {
-        render(<Button>test</Button>);
+        render(<Button>1122</Button>);
         expect(screen.getByText('test')).toBeInTheDocument();
     });
 
     test('Test theme', () => {
-        render(<Button theme={ButtonTheme.CLEAR}>test</Button>);
+        render(<Button variant={'clear'}>1232</Button>);
         expect(screen.getByText('test')).toHaveClass('clear');
         screen.debug();
     });

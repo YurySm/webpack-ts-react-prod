@@ -4,7 +4,7 @@ import { Text, TextSize, TextTheme } from '../../deprecated/Text/Text';
 import { Theme } from '@/shared/constants/theme';
 
 const meta: Meta<typeof Text> = {
-    title: 'shared/Text',
+    title: 'shared/redesigned/Text',
     component: Text,
     // parameters: {
     //     layout: 'centered',

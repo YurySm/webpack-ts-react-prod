@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from '@/shared/ui/deprecated/AppLink/AppLink.module.scss';
+import cls from './AppLink.module.scss';
 import { memo, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 

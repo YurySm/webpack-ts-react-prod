@@ -5,7 +5,7 @@ import {
     Button,
     ButtonSize,
     ButtonTheme,
-} from '@/shared/ui/deprecated/Button/Button';
+} from './Button';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from '@/shared/constants/theme';
 

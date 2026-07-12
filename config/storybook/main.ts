@@ -6,7 +6,10 @@ import webpack from 'webpack';
 const isDev = true;
 
 const config: StorybookConfig = {
-    stories: ['../../@/**/*.mdx', '../../@/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    stories: [
+        '../../src/**/*.mdx',
+        '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    ],
     staticDirs: ['../../public'],
     addons: [
         '@storybook/addon-webpack5-compiler-swc',
@@ -28,7 +31,7 @@ const config: StorybookConfig = {
 
             config.resolve.alias = {
                 ...config.resolve.alias,
-                entities: path.resolve(__dirname, '../../@/entities'),
+                entities: path.resolve(__dirname, '../../src/entities'),
                 '@': path.resolve(__dirname, '../../src'),
             };
         }

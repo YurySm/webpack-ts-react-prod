@@ -1,13 +1,13 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from '@/shared/ui/deprecated/popups/ui/Popover/Popover.module.scss';
+import cls from './Popover.module.scss';
 import {
     Popover as HPopover,
     PopoverButton,
     PopoverPanel,
 } from '@headlessui/react';
 import { ReactNode } from 'react';
-import { AnchorTo } from '@/shared/ui/deprecated/popups/types/popups';
-import popupsCls from '@/shared/ui/deprecated/popups/styles/popups.module.scss';
+import { AnchorTo } from '../../types/popups';
+import popupsCls from '../../styles/popups.module.scss';
 
 interface PopoverProps {
     className?: string;

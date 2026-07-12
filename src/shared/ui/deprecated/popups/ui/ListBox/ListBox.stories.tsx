@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ListBox } from '@/shared/ui/deprecated/popups/ui/ListBox/ListBox';
+import { ListBox } from './ListBox';
 
 const meta: Meta<typeof ListBox> = {
     title: 'shared/popups/ListBox',

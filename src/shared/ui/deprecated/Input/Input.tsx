@@ -7,7 +7,7 @@ import {
     useEffect,
     useRef,
 } from 'react';
-import cls from '@/shared/ui/deprecated/Input/Input.module.scss';
+import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,

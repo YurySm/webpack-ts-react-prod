@@ -4,7 +4,7 @@ import { Button } from '@headlessui/react';
 import { VStack } from '../../../Stack';
 
 const meta: Meta<typeof Popover> = {
-    title: 'shared/Popover',
+    title: 'shared/redesigned/Popover',
     component: Popover,
     argTypes: {},
 };
