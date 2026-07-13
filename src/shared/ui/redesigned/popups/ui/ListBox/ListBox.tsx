@@ -56,13 +56,12 @@ export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
         >
             <Flex direction={labelDirection} gap={'8'}>
                 {label && <span>{label + ': '}</span>}
-                <ListboxButton as={Fragment}>
-                    <Button
-                        variant={'filled'}
-                        addonRight={<Icon Svg={ArrowIcon} />}
-                    >
-                        {selectedItem?.label || defaultValue}
-                    </Button>
+                <ListboxButton
+                    as={Button}
+                    variant={'filled'}
+                    addonRight={<Icon Svg={ArrowIcon} />}
+                >
+                    {selectedItem?.label || defaultValue}
                 </ListboxButton>
             </Flex>
 
